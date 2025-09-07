@@ -1,0 +1,49 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Environment files (if you add any later)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Personal notes (if you want to keep some things private)
+PERSONAL_NOTES.md
+scratch/
+
+# Future code directories (when you find your actual codebase)
+node_modules/
+dist/
+build/
+target/
+.gradle/
+*.jar
+*.war
+*.ear
+
+# IDE files
+*.iml
+.classpath
+.project
+.settings/
