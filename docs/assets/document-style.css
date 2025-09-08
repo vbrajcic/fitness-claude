@@ -1,0 +1,394 @@
+/* Professional Document CSS for Fitness Anny Analysis */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Headers */
+h1 {
+    color: #1a365d;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid #3182ce;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #2d3748;
+    font-size: 1.8em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+h3 {
+    color: #4a5568;
+    font-size: 1.4em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+h4 {
+    color: #2d3748;
+    font-size: 1.2em;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+    font-weight: 600;
+}
+
+h5, h6 {
+    color: #4a5568;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+/* Paragraphs and text */
+p {
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+/* Strong text and emphasis */
+strong {
+    color: #2d3748;
+    font-weight: 600;
+}
+
+em {
+    color: #4a5568;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+    list-style-position: outside;
+    display: block;
+}
+
+li {
+    margin-bottom: 0.4em;
+    display: list-item;
+    list-style-position: outside;
+    line-height: 1.6;
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    padding-left: 1.2em;
+}
+
+/* Ensure list items don't wrap inline */
+li p {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Force strong tags in lists to break properly */
+li strong {
+    display: inline;
+}
+
+/* Prevent pandoc from creating inline formatting */
+li > p:only-child {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix for dash-separated items */
+li:contains("-") {
+    display: list-item;
+    white-space: normal;
+}
+
+/* Fix for specific list types */
+ul li {
+    list-style-type: disc;
+}
+
+ol li {
+    list-style-type: decimal;
+}
+
+ul ul li {
+    list-style-type: circle;
+}
+
+ul ul ul li {
+    list-style-type: square;
+}
+
+/* Table of Contents */
+#TOC {
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#TOC::before {
+    content: "Table of Contents";
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #2d3748;
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #cbd5e0;
+    padding-bottom: 8px;
+}
+
+#TOC ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#TOC li {
+    margin-bottom: 0.4em;
+}
+
+#TOC a {
+    text-decoration: none;
+    color: #3182ce;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+#TOC a:hover {
+    background-color: #bee3f8;
+}
+
+/* Nested TOC items */
+#TOC ul ul {
+    margin-left: 1em;
+    margin-top: 0.2em;
+}
+
+#TOC ul ul a {
+    font-size: 0.95em;
+    color: #4a5568;
+}
+
+#TOC ul ul ul a {
+    font-size: 0.9em;
+    color: #718096;
+}
+
+/* Horizontal rules */
+hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #e2e8f0, #cbd5e0, #e2e8f0);
+    margin: 2em 0;
+}
+
+/* Special formatting for document metadata */
+.document-info {
+    background-color: #edf2f7;
+    border-left: 4px solid #3182ce;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Executive summary styling */
+h2:first-of-type + p,
+h2[id*="executive"] + p {
+    background-color: #fef5e7;
+    border-left: 4px solid #f6ad55;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+    font-weight: 500;
+}
+
+/* Code and technical terms */
+code {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+}
+
+/* Block quotes and callouts */
+blockquote {
+    border-left: 4px solid #cbd5e0;
+    margin: 1.5em 0;
+    padding: 0.5em 1em;
+    background-color: #f8f9fa;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Links */
+a {
+    color: #3182ce;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Print styles */
+@media print {
+    body {
+        max-width: none;
+        margin: 0;
+        padding: 0.5in;
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+    
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    /* Enhanced print list formatting */
+    ul, ol {
+        margin-bottom: 1em;
+        padding-left: 1.2em;
+        list-style-position: outside;
+        display: block;
+        break-inside: avoid-column;
+    }
+    
+    li {
+        margin-bottom: 0.3em;
+        display: list-item;
+        list-style-position: outside;
+        page-break-inside: avoid;
+        line-height: 1.4;
+    }
+    
+    /* Prevent list items from breaking awkwardly */
+    li p {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Ensure nested lists are properly indented in print */
+    ul ul, ol ol, ul ol, ol ul {
+        margin-left: 0;
+        padding-left: 1em;
+        page-break-before: avoid;
+    }
+    
+    #TOC {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+    
+    .document-info, 
+    h2:first-of-type + p,
+    h2[id*="executive"] + p {
+        background-color: #f5f5f5;
+        border-left: 3px solid #666;
+    }
+    
+    a {
+        color: #000;
+    }
+    
+    /* Ensure sections don't break awkwardly */
+    h2 {
+        page-break-before: auto;
+        margin-top: 1.5em;
+    }
+    
+    /* Keep related content together */
+    h3 + p,
+    h4 + p,
+    h3 + ul,
+    h4 + ul {
+        page-break-before: avoid;
+    }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    h3 {
+        font-size: 1.3em;
+    }
+    
+    #TOC {
+        padding: 15px;
+    }
+}
+
+/* Special styling for key metrics and numbers */
+strong:contains("70%"),
+strong:contains("60%"),
+strong:contains("50%"),
+strong:contains("40%"),
+strong:contains("25,000"),
+strong:contains("15,000"),
+strong:contains("3,000") {
+    color: #059669;
+    background-color: #d1fae5;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+/* Critical priority sections */
+h4:contains("Critical"),
+h3:contains("Critical") {
+    color: #dc2626;
+}
+
+/* Status indicators */
+.status-complete {
+    color: #059669;
+    font-weight: 600;
+}
+
+.status-priority {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.status-warning {
+    color: #d97706;
+    font-weight: 600;
+}

@@ -26,6 +26,41 @@ User: "Report admin panel issue"
 Agent: Interactive Q&A → Generates complete bug report → Files in admin-panel/research/expert-feedback.md
 ```
 
+## Complete System Understanding (Updated from Transcript Analysis)
+
+### Admin Panel System Complexity
+**Critical Context for Bug Categorization**:
+- **80-person team** using admin panel daily (26 agents + 54 experts + 3 admins)
+- **Multi-system integration**: Admin panel + ejabberd chat + mobile app coordination
+- **High-volume operations**: ~3,000 daily conversations, 15,000+ active users
+- **Complex workflows**: Message assignment, group management, live events, task distribution
+
+### Major Feature Areas for Bug Classification
+1. **Live Chat & Message Assignment**: Core operational system with automated/manual routing
+2. **Group Management**: Complex lifecycle management with advanced filtering
+3. **User Profile Management**: Comprehensive user database with subscription integration
+4. **Live Events & Video**: Vimeo integration, streaming, content management
+5. **Education Workshops**: Registration, approval workflows, session management
+6. **Task Distribution System**: Mass communication campaigns with scheduling
+7. **Analytics & Reporting**: Performance tracking, audit trails, quality control
+8. **Payment Integration**: Multiple payment systems, subscription management
+9. **Operator Management**: Permissions, performance tracking, quality assurance
+10. **System Administration**: Global settings, access control, configuration
+
+### Platform-Specific Bug Context
+**Admin Panel Bugs**:
+- **Performance Issues**: Peak hour slowdowns (7-10pm), database query delays
+- **Assignment System**: Manual assignment bottlenecks, routing failures
+- **Group Management**: Filter synchronization, membership updates
+- **Integration Issues**: ejabberd connection problems, mobile app sync failures
+- **User Interface**: Complex workflows, permission access, navigation issues
+
+**Mobile App Bugs**:
+- **Order System**: Expert consultation request failures, status updates
+- **Group Access**: Membership synchronization, content availability
+- **Live Events**: Streaming issues, chat functionality, registration problems
+- **User Profile**: Data sync, progress tracking, subscription status
+
 ## Agent Behavior
 
 ### Information Gathering Flow

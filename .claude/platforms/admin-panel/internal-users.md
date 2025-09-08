@@ -122,6 +122,286 @@
 
 **Access Restriction**: Only real admins can upload, organize, or modify video content
 
+### Complete Admin Panel Feature System (Based on Detailed Transcript Analysis)
+
+## Core System Architecture
+
+### 1. Live Chat & Message Request Management (Core Feature)
+
+#### Message Request Queue System
+**Automated Job Processing**:
+- **Background Job**: Runs every minute to scan chat rooms for new messages
+- **Message Request Creation**: Automatically creates "message requests" from user messages
+- **Automatic Assignment**: Can be enabled/disabled globally
+- **Manual Assignment Interface**: Real admins assign requests to available operators
+
+**Assignment Logic**:
+- **Category Matching**: System matches user requests to operator specializations
+- **Availability Checking**: Only assigns to operators marked as "available"
+- **Capacity Management**: Prevents overloading individual operators
+- **Priority Routing**: Medical/urgent requests get priority treatment
+
+#### Real-time Chat Interface
+**Admin Monitoring Capabilities**:
+- **Live Chat Viewing**: Admins can monitor any active conversation
+- **Admin Override**: Admins can write messages on behalf of any operator
+- **Conversation Handoff**: Seamless transfer between operators
+- **System Messages**: Internal notes visible only to admins/operators
+
+**Conversation Lifecycle**:
+1. **Request Creation**: User message creates message request
+2. **Assignment**: Manual or automatic assignment to operator
+3. **Acceptance**: Operator accepts the conversation
+4. **Active Chat**: Real-time conversation management
+5. **Completion**: Operator closes conversation with optional summary
+6. **Recently Closed**: 240-second grace period for user replies
+7. **Archived**: Final conversation state
+
+### 2. Operator Management System
+
+#### Operator Creation & Configuration
+**Account Setup**:
+- **Basic Info**: Email (login only), mobile number (optional)
+- **Assignment Permissions**: Can be assigned messages or locked out
+- **Category Specialization**: Define which expert categories they can handle
+- **Access Control**: Granular permission system with role-based access
+
+**Permission System (Highly Granular)**:
+- **Member Management**: View, edit, delete user accounts
+- **Subscription Management**: Handle user subscriptions and payments
+- **Group Management**: Create, modify, manage user groups
+- **Event Management**: Handle live events and video content
+- **Reporting**: Access to analytics and performance data
+- **Admin Functions**: System administration capabilities
+
+#### Operator Monitoring & Performance
+**Activity Tracking**:
+- **Online Status**: Manual and admin-controlled availability
+- **Conversation Load**: Track active conversations per operator
+- **Performance Metrics**: Conversations completed, response times, user satisfaction
+- **Audit Trail**: Complete log of all operator actions (30-day retention)
+
+**Performance Reporting**:
+- **Daily Statistics**: Conversations handled, completion rates
+- **Individual Performance**: Detailed operator performance analysis
+- **Comparative Analytics**: Cross-operator performance comparison
+- **Quality Control**: Random conversation review for quality assurance
+
+### 3. Group Management System (Complex Multi-State)
+
+#### Group Types & Configuration
+**Group Categories**:
+- **Public Groups**: All members can write messages
+- **Notification Groups**: Only operators can write, users read-only
+- **Internal Groups**: Operator-only communication (rarely used)
+
+**Group Lifecycle Management**:
+- **Display Date**: When group becomes visible to users
+- **Activation Date**: When users can start writing messages
+- **Expiration Date**: When group becomes read-only
+- **Archive Process**: Final removal from system
+
+#### Group Membership Management
+**Automated Membership**:
+- **Advanced Filter System**: Sophisticated user filtering capabilities
+- **Automatic Synchronization**: Background job updates group memberships
+- **Subscription Integration**: Group access based on subscription tiers
+- **Manual Override**: Individual user addition/removal
+
+**Filter System (Extremely Advanced)**:
+- **Subscription Filters**: By package type, active/inactive status
+- **Demographic Filters**: Age, location, subscription history
+- **Goal-Based Filters**: Weight loss, muscle gain, maintenance
+- **Health Condition Filters**: Pregnancy, medical conditions, fitness level
+- **Engagement Filters**: App usage, workout completion rates
+- **Time-Based Filters**: "Active month", "Next month", date ranges
+
+#### Group Content Management
+**Message Management**:
+- **Pin Messages**: Important announcements stay visible
+- **Message Deletion**: Admin deletion (hidden from users, logged internally)
+- **Reaction System**: Users can react to messages
+- **Media Management**: Image and video sharing capabilities
+
+### 4. Event & Video Management System
+
+#### Live Event Management
+**Event Creation & Scheduling**:
+- **Event Details**: Name, description, date/time configuration
+- **Vimeo Integration**: Automatic stream key generation 15 minutes before event
+- **Streaming Setup**: OBS integration for live streaming
+- **Participant Management**: Set limits, track attendance
+
+**Live Event Operations**:
+- **Real-time Chat**: Monitor participant messages during events
+- **Stream Control**: Start, stop, pause live streams
+- **Recording Management**: Automatic conversion to on-demand after completion
+- **Attendee Analytics**: Track participation and engagement
+
+#### Video Content System
+**Content Types**:
+- **Live Event Recordings**: Converted from live streams
+- **Pre-recorded Videos**: Uploaded workout and educational content
+- **Recipe Content**: New feature with ingredient and preparation steps
+- **Educational Materials**: Specialized content for different user segments
+
+**Video Management**:
+- **Vimeo Integration**: Cloud storage and CDN delivery (~500GB current storage)
+- **Access Control**: Permission-based viewing by subscription tier
+- **Content Organization**: Categories, tags, difficulty levels
+- **Automatic Cleanup**: Content removal when groups are archived
+
+### 5. Education & Workshop System (New Feature)
+
+#### Education Event Management
+**Workshop Creation**:
+- **Multi-session Events**: Define multiple presentations within single education
+- **Registration System**: Limited participant slots with approval process
+- **Presenter Management**: Assign multiple presenters to different sessions
+- **Resource Management**: Upload supporting materials (PDFs, guides, meal plans)
+
+#### Registration & Approval Workflow
+**Registration Process**:
+- **User Application**: Users apply with reason and contact information
+- **Admin Review**: Approve/reject applications with reason
+- **Capacity Management**: Automatic slot tracking
+- **Blacklist System**: Temporary bans for no-shows (automatic 3-day ban)
+- **Viber Group Integration**: Approved participants added to communication groups
+
+### 6. Task/Order System (Nalozi - Critical Operational Feature)
+
+#### Bulk Communication Management
+**Task Creation**:
+- **Mass Communication**: Create tasks for contacting multiple users
+- **Individual Tasks**: Single-user specific tasks
+- **Scheduling System**: Distribute task execution over multiple days/times
+- **Category Assignment**: Route tasks to appropriate operator types
+
+**Task Distribution Logic**:
+- **Load Balancing**: Prevent overwhelming operators with simultaneous tasks
+- **Time Scheduling**: Spread task execution across defined time periods
+- **Approval Workflow**: Admin approval required before task execution
+- **Background Execution**: Automated task processing every 5 minutes
+
+**Common Task Types**:
+- **Monthly Check-ins**: Contact all subscribers to thank for payment
+- **Progress Photo Requests**: Request users to upload progress photos
+- **Engagement Follow-up**: Contact inactive users for re-engagement
+- **Premium Support**: Specialized outreach for premium subscribers
+
+### 7. User Profile & Data Management
+
+#### Comprehensive User Database
+**Profile Management**:
+- **Personal Information**: Complete demographic and contact data
+- **Health Data**: Weight, height, goals, medical conditions
+- **Progress Tracking**: Photo uploads, measurement history
+- **Subscription History**: Complete payment and package history
+- **Communication History**: All conversations across all categories
+
+**Advanced Search & Filtering**:
+- **Multi-criteria Search**: Combine multiple filter types
+- **Saved Filter Templates**: Reusable filter configurations
+- **Export Capabilities**: Data export for marketing and analysis
+- **Real-time Synchronization**: Automatic updates when user data changes
+
+#### Goal & Algorithm System
+**Automated Goal Calculation**:
+- **Weight-based Algorithm**: Automatic target weight calculation
+- **Progress Monitoring**: Track user progress toward goals
+- **Dynamic Recommendations**: Adjust recommendations based on progress
+- **Group Assignment**: Auto-assign to appropriate groups based on goals
+
+### 8. Subscription & Payment Management
+
+#### Payment Processing Integration
+**Multiple Payment Methods**:
+- **Web Payments**: VSP payment processor integration
+- **Apple App Store**: iOS in-app purchase integration
+- **Manual Assignment**: Admin-assigned subscriptions (gifts, adjustments)
+- **Promo Code System**: Discount codes with validity periods
+
+#### Subscription Management
+**Package Types & Pricing**:
+- **Basic Packages**: Weight loss, weight gain specific programs
+- **Premium**: Most popular tier (~13,000 of 15,000 subscribers)
+- **Premium Plus**: Limited capacity, personalized nutrition plans (~160 users)
+- **Specialist Access Control**: Premium+ required for specialist consultations
+
+**Subscription Lifecycle**:
+- **Purchase Processing**: Webhook integration for payment confirmation
+- **Access Provisioning**: Automatic group and content access assignment
+- **Renewal Management**: Automatic monthly renewal processing
+- **Cancellation Handling**: Graceful subscription termination
+
+### 9. Analytics & Reporting System
+
+#### Performance Analytics
+**Operator Performance Tracking**:
+- **Conversation Metrics**: Volume, completion rates, response times
+- **Quality Scoring**: User satisfaction and conversation quality
+- **Productivity Analysis**: Conversations per hour, daily statistics
+- **Comparative Reporting**: Cross-operator performance comparison
+
+**System Performance Monitoring**:
+- **User Engagement**: App usage, workout completion, group participation
+- **Subscription Analytics**: Conversion rates, churn analysis, revenue tracking
+- **Content Performance**: Video views, event attendance, engagement metrics
+- **Technical Performance**: System load, response times, error rates
+
+#### Audit & Compliance
+**Complete Audit Trail**:
+- **User Actions**: All admin and operator activities logged
+- **Data Changes**: Track all modifications to user data and system settings
+- **Access Logging**: Monitor who accessed what data when
+- **30-day Retention**: Automatic cleanup of audit logs after 30 days
+
+### 10. System Configuration & Administration
+
+#### Global System Settings
+**Operational Controls**:
+- **Free Access Periods**: "Open doors" days for free platform access
+- **Automatic Assignment Toggle**: Enable/disable automatic message assignment
+- **Shift Scheduling**: Automatic operator availability based on work schedules
+- **Pause Periods**: System-wide breaks (11:00-12:00, 18:00-19:00)
+
+#### Content & Access Management
+**Program Management**:
+- **Package Availability**: Enable/disable subscription packages
+- **Price Management**: Update subscription pricing across platforms
+- **Access Permissions**: Define which features each subscription tier can access
+- **Content Restrictions**: Control access to specialist chats and premium content
+
+## Technical Architecture & Infrastructure
+
+### Database & Storage
+**Data Management**:
+- **Multiple Database Systems**: Separate systems for chat (ejabberd), admin panel, user data
+- **Soft Delete System**: All deletions are logical, not physical (data recovery possible)
+- **Storage Integration**: Azure-based CDN for media files (~500GB current usage)
+- **Performance Optimization**: Pagination and caching for large datasets
+
+### Integration Points
+**External System Dependencies**:
+- **ejabberd**: Chat system requiring separate login and interface
+- **Vimeo**: Video hosting and live streaming platform
+- **VSP**: Web payment processing
+- **Apple App Store**: iOS subscription management
+- **Email Systems**: Automated notifications and confirmations
+
+### Performance & Scalability Considerations
+**Current Scale Challenges**:
+- **High-volume Chat**: Millions of messages in single ejabberd table
+- **Real-time Processing**: Minute-by-minute job processing for message requests
+- **Complex Queries**: Advanced filtering system requires optimized database queries
+- **Multi-system Synchronization**: Coordination between admin panel, chat, and mobile app
+
+**Operational Bottlenecks**:
+- **Manual Assignment**: 3 admins manually processing 50-80 requests daily
+- **Quality Control**: Manual review of hundreds of daily conversations
+- **Group Management**: Complex filter system with real-time member synchronization
+- **Task Distribution**: Manual approval and scheduling of mass communication tasks
+
 **Content Types Managed**:
 - **Workout Videos**: Exercise routines, form demonstrations, specialized programs
 - **Educational Content**: Health information, nutrition guidance, lifestyle tips

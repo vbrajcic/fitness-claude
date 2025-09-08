@@ -1,0 +1,131 @@
+(Transcribed by TurboScribe.ai. Go Unlimited to remove this message.)
+
+Dobro, znači upalio sam to lokalno kod sebe pa da možemo većinu toga tako pogledat. Upalio sam staging, upalio sam produkciju ako će mi slučajno šatrija radi, jel? Da vidimo prvo ovoga. A evo, meni radi, jel. 
+
+Znači ako ideš na adminstagingfitness.com, jel, tu stoji saviš neki... Dobro, staging mi radi, staging mi radi, ovaj production mi ne radi. A, pa dobro, neće ti na produkciju radi, to ćemo ti sad napraviti account, jel. A, ok.
+
+Znači, što se tiče produkcije, prva stvar, ja mislim da ovaj još uvijek ima account, to možemo umaknuti, jel. Nislobodno. Dobro.
+
+Ja sam ih umakao iz svega što sam bili. Ok, i sad što se tiče toga, znači ti ćemo samo isponiti šta moramo. Jepote, le.
+
+Ovaj, mail nije bitan, ne koristi se za ništa, osim da mora biti unik, tako da, mislim stavit ću ti uvijek profikovi, jel tako. Uvijek profikovi, ali mi spela si mi ga, Strmotić, tako je. Za koji mi je kurac, ali dobro.
+
+A, dostupan za raspoređivanje, tu ćemo čak staviti neto, ću ti opjasniti. To je ono kad oni dobivaju poruke, pa se automatski postavljaju. Šifru, stavit ću ti test 1, 2, 3 za početak, pa onda nećeš moći sam sebi promijeniti na način da imaš nešto na profilu, kasnije nego ćeš opet doći na ovo i onda ćeš sebi sam postaviti, sad ću ti pokazati, samo sekundu.
+
+Daću ti admin pravo da možeš imat sve. Osam znakova i jednu znamenku. Znači kasnije, samo kad uđeš, ili možeš odmah i sad.
+
+Kad nađeš samo sebe tu, onda odeš ovdje na promijenitu lozinku, pa onda staviš šta god ćeš, nije nikakav problem. Uglavnom, što se tiče cijelog ovog admina, kao što si rekao, velika većina toga se odvija ovdje. Ovo je aplikacija koju će 99% vremena koristiti operatori, odnosno bilo ko sa fitness-eni strane, njih par tu i tamo koristi nešto mobilno, iskreno ne znam ni sam zašto, znači sad nje šalju poruke valjda da lakše uprate od tamo ili šta već, ali uglavnom sveživo što ti treba je unutar loga.
+
+I sad, najbitnija stvar između toga svega šta je istavljeno prvo su svi ovi živi razgovori. Ja ću samo ugasiti ovo za sad, ovo automatsko dodjeljivanje. Uglavnom, nekakav core feature kojeg oni imaju je kad ti pošalješ poruku prema nekoj od njihovih soba, da ti se to pojavi ovdje, da se to dodijeli nekom operatoru i onda taj operator priča sa tobom i onda to zaključi.
+
+Znači ti ovdje sa desne strane možeš vidjeti trenutno sve operatere koji su meni definirani lokalno. Jedna od glavnih stvari koje operatori mogu raditi je reći je su li oni tu ili nisu tu, ali u ovom slučaju mogu i ja upravljati sa tim. Znači stvari u tome, ovi koji nisu smjeni će ugasiti, ovi će doli, ovi koji jesu da znaš koje tu će to upaliti.
+
+Onda njima možeš dodjelivati, ovima koji nisu aktivni ne možeš dodjelivati, slično. Ovo je katanac koji je kraj toga, može li se uopće dodjeljivati na tog operatera ili ne. Znači nisu svi korisnici admina tu da odgovaraju na poruke.
+
+Ima dosta ljudi koji su tipa vanjski suradnici, samo drže streamove i onda oni uopće se neće pojavljivati ovdje jer će oni biti onemogućeni uopće za i kakvo dodjeljivanje na temelju njih. I sad u čemu je stvar, ja sam sad kod sebe upaljao mobilno. Ja kad ode na razgovore zapravo ti mogu pokazati kategorije, samo sekunda dođem bilo kako do njih.
+
+Imamo ovaj unconfig page gdje su sve žive kategorije. Znači kategorije operatera događa, edukacija sad. Operateri su zapravo ovi razgovori koje imamo.
+
+Tu ti postoje ova osnovna basic kategorija koju uvijek svi imaju, neoglisno okupljena članare ne ličemo. I postoje sve ove ostale koje ti možeš definirati. Znači oni to drže cijelo rime isto, ali realno to je sve konfigurabilno i ako ćeš.
+
+Ako kategorija nije privatna, onda ću ja to moći otvoriti taj razgovor sa strane mobilne aplikacije u toj nekakoj kategoriji. Ako je privatna znači kad otvoriš... Onda je samo za internu uporabu nekakvu i nećeš moći nikada razgovarati u njoj. To je tako napravljeno.
+
+Znači oni ti ovdje na adminu da ti pokazujem prave podatke. Imaju ti ovoga dizajnera, iskreno ne znam zašto ga koriste. Imaju ti basic privatnu kategoriju, zašto? To je malo nakarada napravljeno.
+
+Kasnije kada je gudan objašnjava naloge, radi toga postoje ova basic kategorija ovdje. Tako da kad se radi nalog da se može odabrat basic. Jer inače kad započinjaš pravi razgovor, ako ne proslijediš ništa za kategoriju, onda se računa ko da je to basic.
+
+I onda je ovdje dodana još jedna basic kategorija. Pa onda da se one ne duplaju i jedna privatna. Ova defaultna, jel, koja ne postoji, ona sama po sebi nije privatna.
+
+Uglavnom, nebitno, malo su to zakomplicirali. Ali čisto da znaš oko toga, jel. Znači, ja sam sad otvorio ja na mobitelu i sad, evo, tipa u lječnika.
+
+Poslala mi je poruku i sad šta mi radimo? Mi imamo job koji se vrti svaki minut na punu minutu, jel. I onda će on vidjeti koje su poruke nedavno bile u tim sobama koje su prikladne za to. I onda će stvorit nešto šta mi zovemo message request, jel.
+
+Zahte za poruku. I onda će ovisno o tome jel je upaljeno ili ugašeno ovo automatsko dodjeljivanje, će se ili pojaviti ovdje ili neće. Ovo smo nedavno, relativno, napravili feature.
+
+Gdje jednostavno kad doveđe bilo koji message request se vidi OK. Ovaj message request mi je za lječnika. Tri van naš, nekog lječnika imali, neki aktivan.
+
+Ako ima, onda ću njemu to dodjeliti. I onda kasnije još imaju neke grefe, neke ka. Ako smo to djelili, pa nije to takav uro vrime na oči.
+
+To ipak nije tu, pa ipak makni sa njega da ne bude tu. Svakakve nekakve stvari, ali uglavnom oni to drže. To se sada automatski pali, gasi na temelju njihovog rasporeda, jel.
+
+Znači kad odlučaj i smjene se ugasi, pa se priko noći to nakupi. Onda ujutro kad dođu se automatski skupi sve šta se nakupilo. I onda se u tom trenuku automatski dodijeli.
+
+Isto tako kad odu na pauzu je 11.00 do poodne i 18.00 do 19.00 sati. Isto tako se pauzira, pa onda ne bude ničega itd. Mislim da mi je ovo sad ipak otišlo na nekoga, pa ćemo samo vidjeti.
+
+Znači, to bi se inače pojavilo, to ćeš ubrzo vidjeti. Drugi ekran koji imaš tu na istom mjestu je ovaj pregled operatera. To je ovo što administrator je koristao.
+
+Znači oni ovdje mogu uvući točno direktno u svakog operatera šta je on radi, a šta on ima na sebi, u kojem je to statusu itd. I onda ti oni mogu, pokazat ću ti kada bude neki u treku, jel, samo da vidim. Ne znam kako mi se nije pojavio, samo da vidim ovo.
+
+A i ovo, šta sad neće. Čekaj, posle će još koru koru, pa ćemo vidjeti. Uglavnom, mislim, možemo vidjeti na ovome nekako, jel.
+
+Znači, sad meni na ovome 202 ima nekakav zahtjev i jedna od stvari koju ja mogu napraviti je maknuti, dok još nije prihaćen zahtjev od strane operatera, mogu ga maknuti s njega. I onda će samo pojaviti ovo ovdje. Znači, kad nije upaljeno ovo automatsko dodjeljivanje, onda se svi ti zahtjevi pojavljuju ovdje, jel.
+
+Pišete koji je, koju članarina ima, koju kategoriju je zatražena. I onda prije nego smo imali ovi feature, oni bi ti kak klikli na to, možeš multi-selectat. I onda odebereš na koga ćeš dodijeliti. 
+
+Sad neće ti kada dodijeliti na bilo koga, zato jer operaterima je definirano šta su oni, ko su oni, šta se sve tu može, jel, itd. Ali, uglavnom, ja ti pa evo mogu trenutno ovo i sam na sebe pridijeliti pa da to pogledamo. Ali ovo čisto što se tiče drugih operatera, možemo pogledat nekoga od njih.
+
+Znači, evo imamo ovdje 207, namo probati ući u njega. Je, je, je, dobro. E, znači, to saka se pojavi kod tebe.
+
+Uglavnom, ovi basic operateri će ti većinu vremena stajati na ovom glavnom razgovorju ekranu. Ti saka dobiješ tu zahtjeve, pojavljiva će ti se jedan po jedan, dakle ti realno nećeš znat odmah koliko ih imaš i onda kad prihvatiš, onda će ti se ovom prebacit gori. Znači, oni su ti tu radili samo nekakvi ovi improvement da tim operaterima dolazi jedan po jedan zahtjeve, pa onda neki operateri ti zapravo prihvaćaju jedan po jedan, a neki prihvate sve što imaju, pa onda i na ovdje stoji ono 20 razgovora.
+
+Uglavnom, nekakav osnovni flow, ti dobiješ zahtjev, prihvatiš zahtjev i onda vidiš šta je klijentica napisala, malo pročitaš, imaš ovdje šorkat ako želiš doći do vrha, što se tiče samog razgovora, sličanje koji je na mobilnoj, samo što ovdje ljudi koji imaju prava na to će ti vidjeti ove takozvane sistemske poruke, znači priko ovega možeš kontrolirat točno što se događa. Znači ja sad ovdje mogu vidjeti kad je ovaj zahtjev napravljen, tog i tog dana, u tu i tu uru, sustav je meni automatski do dijelja, znači nije neka specifična osoba, nego je sustav meni automatski do dijelja i evo malo prišla sam napravlja, ja sam sam prihvatio taj zahtjev itd. I sad basic operateri koji inače nemaju privilegiju ovoga za ovo vidjeti, neću ovo vidjeti, ali administrator i oček pa na taj način mi to mogu kontrolirati.
+
+Znači ja tu sam mogu poslati poruku, ta poruka će meni doći nazad na taj razgovor, to je sad razgovor sa liječnikom itd. Prije nego ga tu zatvoren, mogu ga viditi ovdje, znači vidiš sad, ja sam još uvijek gledan ovih 207, malo prije mi je bilo ukloniti zahtjev, sad to više ne mogu napraviti obzirom da je operater prihvatio taj razgovor. Jel ono što mogu u ovom trenutku napraviti je otvoriti taj razgovor, ja sad kao administrator praktički vidim istu stvar što ovdje vidi ovi operater.
+
+Jel znači to je taj jedan, taj isti chat, s tim da obzirom da sam administrator, mogu i ja sad umjesto tog operatera, ako sam njega vidio da on nije odgovore ili nije dobro odgovore ili šta već, mogu to ono nešto bilo što napravit, znači mi ćemo na adminu vidit, jel, da to nije ovaj, da to nisam njega pisao, nego je to napisao admin umjesto mene itd. Ali prema korisniku je to sve živo isto. I sad ti istu stvar možeš i ovdje napustiti taj razgovor, pa onda kasnije se može opet pridružiti, jel.
+
+Znači ako si samo išla nešto provjeriti, a ako smatraš da je gotovo sa tim razgovorom za sad, onda možeš i ti umjesto njega završiti sami taj razgovor. Neću to sada napraviti s ove strane, nego ću napraviti pa sa ove, znači ovi koji zapravo to treba napraviti. Znači ovdje gori imaš nekako razno razne opcije, između toga ti je ovo što sam spominjao, jel, da se automatski iščupa iz baze, da oni mogu double-checkat koje su poruke poslane, ali najbitnija akcija je ovo oko završavanja razgovora.
+
+Znači oni ti mogu i ne moraju napisati nekakav zaključak ovdje, a ti zaključci su ti sve oživo što ti je ovdje sa desne strane navedeno, i onda ovisi u kojoj kategoriji je bio razgovor, u toj kategoriji će biti nekakav zaključak koji je napisan. Znači oni će ti to koristiti čisto kao mehanizam, da ne moraju čita kroz sve, nego da ti piše nekakva poanta cijelog razgovora itd. Iako u praksi će ti oni čitat poruke opet iznova itd.
+
+Kada ja to idem završiti, znači mogu završiti bez zaključka, mogu završiti sa zaključkom samo ako napišem nekakvoga. I sad, o što se tiče privatnosti, manje više nebitno za to jer oni to ne koriste baš, ali mislim to funkcionira kako spada, ako ne želiš da svi živi mogu vidjeti, nego samo ti ili samo određena skupina operatera, ne znam više nekako to funkcionira. I opet relativno nov feature ovako prikvačivanje zaključka.
+
+To će biti kao odvojena sekcija odlige na vrhu i tu će staviti neke jako bitne stvari, tipa ako je klijentica rekla da ne želi se slikavati ili tako nešto, oni će to napisati u prikvačajni zaključak tako da kada njima dođe kasnije nekakva uputa da pilaju koristnice, da se slikaju, oni će vidjeti taj zaključak da stoji tu na vrhu sa strane i onda neće pilati ili neće islati poruku uglavnom. Kad završim bez zaključka, ovaj razgovor je meni je nesta, s tim da nije još zapravo nesta, on je sad u nekakvom stanju, a moram tako nazvati puluzatvorenosti. Kada ovdje pogledam sa admina, ovdje isto mogu vidjeti da je to prebačeno pod nedavno završeni zaključak, znači nije još ovdje doli.
+
+Postoji neki određeni period što je trenutno postavljeno, ja vam se na nešto sitno, 140 sekund i tako nešto, to se može konfigurirati. Taj period je onaj ako ti klijentica opet pošalje poruku na isti taj zaključak, onda će se taj zaključak automatski vratiti tebi. Znači to je nešto ono što bi zdravorazumski trebalo biti ako si ti već priča taj dan s tom klijenticom itd., onda se to vrati tebi, odnosno ponovno se aktivira i onda će automatski on meni biti ovdje, znači neću ga morati prihvaćati, ja mislim, nego će mi automatski biti aktivan itd. 
+
+i onda opet pričam s tom klijenticom. Kažu da oni to drže na kratko, znači njima ti je u interesu, odgovori na poruku, zatvori taj zaključak i onda ih nije briga kasnije, ako ona ugori za uro vrijemena, što će to otići nekom drugom operateru, nego neka taj drugi koji u tom slučaju to dobije, a možda se igrom slučajnosti opet vrati istom operateru. To sam ti ja pitao, to je tamo dobro, odgovorio si mi na pitanje u mojoj glazi, odlično.
+
+Uglavnom, sad ako ja ne budem ništa dirao po tome, ovo mi se treba nakon par minuta staviti tu u završene, neće trenutno ići automatski, tu imamo neki mini bug za popraviti, nebitno, oni ti svakako malo idu s jednog na drugog operatera, gledaju šta oni rade, šta su oni završili, bla bla bla, tipa ovdje ti imaju u kontrolu, sad neće biti kod mene podatak, ali ono izabereš datum i onda će ti ovdje pod završenima pisati sve živo šta su oni tog dana radili, pa ti onda oni njih kontroliraju, ti oni otvore taj razgovor, vide je se to sve lipo napisalo, se lipo odgovorilo i onda naprave dramu ako nešto nije dobro itd. Mogu ti pitati koji je razlog zašto dijelimo na nedavno završeni i završeni? To su ti ta dva raješta statusa dok ne protekne taj period od tih 240 sekunde ili koliko je već 140 zapravo, pardon. Znači nedavno završeni su oniji s kojima niko zapravo ne može ništa, ni administrator, ni on, nego se čeka vidjeti oće li korisnica odgovorit povratno odmaj ili neće.
+
+U ovom slučaju je odmaj zatim tako konfigurirano, ako odgovori odmaj to se oživi, ako ne odgovori odmaj to će onda završiti u završenima. I onda, to bi ti isto ti ja pokazat, kada se završi neki zapravo, šta mi nije, nema završenoga. Evo ga, znači on ti se sad prebacija ovdje u završene i ja sad kad otvorim, to će ti biti sve isto, samo šta gledaš u završeni razgovor i onda smo ovdje naprili zaštitu da ne može sad admin pisat u ovo jer ne bi imalo smisla jer to nije ništa aktivno što je dodijeljeno nekome.
+
+Ako ja sad napišem ovdje nešto, malo je čudan, promijenilo bi skroz hluku kroz koju idemo. Tako da ovo je samo kao ako ćeš gledat nekakvu arhivu, da provjeriš koje šta radi, pa onda ako hoćeš, ladno, ti možeš otići sam, sam to otvoriti. Znači ti sad kad dođeš ovdje, ovi request koji sam malo prije imam, ali ista stvar, ti možeš i sam bići ako ti želiš samostalno otvoriti nešto prema nekome.
+
+Znači ja sad, obzirno da sam administrator, imam sveživo na raspolaganje, evo ja naprimjer želim vidjeti šta su ljudi pisali s ovom članicom u nutricionistu, ja sam to otvorio i onda ovdje ti se ovdje opet vidi da sam ja otvorio ovi zahtjevi samostalno itd. I mogu opet dalje rise. Znači jedan flow je da se korisnica sama javi, drugi flow je da se mi javimo prema korisnici.
+
+Ili na ovaj način, ili vidit ćeš kasnije šta se tiče malo šta se tiče grupa koji su ti ovdje sa strane. Znači tu imaš ovi dvi glavne vrste, ovo što želimo ubiti, ove grupe, notifikacija. Znači tu će ti uvijek pisati ovo da je zabranjeno za ostale, ali ti i dalje možeš pisat poruke, znači njima je trenutno postavljeno da bilo koji operator može pisao ove grupe ubavijesti, a korisnice nikad neće moći, to je jednostavno tako zakucano na ovome, na mobilnoj aplikaciji.
+
+I ovo dozvoli sladnje poruka koje ovdje radim, obzirom da je to grupa notifikacija, utjeca će samo na nas ovdje, znači neće na ovi, kako se zove, na mobilnoj aplikaciji. One nikad neće moći pisati u nju. To je što se tiče tog slučaja, što se tiče grupe članova, ovo će ti vrijedi za svih, ovo dozvoli sladnje poruka, naravno opet osim za administratore koji imaju pravo to svejedno pisati u to.
+
+Sve život ti šalju, ovo sam sabe stavio zato što sam testirao, tu ti je priča sa korisnicama, znači oni ti svaki dan pale i gase te grupe, ne dozvoljavaju da se piše priko noći, znači upale ti to u osam ujutro, ugase ti u deset na večer, ako ne rade neki dan, grupe će ti ostati zaključene po cijeli dan, da korisnice ne mogu pisati unutra, jel? I onda ti one to... Reći mi samo koji je razlog toga biznis, biznis razloga, ako znaš. Zato jer ti, zato jer ti je njima jako bitno da sve žene dobiju odgovor, da dobiju podršku, ono bla bla bla, logično, ako niko ne radi u tom trenutku, žena ne može dobiti odgovora na nešto svoje, znači postoji ti točno određen broj operatera svaki dan, koji su taj dan zaduženi, gledaj te i te grupe i odgovaraj ljudima na poruke u te i te ure, jel? I onda to su ti uvijek iste stvari, znači oni ti imaju određena pravila što ti pošalju ti sliku kao šta smijiš pisaći, šta ne smijiš pisaći, nema negativnosti, bla bla bla Odi šaljemo samo slike jela zabranjene, slike slatki iša zabranjenih stvari za jesti tu di... Sorry Antonija, na sastanku sam, možda molim vas priko whatsappa, sorry nešto za zgradu, rekao sam im da mi šalju poruke ono ne zove, e Nema problema, i onda će ti koristiti se tu sad ono, uglavnom ti je to podrška, jel, meni je ovo, meni je ono, mi se mogu ti pokazati što se tu piše, jel, znači na adminu kad dođeš u neku grupu Prva stvar, ova grupa večer i sajeni, to ti je trenutno ovi izazov koji imaju, tu su ti ručno ubačene žene koje su unutar izazova i onda ti imaju ono Definirano moraju raditi ove kolaže, da su odradile vježbu, šta su jele, kad su jele, bla bla bla i tj. i onda ti oni to prate i onda žena koja to nije napravila izbaci iz grupe itd.
+
+To su sa krenjima mjesec dana, dva mjeseca rajd, ali uglavnom, evo tipa ova grupa mršavljenja, ti je klasična grupa i onda žena ti napiše doslovno šta god joj padne napalno, uglavnom će ti to obislikeš šta su ove jele i onda ti oni njima, sve ovo što ti je prana to s desno su operateri i onda oni ti tu njih bodre, vidiš ono, pohvaljuju pa onda im odgovore na pitanja ako slučajno vide nešto sumnjivo u jelu kažu ti, odgovore ti kao please nemojte to tako nego imate u zamiju itd. Uglavnom to ti je baš konstanta komunikacija što se tiče toga i u te grupe se baš masu piše. Neke od njih su veće, znači vidiš ova ima 15.000 šlanova trenutno, neke od njih su manje, evo ova čak nije toliko manja, ali najmanja će ti biti ova trudnica i do ilje tu ti isto ručno ubacuju žene koje su baš trudnice i do ilje za taj mjesec, ali ti ja sam reći kao one ti u nekom trenuku pošalju google form ili neku excelicu ili šta već pri kraju mjeseca ili na početku mjeseca gdje ti žene se zapišu i onda oni po tome znaju koga oni žele ubaviti.
+
+To je povezano sa tim što su oni jednom, sad više toliko ne spominjali, tj. su imali fičer gdje bi promijenili način funkcioniranja grupa na način da žene same biraju u kojim će grupama one biti, u kojima su eligible. A trenutno cijeli sustav funkcionira na način da mi definiramo sad mi strane koje žene imaju pravo biti u kojoj grupi, a onda je na ženi jedino ako ne želi biti u toj grupi može je samostalno napustiti, znači ne može se samostalno predružiti, ali može je samostalno napustiti.
+
+Uglavnom što se tiče tih grupa, jedan isto od relativno novih fičara su prikvačene poruke kojih trenutno nemao, ali uglavnom ono što možeš raditi na adminu je možeš prikvačiti tu poruku i onda to naravno meni tu se nije prikazalo odmah, ali trebalo bi, ali možeš to onda pregledavati. Ali onda na mobilnoj će oni imat na zasebnom ekranu unutar četa da mogu pogledati izgled svih tih prikvačenih poruka, pa onda oni tu stave neke najbitnije stvari ili bitne neke obavijesti tako da žena u bilo kojom trenunku može vidjeti, jer prije im se događalo da ono pošalju neki bitni pdf i onda žena neće biti na aplikaciji tad nego će biti za četiri uri, omeđu vremena je nastalo ono iljadu poruka i ta žena neka neće vidjeti tu poruku, pa zato se imaju tu funkcionalnost. Znači ovo je sve klasično kao što imaš i na mobilnoj, možeš odgovarat ovo ono, s tim da je u admini mogu i brisa, kada admini obrišu poruku, neće ju... Jebote lej, šta je ovo... Kada lokalno radiš onda uvijek nešto... Kada obrišaš poruku na adminu će ti uvijek biti vidljivo koja je to poruka bila, ti pisaće da je izbrisana, a na mobilnoj neće biti prikazana više, to je čisto jedna razlika.
+
+Tako da ako slučajno se njima dogodi da im se neka klijentica javila i umeđu vremenu izbrisala poruku, kada uđu će da oni vide da ona tu nešto pisala, onda zaključe ok, nismo ludi, nije neki bagos ustavio nešto, nego je žena izbrisala poruku i nema veze. Ista stvar, možeš kaj i na mobitel ostavljati ove reakcije, možeš pisat odgovore itd. Jedna stvar šta nisam spomenu ja to što ti pokazao na produkciji su ti ovi predložci koje ti one koriste čisto za nekakve... Kaj ih puno žena pita istu stvar pa onda znaju ti pa one ti saj imaju vodija staza, je li? I sad ja ako ode ovaj na produkciji pa ću otvoriti razgovor samo sam prema sebi.
+
+I ako ti je opišeno u chatbox ti ja staza, onda će ti on meni taj predložak primijeniti, jer znači kad sam lupio enter ono što je u tom predložku primijenjeno i onda ja to mogu poslati. Znači ti tu definiraš nekakve predložke itd. Jedna od glavnih aktivnosti koju ti radi svake mjeseci je da se javljaju s inživjenjim klijenticama, pitaju ih kako je, zahvalim se što su platili člonarenu itd.
+
+Pitaju ih da se slikaju itd. i onda nešto ovakvog tipa što ti oni naprave, im puno ubrza taj posao kad se samo javljaju, znači oni ti dobiju. Javljaju se to, to i to, i to i ženi i samo ti pleskaju, je li? Iako u zadnje vrijeme malo više paze, vide kakav je razgovor, bija do tog trenutka itd.
+
+Ovo što mi se pojavilo upravo zgodno je za pokazat, obzirom da na produciji toga ima, znači ovdje su sve žive obavijeste, trenutkom te obavijeste koristimo kad se nešto pridjelilo na tebe. Znači ovdje lokalno ćeš vidjeti, znači dodiljanje bla bla bla bla, ovo nije toliko bitno. Ono što je bitnije, što koriste, svaki pukad žena uploada nove slike ili ažurira nešto na svom profilu, doće svim živim bezek operaterima tu obavijest, pa oni valjda pogledaju to, pa onda uđu i video, znači ja sad kad stisnem ovo, uđen, vidim što je ono to što je uploadala itd.
+
+To ću ti još kasnije pokazat kako sam povidao. I još što se razgovore tiče što nisam pokazao je ovo interno, oni to i ne koriste baš, znači ovdje će ti biti grupe koje su samo za operatere, koje su na taj način definirane pa se oni tu mogu dopisivati, ali oni više manje koriste Messenger ili Viber za nekakvu svoju internu komunikaciju, tako da relativno nisu bitne ove interne grupe, ali ovo je chat koji je svaki drugi, tako da to funkcionira. Tako da zašto ne koriste, to je stvar do njih.
+
+Znači što se tiče raspoređivanja, evo napokon se pojavlja neki od onih, ti dođeš tu, evo vamo sad tipa reći basic, evo više kako mi ne da, zato jer je to fizioterapeuta, ovo je operater koji je basic operater i nutricionisti, onda mi njego ne da. Ali tipa ako pokušam predijeliti sebi, ja obzirom da sam administrator, meni to može ići. Administrator može raditi osnovno sve živo po sustavu, a ovi ostale su definirani što mogu, šta ne mogu.
+
+Dobro, možemo sad malo brže ove druge dijelove. Ovo je skrin na kojem se upravlja sa grupama. I sad ti kad ideš stvoreno u grupu, kažeš kako se grupa zove, imaš ova tri tipa koja sam pokaziva.
+
+Znači ovo je interna koju ne koriste, ovo je ova klasična gdje svi mogu pisati, ovo je ova gdje ne mogu pisati članovi nego samo operateri. Obavezno moraš neku sliku uploadat, čisto što će se prikazat. Ovdje ćeš definirat je li se može pisat, definirat ćeš isto tako je li se mogu slatnotifikacije, odnosno očeli se slatnotifikacije, to uglavnom na ovim velikim grupama držimo ugašeno, zato jer ti se počne ono 5000 žena, žali da im svaku 5 sekundi dolazi notifikacija, neko šalje poruke.
+
+Ali ako ćeš to upalit, onda svaka žena ima mogućnost u detaljima grupe na mobilno izabrat da više neće primat notifikacije ili može skroz napustit grupu. Ova tri datuma su jako bitna. Znači datum prikaza, datum aktivacije, datum isteka.
+
+Datum prikaza je kad će grupa postati vidljiva, uopće unutar sustava. Mislim da to vrijedi i za operatere, ne, zapravo ne vrijedi i za operatere, nego ovo se odnosi samo na mobilnu aplikaciju. Znači ako je sastavino ovdje tipa 8.9. do 8.9. ujutro, niko neće uopće na mobilnoj, iako je pridružen, toj grupi vidjeti šta je u toj grupi.
+
+Onda će biti datum aktivacije, njega mogu staviti na isti datum, ja sam stavio sad na 10. Datum aktivacije ti je onaj datum u trenunku kad će ta grupa zapravo postati aktivacija.
+
+(Transcribed by TurboScribe.ai. Go Unlimited to remove this message.)
