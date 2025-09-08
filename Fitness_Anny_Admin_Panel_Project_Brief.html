@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fitness_Anny_Admin_Panel_Project_Brief</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" />
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#fitness-anny-admin-panel---project-brief"
+id="toc-fitness-anny-admin-panel---project-brief">Fitness Anny Admin
+Panel - Project Brief</a>
+<ul>
+<li><a href="#executive-summary" id="toc-executive-summary">Executive
+Summary</a></li>
+<li><a href="#business-context-strategic-priority"
+id="toc-business-context-strategic-priority">Business Context &amp;
+Strategic Priority</a>
+<ul>
+<li><a href="#company-mission" id="toc-company-mission">Company
+Mission</a></li>
+<li><a href="#competitive-advantage"
+id="toc-competitive-advantage">Competitive Advantage</a></li>
+<li><a href="#strategic-priorities-next-6-months"
+id="toc-strategic-priorities-next-6-months">Strategic Priorities (Next 6
+Months)</a></li>
+</ul></li>
+<li><a href="#current-team-structure-scale"
+id="toc-current-team-structure-scale">Current Team Structure &amp;
+Scale</a>
+<ul>
+<li><a href="#total-team-80-active-users"
+id="toc-total-team-80-active-users">Total Team: 80 Active Users</a></li>
+</ul></li>
+<li><a href="#core-system-expert-consultation-order-management"
+id="toc-core-system-expert-consultation-order-management">Core System:
+Expert Consultation Order Management</a>
+<ul>
+<li><a href="#how-it-works-critical-business-process"
+id="toc-how-it-works-critical-business-process">How It Works (Critical
+Business Process)</a></li>
+<li><a href="#anonymity-system-brand-protection"
+id="toc-anonymity-system-brand-protection">Anonymity System (Brand
+Protection)</a></li>
+</ul></li>
+<li><a href="#critical-operational-bottlenecks"
+id="toc-critical-operational-bottlenecks">Critical Operational
+Bottlenecks</a>
+<ul>
+<li><a href="#manual-order-assignment-crisis"
+id="toc-manual-order-assignment-crisis">1. Manual Order Assignment
+Crisis</a></li>
+<li><a href="#unsustainable-quality-control-review"
+id="toc-unsustainable-quality-control-review">2. Unsustainable Quality
+Control Review</a></li>
+<li><a href="#team-efficiency-management"
+id="toc-team-efficiency-management">3. Team Efficiency
+Management</a></li>
+</ul></li>
+<li><a href="#additional-admin-panel-features"
+id="toc-additional-admin-panel-features">Additional Admin Panel
+Features</a>
+<ul>
+<li><a href="#content-management-admin-only-access"
+id="toc-content-management-admin-only-access">Content Management
+(Admin-Only Access)</a></li>
+<li><a href="#user-management-payment-administration"
+id="toc-user-management-payment-administration">User Management &amp;
+Payment Administration</a></li>
+</ul></li>
+<li><a href="#technical-architecture-context"
+id="toc-technical-architecture-context">Technical Architecture
+Context</a>
+<ul>
+<li><a href="#current-system-limitations"
+id="toc-current-system-limitations">Current System Limitations</a></li>
+<li><a href="#external-dependencies"
+id="toc-external-dependencies">External Dependencies</a></li>
+</ul></li>
+<li><a href="#key-performance-metrics-targets"
+id="toc-key-performance-metrics-targets">Key Performance Metrics &amp;
+Targets</a>
+<ul>
+<li><a href="#current-performance-benchmarks"
+id="toc-current-performance-benchmarks">Current Performance
+Benchmarks</a></li>
+<li><a href="#business-impact-metrics"
+id="toc-business-impact-metrics">Business Impact Metrics</a></li>
+</ul></li>
+<li><a href="#automation-opportunities-project-scope"
+id="toc-automation-opportunities-project-scope">Automation Opportunities
+&amp; Project Scope</a>
+<ul>
+<li><a href="#high-impact-automation-targets"
+id="toc-high-impact-automation-targets">High-Impact Automation
+Targets</a></li>
+<li><a href="#expected-business-impact"
+id="toc-expected-business-impact">Expected Business Impact</a></li>
+</ul></li>
+<li><a href="#project-considerations-challenges"
+id="toc-project-considerations-challenges">Project Considerations &amp;
+Challenges</a>
+<ul>
+<li><a href="#technical-complexity"
+id="toc-technical-complexity">Technical Complexity</a></li>
+<li><a href="#operational-continuity"
+id="toc-operational-continuity">Operational Continuity</a></li>
+<li><a href="#stakeholder-management"
+id="toc-stakeholder-management">Stakeholder Management</a></li>
+</ul></li>
+<li><a href="#success-criteria-expected-outcomes"
+id="toc-success-criteria-expected-outcomes">Success Criteria &amp;
+Expected Outcomes</a>
+<ul>
+<li><a href="#operational-efficiency-goals"
+id="toc-operational-efficiency-goals">Operational Efficiency
+Goals</a></li>
+<li><a href="#technical-performance-targets"
+id="toc-technical-performance-targets">Technical Performance
+Targets</a></li>
+<li><a href="#business-impact-measures"
+id="toc-business-impact-measures">Business Impact Measures</a></li>
+</ul></li>
+<li><a href="#next-steps-recommendations"
+id="toc-next-steps-recommendations">Next Steps &amp; Recommendations</a>
+<ul>
+<li><a href="#immediate-project-priorities"
+id="toc-immediate-project-priorities">Immediate Project
+Priorities</a></li>
+<li><a href="#stakeholder-engagement-strategy"
+id="toc-stakeholder-engagement-strategy">Stakeholder Engagement
+Strategy</a></li>
+<li><a href="#project-timeline-considerations"
+id="toc-project-timeline-considerations">Project Timeline
+Considerations</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="fitness-anny-admin-panel---project-brief">Fitness Anny Admin
+Panel - Project Brief</h1>
+<p><strong>Document Purpose</strong>: Comprehensive overview for new
+project manager<br />
+<strong>Date</strong>: 2025-09-08<br />
+<strong>Company</strong>: Fitness Anny - Croatian Women’s Fitness
+Platform<br />
+<strong>Current Scale</strong>: ~15,000 monthly subscribers, targeting
+25,000+</p>
+<hr />
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Fitness Anny operates a <strong>complex order assignment and quality
+management system</strong> powered by an admin panel that manages
+<strong>80 team members</strong> across multiple specializations. The
+current system has <strong>critical bottlenecks</strong> that limit
+scalability and operational efficiency.</p>
+<p><strong>Key Challenge</strong>: <strong>3 real admins</strong>
+manually manage order assignments, quality control, and system
+administration for <strong>80 team members</strong> serving 15,000+
+users daily.</p>
+<p><strong>Project Goal</strong>: Optimize admin panel to support growth
+to 25,000+ subscribers without proportional team expansion.</p>
+<hr />
+<h2 id="business-context-strategic-priority">Business Context &amp;
+Strategic Priority</h2>
+<h3 id="company-mission">Company Mission</h3>
+<p>Empowering Balkan women 35+ to achieve fitness goals through
+personalized human support and convenient home-based solutions.</p>
+<h3 id="competitive-advantage">Competitive Advantage</h3>
+<ul>
+<li><strong>24/7 Croatian-speaking human experts</strong> (doctors,
+nutritionists, trainers)</li>
+<li><strong>Deep understanding of Balkan culture</strong> and
+lifestyle</li>
+<li><strong>Women 35+ specific approach</strong> vs general
+audience</li>
+<li><strong>Integrated medical/wellness support</strong> beyond
+fitness</li>
+</ul>
+<h3 id="strategic-priorities-next-6-months">Strategic Priorities (Next 6
+Months)</h3>
+<ol type="1">
+<li><strong>Scale to 25,000+ subscribers</strong> through improved user
+acquisition and retention</li>
+<li><strong>Improve operational efficiency</strong> to handle growth
+without proportional cost increase</li>
+<li><strong>Reduce technical debt</strong> to accelerate feature
+development velocity</li>
+<li><strong>Strengthen competitive moat</strong> through enhanced human
+support experience</li>
+</ol>
+<hr />
+<h2 id="current-team-structure-scale">Current Team Structure &amp;
+Scale</h2>
+<h3 id="total-team-80-active-users">Total Team: 80 Active Users</h3>
+<p><strong>Critical Understanding</strong>: This is a <strong>much
+larger operation</strong> than typical SaaS admin panels.</p>
+<h4 id="team-distribution">Team Distribution:</h4>
+<ul>
+<li><strong>Chat Agents</strong>: 26 users (33% of team) - Limited admin
+panel access</li>
+<li><strong>Expert Professionals</strong>: 54 users (67% of team) -
+Specialized access
+<ul>
+<li><strong>Nutritionists</strong>: 15 specialists (largest group)</li>
+<li><strong>Psychologists</strong>: 18 specialists (largest group)</li>
+<li><strong>Trainers</strong>: 7 specialists</li>
+<li><strong>Physical Education Experts</strong>: 4 specialists</li>
+<li><strong>Doctors</strong>: 6 medical professionals</li>
+<li><strong>Educators</strong>: 3 specialists</li>
+<li><strong>Motivators</strong>: 1 specialist</li>
+</ul></li>
+<li><strong>Real Admins</strong>: 3 users (4% of team) - <strong>Full
+control over everything</strong></li>
+</ul>
+<h4 id="access-hierarchy-critical-architecture">Access Hierarchy
+(Critical Architecture):</h4>
+<ol type="1">
+<li><strong>Tier 1 - Real Admins (3 people)</strong>: Complete system
+control, order assignment authority, quality oversight</li>
+<li><strong>Tier 2 - Chat Agents (26 people)</strong>: Limited access,
+cannot assign expert orders</li>
+<li><strong>Tier 3 - Experts (54 people)</strong>: Only see assigned
+orders, no queue visibility</li>
+</ol>
+<hr />
+<h2 id="core-system-expert-consultation-order-management">Core System:
+Expert Consultation Order Management</h2>
+<h3 id="how-it-works-critical-business-process">How It Works (Critical
+Business Process)</h3>
+<p>This is <strong>NOT a typical support chat system</strong> - it’s an
+<strong>order assignment and fulfillment system</strong>.</p>
+<h4 id="user-experience-flow">User Experience Flow:</h4>
+<ol type="1">
+<li><strong>Order Creation</strong>: User selects expert type but
+<strong>cannot choose specific expert by name</strong></li>
+<li><strong>Order Submission</strong>: Request becomes an “order” in
+admin panel queue</li>
+<li><strong>Manual Assignment</strong>: <strong>3 real admins review and
+assign</strong> orders to available experts</li>
+<li><strong>Expert Fulfillment</strong>: Assigned expert provides
+consultation</li>
+<li><strong>Quality Control</strong>: <strong>All conversations reviewed
+daily</strong> by real admins</li>
+</ol>
+<h4 id="available-expert-types-7-categories">Available Expert Types (7
+Categories):</h4>
+<ul>
+<li><strong>Nutritionists</strong> (15): Meal planning, dietary advice,
+cultural food integration</li>
+<li><strong>Psychologists</strong> (18): Mental health support, stress
+management, body image</li>
+<li><strong>Trainers</strong> (7): Workout modifications, form checks,
+exercise progressions</li>
+<li><strong>Doctors</strong> (6): Medical consultations, health
+condition management</li>
+<li><strong>Physical Education Experts</strong> (4): Movement therapy,
+exercise science</li>
+<li><strong>Educators</strong> (3): Health information, lifestyle
+guidance</li>
+<li><strong>Motivators</strong> (1): Emotional support, goal setting,
+accountability</li>
+</ul>
+<h3 id="anonymity-system-brand-protection">Anonymity System (Brand
+Protection)</h3>
+<ul>
+<li><strong>All team members appear as “Fitness Anny”</strong> to
+users</li>
+<li>Users <strong>never see individual names</strong> or request
+specific people</li>
+<li>Maintains unified brand identity and professional standards</li>
+</ul>
+<hr />
+<h2 id="critical-operational-bottlenecks">Critical Operational
+Bottlenecks</h2>
+<h3 id="manual-order-assignment-crisis">1. Manual Order Assignment
+Crisis</h3>
+<p><strong>Current Process</strong>: 3 real admins manually assign 50-80
+expert orders daily</p>
+<p><strong>Bottleneck Impact</strong>: - Peak hour delays (7-10pm)
+create user frustration - Admin cognitive overload during high-volume
+periods - Inconsistent assignment criteria - No automated load balancing
+across 54 experts - Complex specialization matching decisions</p>
+<p><strong>Scale Problem</strong>: <strong>3 people managing order
+distribution for 54 experts</strong></p>
+<h3 id="unsustainable-quality-control-review">2. Unsustainable Quality
+Control Review</h3>
+<p><strong>Current Process</strong>: Real admins manually review
+<strong>ALL daily chat conversations</strong></p>
+<p><strong>Scale Problem</strong>: - <strong>80 team members</strong>
+producing hundreds of conversations daily - 3 admins reviewing work of
+80 people = <strong>massive bottleneck</strong> - Time-intensive manual
+process - Inconsistent quality standards - Delayed feedback to team
+members</p>
+<h3 id="team-efficiency-management">3. Team Efficiency Management</h3>
+<p><strong>Current Challenge</strong>: Maximize productivity across 80
+people while maintaining user satisfaction</p>
+<p><strong>Complexity Factors</strong>: - 26 agents with varied
+experience levels - 54 experts across 7 different specializations -
+Uneven workload distribution (Nutritionists and Psychologists handle
+majority) - Performance tracking and training coordination</p>
+<hr />
+<h2 id="additional-admin-panel-features">Additional Admin Panel
+Features</h2>
+<h3 id="content-management-admin-only-access">Content Management
+(Admin-Only Access)</h3>
+<h4 id="live-event-scheduling-management">Live Event Scheduling &amp;
+Management</h4>
+<ul>
+<li><strong>Event Creation</strong>: Schedule live workout sessions,
+webinars, Q&amp;A sessions</li>
+<li><strong>Trainer Assignment</strong>: Assign trainers to lead events
+(users still see “Fitness Anny”)</li>
+<li><strong>Capacity Management</strong>: Set limits and manage
+registrations</li>
+<li><strong>Real-time Monitoring</strong>: Track attendance and
+engagement</li>
+</ul>
+<h4 id="video-content-management-vimeo-integration">Video Content
+Management (Vimeo Integration)</h4>
+<ul>
+<li><strong>Upload Interface</strong>: Direct Vimeo integration for
+video hosting</li>
+<li><strong>Content Organization</strong>: Categorize by workout type,
+difficulty, specialization</li>
+<li><strong>Content Scheduling</strong>: Manage release calendar</li>
+<li><strong>Quality Control</strong>: Preview and approve before
+publication</li>
+</ul>
+<h3 id="user-management-payment-administration">User Management &amp;
+Payment Administration</h3>
+<h4 id="user-management-tab">User Management Tab</h4>
+<p><strong>Comprehensive Database Interface</strong>: - Complete user
+profiles and subscription status - Payment method tracking (app vs web
+purchases) - Progress photo management - Health information and
+consultation history - Usage analytics and engagement tracking</p>
+<h4 id="payments-tab-separated-for-troubleshooting">Payments Tab
+(Separated for Troubleshooting)</h4>
+<p><strong>Dedicated Payment Resolution</strong>: - Complete transaction
+history per user - Duplicate payment detection and resolution - Access
+issue troubleshooting (“paid but no access” scenarios) - Platform
+payment conflict resolution (app store vs web)</p>
+<p><strong>Common Admin Scenarios</strong>: - “I paid but don’t have
+access” → Cross-reference payment with account status - “Payment went
+through twice” → Identify duplicates and process refunds - Subscription
+troubleshooting and billing dispute management</p>
+<hr />
+<h2 id="technical-architecture-context">Technical Architecture
+Context</h2>
+<h3 id="current-system-limitations">Current System Limitations</h3>
+<ul>
+<li><strong>Legacy admin panel</strong> not built for current 80-person
+scale</li>
+<li><strong>Separate systems</strong> for chat, billing, user data,
+content management</li>
+<li><strong>Manual processes</strong> that don’t scale with team
+growth</li>
+<li><strong>Peak hour performance issues</strong> during 7-10pm user
+demand</li>
+</ul>
+<h3 id="external-dependencies">External Dependencies</h3>
+<ul>
+<li><strong>ejabberd</strong> (chat system) - separate login and
+interface</li>
+<li><strong>Vimeo</strong> integration for video hosting</li>
+<li><strong>Multiple payment systems</strong> (app store vs web)
+creating complexity</li>
+</ul>
+<hr />
+<h2 id="key-performance-metrics-targets">Key Performance Metrics &amp;
+Targets</h2>
+<h3 id="current-performance-benchmarks">Current Performance
+Benchmarks</h3>
+<p><strong>Response Times</strong>: - Chat agents average: 3.2 minutes
+(target: &lt;2 minutes) - Peak hour average: 5.8 minutes (major issue) -
+Expert consultation assignment: 2.3 minutes to find available expert</p>
+<p><strong>Productivity Metrics</strong>: - Conversations per agent per
+hour: 8 average (target: 12) - Expert utilization: 72% (target: 80%) -
+Order assignment efficiency: Manual bottleneck</p>
+<h3 id="business-impact-metrics">Business Impact Metrics</h3>
+<ul>
+<li><strong>Customer satisfaction</strong>: 4.6/5 (target: 4.7/5)</li>
+<li><strong>First-contact resolution</strong>: 85% (target: 90%)</li>
+<li><strong>Expert escalation rate</strong>: 18% (target: 15%)</li>
+</ul>
+<hr />
+<h2 id="automation-opportunities-project-scope">Automation Opportunities
+&amp; Project Scope</h2>
+<h3 id="high-impact-automation-targets">High-Impact Automation
+Targets</h3>
+<h4 id="smart-order-assignment-system">1. Smart Order Assignment
+System</h4>
+<p><strong>Current</strong>: 3 admins manually assign orders<br />
+<strong>Opportunity</strong>: Automated routing based on: - Expert
+availability and current workload - Specialization matching - User
+history and preferences - Performance optimization algorithms</p>
+<h4 id="ai-powered-quality-control">2. AI-Powered Quality Control</h4>
+<p><strong>Current</strong>: Manual review of all conversations<br />
+<strong>Opportunity</strong>: - Automated conversation analysis for tone
+and accuracy - Flagging system for conversations requiring human review
+- Real-time quality scoring and feedback - Template compliance
+checking</p>
+<h4 id="performance-analytics-dashboard">3. Performance Analytics
+Dashboard</h4>
+<p><strong>Current</strong>: Manual tracking and reporting<br />
+<strong>Opportunity</strong>: - Real-time productivity dashboards -
+Automated performance coaching - Workload balancing insights -
+Predictive capacity planning</p>
+<h3 id="expected-business-impact">Expected Business Impact</h3>
+<ul>
+<li><strong>20% improvement in expert assignment speed</strong></li>
+<li><strong>30% reduction in admin manual work</strong></li>
+<li><strong>15% increase in agent productivity</strong></li>
+<li><strong>Support for 25,000+ users without proportional team
+growth</strong></li>
+</ul>
+<hr />
+<h2 id="project-considerations-challenges">Project Considerations &amp;
+Challenges</h2>
+<h3 id="technical-complexity">Technical Complexity</h3>
+<ul>
+<li><strong>Integration complexity</strong> with existing chat, billing,
+and user systems</li>
+<li><strong>Scale requirements</strong> for 80 concurrent users and
+15,000+ customers</li>
+<li><strong>Real-time performance</strong> needs during peak hours</li>
+<li><strong>Data consistency</strong> across multiple integrated
+systems</li>
+</ul>
+<h3 id="operational-continuity">Operational Continuity</h3>
+<ul>
+<li><strong>Zero downtime requirement</strong> - system operates 14
+hours daily, 6 days/week</li>
+<li><strong>Training coordination</strong> for 80 team members on new
+systems</li>
+<li><strong>Quality maintenance</strong> during transition period</li>
+<li><strong>Performance metrics continuity</strong> throughout
+implementation</li>
+</ul>
+<h3 id="stakeholder-management">Stakeholder Management</h3>
+<ul>
+<li><strong>3 real admins</strong> are primary system power users</li>
+<li><strong>26 chat agents</strong> need efficient workflow tools</li>
+<li><strong>54 experts</strong> require specialized interfaces</li>
+<li><strong>15,000+ users</strong> expect consistent service
+quality</li>
+</ul>
+<hr />
+<h2 id="success-criteria-expected-outcomes">Success Criteria &amp;
+Expected Outcomes</h2>
+<h3 id="operational-efficiency-goals">Operational Efficiency Goals</h3>
+<ul>
+<li><strong>Reduce manual order assignment time</strong> by 50%</li>
+<li><strong>Automate 70% of quality control reviews</strong></li>
+<li><strong>Increase team productivity</strong> by 15% overall</li>
+<li><strong>Support 25,000 users</strong> with minimal team
+expansion</li>
+</ul>
+<h3 id="technical-performance-targets">Technical Performance
+Targets</h3>
+<ul>
+<li><strong>Sub-2-minute average response times</strong> across all peak
+hours</li>
+<li><strong>Real-time order assignment</strong> with automated expert
+matching</li>
+<li><strong>Unified dashboard experience</strong> for all admin panel
+users</li>
+<li><strong>95% system uptime</strong> during operational hours</li>
+</ul>
+<h3 id="business-impact-measures">Business Impact Measures</h3>
+<ul>
+<li><strong>Customer satisfaction improvement</strong> to 4.7+/5</li>
+<li><strong>Expert utilization optimization</strong> to 80%+</li>
+<li><strong>Scalable operations</strong> supporting business growth
+targets</li>
+<li><strong>Competitive advantage preservation</strong> through
+operational excellence</li>
+</ul>
+<hr />
+<h2 id="next-steps-recommendations">Next Steps &amp;
+Recommendations</h2>
+<h3 id="immediate-project-priorities">Immediate Project Priorities</h3>
+<ol type="1">
+<li><strong>Deep-dive technical assessment</strong> of current admin
+panel architecture</li>
+<li><strong>Detailed workflow mapping</strong> with the 3 real
+admins</li>
+<li><strong>Integration requirements analysis</strong> for chat,
+billing, and user systems</li>
+<li><strong>Performance bottleneck identification</strong> during peak
+operational hours</li>
+</ol>
+<h3 id="stakeholder-engagement-strategy">Stakeholder Engagement
+Strategy</h3>
+<ol type="1">
+<li><strong>Real Admins Workshop</strong>: Map current workflows and
+pain points</li>
+<li><strong>Agent/Expert Interviews</strong>: Understand daily
+operational challenges</li>
+<li><strong>Technical Architecture Review</strong>: Assess integration
+complexity</li>
+<li><strong>Phased Implementation Planning</strong>: Minimize
+operational disruption</li>
+</ol>
+<h3 id="project-timeline-considerations">Project Timeline
+Considerations</h3>
+<ul>
+<li><strong>Current system must remain operational</strong> throughout
+implementation</li>
+<li><strong>Peak hour performance</strong> cannot be compromised during
+development</li>
+<li><strong>Training and adoption</strong> coordination across 80 team
+members</li>
+<li><strong>Quality standards maintenance</strong> during system
+transition</li>
+</ul>
+<hr />
+<p><strong>Document Owner</strong>: Product Manager<br />
+<strong>Technical Lead</strong>: [To be assigned]<br />
+<strong>Stakeholder Review</strong>: Real Admins + Operations Team<br />
+<strong>Next Update</strong>: Weekly during active development</p>
+<hr />
+<p><em>This document provides foundational understanding for project
+planning. Additional technical specifications and detailed requirements
+gathering will be conducted during project kickoff phase.</em></p>
+</body>
+</html>

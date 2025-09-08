@@ -2,18 +2,191 @@
 
 ## Internal User Overview
 
-### Total Internal Team: 30 Active Users
+### Total Internal Team: 80 Active Users
 **Core Team Distribution**:
-- **Chat Agents**: 15 users (50% of team)
-- **Expert Professionals**: 12 users (40% of team)
-- **Management & Admin**: 3 users (10% of team)
+- **Chat Agents**: 26 users (33% of team) - Limited admin panel access
+- **Expert Professionals**: 54 users (67% of team) - Limited admin panel access
+  - **Nutritionists**: 15 specialists
+  - **Psychologists**: 18 specialists  
+  - **Trainers**: 7 specialists
+  - **Physical Education Experts**: 4 specialists
+  - **Doctors**: 6 medical professionals
+  - **Educators**: 3 specialists
+  - **Motivators**: 1 specialist
+- **Real Admins**: 3 users (4% of team) - **Full admin panel control**
+
+### Critical Admin Panel Architecture: 3-Tier Access System
+
+#### Tier 1: Real Admins (3 users) - Full Control
+**Complete System Access**:
+- **Order Assignment Authority**: Only real admins can assign expert consultation orders to specific experts
+- **Full User Management**: Complete access to all user data, billing, health records, chat history
+- **Expert Management**: Can modify expert schedules, capacity, specializations, and availability
+- **System Administration**: Database access, user permissions, system configurations
+- **Financial Controls**: Billing adjustments, subscription management, payment issues
+- **Content Oversight**: Approve expert content, meal plans, workout modifications
+
+**Daily Responsibilities**:
+- **Order Queue Management**: Review and assign 50-80 expert consultation orders daily
+- **Escalation Handling**: Resolve complex issues that chat agents/experts cannot handle
+- **Quality Assurance**: Monitor expert performance and customer satisfaction
+- **Capacity Planning**: Balance expert workloads and optimize assignment efficiency
+- **End-of-Day Quality Control**: **Manually review ALL chat conversations** for accuracy, tone, and compliance
+- **Live Event Management**: **Admin-only access** - Create, schedule, and manage live workout sessions and events
+- **Content Management**: **Admin-only access** - Upload and organize video content via Vimeo integration
+- **Performance Analytics**: Track expert efficiency, user satisfaction, and operational bottlenecks
+
+#### Tier 2: Chat Agents (15 users) - Limited Access + Anonymous Identity
+**Anonymous User Interface**:
+- **Always appear as "Fitness Anny"** to users - never reveal individual agent names
+- Users cannot request specific agents or know who they're talking to
+- Maintain consistent brand voice and professional anonymity
+- All communication appears to come from unified "Fitness Anny" support
+
+**Restricted Panel Access**:
+- Can view customer basic information (subscription status, contact details)
+- Can access chat history and basic conversation management
+- **Cannot assign expert orders** - must escalate to real admins
+- Can update simple profile information but not health/medical data
+- Can process basic billing inquiries but not make changes
+
+**Quality Control Subject**:
+- **All chat conversations reviewed daily** by real admins for quality assurance
+- Performance monitored on response accuracy, tone, and brand consistency
+- Must follow approved response templates and escalation protocols
+
+#### Tier 3: Expert Professionals (12 users) - Task-Specific Access + Anonymous Identity
+**Anonymous Expert Identity**:
+- **Always appear as "Fitness Anny [Expert Type]"** (e.g., "Fitness Anny Nutritionist")
+- Users never know specific expert names or can request particular experts
+- Maintain professional anonymity while providing specialized advice
+- All expertise appears to come from unified "Fitness Anny" brand
+
+**Specialized Panel Views**:
+- Can only see **assigned orders** and their specific customers
+- Access to relevant customer health/fitness data for their specialization
+- Can update consultation outcomes and create content for assigned users
+- **Cannot see order queue** or assign orders to themselves or others
+- Limited to their specific domain (nutrition, training, medical, etc.)
+
+**Performance Optimization Focus**:
+- **Goal**: Solve as many orders as possible while maintaining efficiency and user satisfaction
+- **Key Metrics**: Order completion rate, user satisfaction scores, response accuracy
+- **Quality Control**: All expert advice reviewed daily by real admins
+- **Efficiency Pressure**: Balance between speed and quality in consultations
+
+### Expert Order Assignment Workflow (Admin Panel Core Function)
+
+#### Order Intake Process
+**Mobile App to Admin Pipeline**:
+1. **User submits expert consultation request** via mobile app (cannot select specific expert)
+2. **Order appears in admin panel queue** with user context, request type, urgency level
+3. **Real admin reviews order** considering:
+   - Expert availability and current workload
+   - Specialization match (nutritionist for meal planning, doctor for medical issues)
+   - User's health conditions and past consultation history  
+   - Expert language preferences and cultural fit
+   - Time zone considerations for diaspora users
+
+#### Assignment Decision Factors
+**Expert Capacity Management**:
+- Current workload (number of active consultations)
+- Scheduled availability (live sessions, content creation time)
+- Specialization depth (pregnancy expert vs general nutritionist)
+- User preference indicators (repeat customers, satisfaction scores)
+
+**Order Priority Assessment**:
+- **Urgent Medical**: Pregnancy concerns, health condition questions (priority assignment)
+- **Standard Consultation**: Meal planning, workout modifications (normal queue)
+- **General Support**: Motivation, general questions (flexible timing)
+
+### Content Management System
+
+#### Live Event Scheduling & Management (Admin-Only Access)
+**Real Admin Exclusive Features**:
+- **Event Scheduling**: Create and schedule live workout sessions, webinars, Q&A sessions
+- **Trainer Assignment**: Assign specific trainers to lead live events (internal assignment, users still see "Fitness Anny")
+- **Capacity Management**: Set participant limits and manage registrations
+- **Event Notifications**: Automated user notifications for upcoming live sessions
+- **Real-time Management**: Monitor live event attendance and engagement during sessions
+
+**Access Restriction**: Chat agents and experts cannot create, modify, or manage live events
+
+#### Video Content Management (Admin-Only Access)
+**Real Admin Exclusive Vimeo Integration**:
+- **Video Upload Interface**: Direct integration with Vimeo for video hosting and management
+- **Content Organization**: Categorize videos by workout type, difficulty level, expert specialization
+- **Vimeo Link Management**: Automated linking between admin panel and Vimeo video library
+- **Content Scheduling**: Schedule video releases and manage content calendar
+- **Quality Control**: Preview and approve all video content before user publication
+
+**Access Restriction**: Only real admins can upload, organize, or modify video content
+
+**Content Types Managed**:
+- **Workout Videos**: Exercise routines, form demonstrations, specialized programs
+- **Educational Content**: Health information, nutrition guidance, lifestyle tips
+- **Live Session Recordings**: Archived live events for on-demand viewing
+- **Expert Consultations**: Pre-recorded consultation templates and guidance videos
+
+### User Management & Payment Administration System
+
+#### User Management Tab (Admin-Only Access)
+**Comprehensive User Database Interface**:
+- **Complete User Profiles**: Full access to all user information and account details
+- **Subscription Status Tracking**: Active/inactive subscriptions, subscription tier levels
+- **Subscription Type Management**: Basic, Premium, Premium Plus tier information
+- **Payment Method Tracking**: How users paid (mobile app purchase, web payment)
+- **Progress Photo Management**: Access to user progress photos and timeline
+- **Health Information**: Medical conditions, fitness goals, consultation history
+- **Usage Analytics**: App engagement, workout completion, expert consultation frequency
+- **Account History**: Registration date, subscription changes, support ticket history
+
+**User Search & Filtering**:
+- **Quick Search**: Find users by name, email, phone, or subscription ID
+- **Advanced Filters**: Filter by subscription type, payment status, engagement level
+- **Bulk Operations**: Manage multiple user accounts simultaneously
+- **Export Capabilities**: Generate user data reports for analysis
+
+#### Payments Tab (Admin-Only Access - Separated for Payment Issue Resolution)
+**Dedicated Payment Troubleshooting Interface**:
+- **Payment Transaction History**: Complete transaction log for each user
+- **Payment Method Details**: Credit card, app store, web payment information
+- **Payment Status Tracking**: Successful, failed, pending, refunded transactions
+- **Duplicate Payment Detection**: Identify and resolve double-charge issues
+- **Access Issue Resolution**: Match payments to user accounts when access problems occur
+- **Billing Dispute Management**: Handle subscription and payment complaints
+
+**Common Payment Issue Scenarios**:
+- **"I paid but don't have access"**: Cross-reference payment tab with user account status
+- **"Payment went through twice"**: Identify duplicate transactions and process refunds
+- **"Subscription not working"**: Verify payment processing and account activation
+- **Platform Payment Mismatches**: Resolve app store vs web payment conflicts
+
+**Payment Analytics & Reporting**:
+- **Revenue Tracking**: Daily, weekly, monthly payment summaries
+- **Failed Payment Analysis**: Identify and resolve payment processing issues
+- **Subscription Conversion Tracking**: Monitor free trial to paid conversions
+- **Churn Analysis**: Track cancellations and payment-related user loss
+
+#### Admin Panel Order Management Interface Requirements
+**Order Queue Dashboard**:
+- Real-time order intake with user context preview
+- Expert availability matrix with capacity indicators
+- One-click assignment with automatic notification to expert and user
+- Order tracking from submission to completion
+- Performance analytics for assignment efficiency
 
 **Operational Schedule**: 8am-10pm Mon-Sat (14 hours daily coverage)
 **Peak Demand**: 6-8am, 7-10pm (overlaps with user workout times)
+**Critical Bottlenecks**: 
+- **Manual Order Assignment**: 3 real admins must manually assign 50-80 expert orders daily among 54 available experts during peak hours
+- **End-of-Day Quality Review**: Manual review of ALL daily chat conversations from 80 team members for quality control
+- **Team Efficiency Optimization**: Need to maximize productivity across 26 agents + 54 experts while maintaining user satisfaction
+- **Expert Specialization Management**: Complex assignment decisions across 7 different expert types with varying capacities
 
 ## Primary User Personas
 
-### Persona 1: Marija - Chat Agent (Lead Support Agent, 50% of admin users)
+### Persona 1: Marija - Chat Agent (Lead Support Agent, 33% of admin users - 26 total agents)
 
 #### Demographics & Background
 **Profile**: 28 years old, University graduate in Communications, 2 years with company
@@ -76,7 +249,7 @@
 - **Expert Coordination**: Clear visibility into specialist availability and expertise
 - **Mobile Access**: Handle urgent issues when not at primary workstation
 
-### Persona 2: Dr. Ana - Medical Expert (Nutritionist/Doctor, 25% of admin users)
+### Persona 2: Dr. Ana - Medical Expert (Nutritionist/Doctor, representative of 67% expert users - 54 total experts)
 
 #### Demographics & Background
 **Profile**: 34 years old, MD with nutrition specialization, 3 years consulting for platform
@@ -139,7 +312,7 @@
 - **Efficient Content Creation**: Streamlined meal planning and medical content tools
 - **Mobile Optimization**: Ability to handle urgent issues from iPad/mobile
 
-### Persona 3: Stefan - Fitness Trainer (Expert Professional, 25% of admin users)
+### Persona 3: Stefan - Fitness Trainer (Expert Professional, part of 54 total expert professionals)
 
 #### Demographics & Background
 **Profile**: 26 years old, Certified Personal Trainer and Kinesiologist, 1.5 years with platform
@@ -271,17 +444,66 @@
 - Medical questions: 4.5 minutes average (complexity factor)
 
 #### Productivity Metrics
-**Chat Agent Efficiency**:
+**Chat Agent Efficiency** (26 Agents):
 - Conversations per hour: 8 average (target: 12)
 - First-contact resolution: 85% (target: 90%)
 - Customer satisfaction: 4.6/5 (target: 4.7/5)
 - Expert escalation rate: 18% (target: 15%)
+- **Scale Challenge**: Managing consistency across 26 agents with varied experience levels
 
-**Expert Utilization**:
+**Expert Utilization** (Across 54 Specialists):
 - Available hours utilization: 72% (target: 80%)
 - Consultation completion rate: 94% (meeting target)
 - Cross-expert collaboration frequency: 23% of cases
 - Content creation efficiency: 2.3 items/week (target: 3/week)
+- **Expert Load Balancing Challenge**: Uneven distribution among 54 experts
+- **Specialization Utilization**: Nutritionists (15) and Psychologists (18) handle majority of orders
+
+### Major Operational Challenges & Automation Opportunities
+
+#### Challenge 1: Manual Order Assignment System
+**Current Process**: 3 real admins manually review and assign 50-80 expert consultation orders daily
+**Bottleneck Impact**:
+- Peak hour delays (7-10pm) create user frustration waiting for expert assignment
+- Admin cognitive overload during high-volume periods
+- Inconsistent assignment criteria based on admin availability and decision-making
+- No automated load balancing or expert capacity optimization
+
+**Automation Opportunities**:
+- Smart order routing based on expert availability and specialization
+- Automated capacity balancing to distribute workload evenly
+- Priority queue management with rule-based assignment logic
+- Real-time expert status tracking for immediate assignment capability
+
+#### Challenge 2: Manual Quality Control Review
+**Current Process**: Real admins manually review ALL daily chat conversations for quality assurance
+**Scale Problem**: 
+- 26 agents + 54 experts = **massive conversation volume daily**
+- 80 team members producing hundreds of conversations requiring review
+- Time-intensive manual review process becoming unsustainable at this scale
+- Inconsistent quality standards across different admin reviewers
+- Delayed feedback to agents/experts about performance issues
+- **Quality review bottleneck**: 3 admins reviewing work of 80 team members
+
+**Automation Opportunities**:
+- AI-powered conversation analysis for tone, accuracy, and compliance
+- Automated flagging of conversations requiring human review
+- Real-time quality scoring and feedback systems
+- Template compliance checking and suggestion systems
+
+#### Challenge 3: Agent Efficiency Optimization
+**Current Goal**: Maximize orders solved per agent while maintaining efficiency and user happiness
+**Efficiency Blockers**:
+- No real-time performance analytics for agents/experts
+- Manual tracking of user satisfaction and response quality
+- Limited tools for agents to handle common queries efficiently
+- No automated escalation or decision support systems
+
+**Optimization Opportunities**:
+- Real-time productivity dashboards for agents and experts
+- Automated response suggestion systems for common queries
+- Smart escalation triggers based on conversation complexity
+- Performance gamification and optimization coaching
 
 ### Efficiency Pain Points Impact Analysis
 
@@ -297,11 +519,13 @@
 - Impact: 25 minutes lost per agent per day
 - Solution value: 12% efficiency improvement
 
-**Expert Coordination Delays**:
-- Time to find available expert: 2.3 minutes
+**Expert Coordination Delays** (Amplified with 54 Experts):
+- Time to find available expert among 54 specialists: 2.3 minutes average
+- Complex specialization matching across 7 expert types
 - Handoff documentation time: 1.8 minutes
-- Impact: Delayed response times, lower satisfaction
-- Solution value: 20% faster expert consultations
+- Expert availability tracking complexity with large team
+- Impact: Delayed response times, lower satisfaction, assignment errors
+- Solution value: 20% faster expert consultations across much larger expert pool
 
 #### User Satisfaction Correlation
 **High-Performing Agent Characteristics**:

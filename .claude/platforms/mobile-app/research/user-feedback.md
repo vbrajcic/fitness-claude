@@ -97,6 +97,65 @@
 
 ## Critical Feedback & Pain Points
 
+### Recently Reported Critical Bugs & Issues
+
+---
+### Bug Report
+**Bug ID**: BUG-MOBILE-2025090801
+**Date Reported**: 2025-09-08
+**Platform**: Mobile App (Android primarily)
+**Category**: Communication/Chat
+
+**Issue Description**: 
+Chat functionality is failing across the mobile app, affecting both group chat messages and direct messages to agents/experts. Users are unable to send or receive messages, which is severely impacting the core value proposition of human expert support that differentiates Fitness Anny from competitors.
+
+**Steps to Reproduce**: 
+1. Open Mobile App on Android device
+2. Navigate to Expert Chat section
+3. Attempt to send message to agent/expert
+4. Message fails to send or gets stuck in "sending" state
+5. Also affects group chat functionality within the app
+
+**Expected vs Actual Behavior**: 
+- Expected: Messages should send instantly to experts/agents and group chats, maintaining the 24/7 human support experience
+- Actual: Messages fail to send, appear stuck in sending state, or disappear entirely, leaving users without access to core expert support
+
+**User/Reporter Info**: 
+- Approximately 50 users affected based on support reports
+- Issue reported primarily by Android users during peak hours
+- User quote: "I can't reach my nutritionist when I need help with my meal plan"
+- User quote: "The group chat isn't working and I can't get motivation from other moms"
+- Pattern appears to affect both new and existing users
+
+**Impact Assessment**: 
+- **Business Impact**: CRITICAL - Chat functionality is core differentiator vs competitors
+- **User Experience**: HIGH - Users cannot access primary value proposition (human expert support)
+- **Revenue Risk**: HIGH - 50+ affected users at risk of churn if unresolved quickly
+- **Reputation Impact**: HIGH - Expert chat is most praised feature (87% positive mentions)
+
+**Technical Details**: 
+- Platform: Mobile App (Android primarily affected)
+- App Version: [Current version - to be confirmed]
+- Device Types: Multiple Android devices reported
+- Error Messages: [To be collected from affected users]
+- Network Conditions: Affects users on both WiFi and mobile data
+
+**Business Priority**: P1-High
+**Justification**: 
+- Affects core business differentiator (24/7 expert human support)
+- 50+ users impacted represents significant revenue risk
+- Expert chat is top-rated feature (87% positive mentions) - failure undermines competitive advantage
+- Could lead to immediate churn if users cannot access paid expert services
+
+**Assignment & Tracking**: 
+- Suggested Owner: Mobile Development Team + Backend Team (chat infrastructure)
+- Urgency: Immediate investigation required
+- Target Resolution: Within 24-48 hours given P1 classification
+- Dependencies: May require backend chat service (ejabberd) investigation
+- Monitoring: Track affected user count and implement real-time chat service monitoring
+
+---
+
 ### Top User Complaints (Ranked by Frequency)
 
 #### 1. App Performance Issues (43% of complaints)

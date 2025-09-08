@@ -23,7 +23,7 @@
 - Peak times: 6-7am (before kids) or 9-10pm (after bedtime)
 - Session length: 20-45 minutes max (interrupted by kids)
 - Download preference: WiFi-only for large videos
-- Features used: Home workouts (95%), meal planning (80%), progress photos (60%), expert chat (70%)
+- Features used: Home workouts (95%), meal planning (80%), progress photos (60%), expert chat orders (70%)
 - Navigation style: Prefers large buttons, simple menus, back button reliance
 
 **Android-Specific Behaviors**:
@@ -54,7 +54,7 @@
 - Peak times: Variable due to shift work, often 10pm-12am
 - Session length: 15-60 minutes depending on shift schedule
 - Download preference: Auto-download on WiFi for offline use
-- Features used: Flexible scheduling (90%), cultural recipes (85%), Croatian expert chat (95%), Apple Watch sync (40%)
+- Features used: Flexible scheduling (90%), cultural recipes (85%), Croatian expert consultation orders (95%), Apple Watch sync (40%)
 - Navigation style: Comfortable with gestures, uses search heavily
 
 **iOS-Specific Behaviors**:
@@ -85,7 +85,7 @@
 - Peak times: Morning routine (8-10am) or afternoon (2-4pm)
 - Session length: 20-40 minutes, prefers consistency over intensity
 - Download preference: Manual downloads, careful about storage space
-- Features used: Gentle workouts (95%), health education (90%), doctor consultations (75%), progress tracking (50%)
+- Features used: Gentle workouts (95%), health education (90%), medical expert orders (75%), progress tracking (50%)
 - Navigation style: Methodical, reads instructions carefully, uses help frequently
 
 **Android-Specific Behaviors**:
@@ -116,7 +116,7 @@
 - Peak times: 6-7am (pre-work) or lunch break (12-1pm)
 - Session length: 30-60 minutes, high-intensity focus
 - Download preference: Auto-sync everything, unlimited storage mentality
-- Features used: Advanced workouts (100%), detailed analytics (95%), challenges (90%), Apple Watch (80%)
+- Features used: Advanced workouts (100%), detailed analytics (95%), challenges (90%), expert consultation orders (85%), Apple Watch (80%)
 - Navigation style: Expects intuitive gestures, uses shortcuts, customizes interface
 
 **iOS-Specific Behaviors**:
@@ -171,6 +171,41 @@
 - Apple Watch integration critical for retention
 - App Store review process affects release timing
 - Higher user expectations for polish and performance
+
+## Expert Consultation Order System
+
+### How Expert Consultations Work (Critical Mobile App Feature)
+**User Experience Flow**:
+1. **Order Creation**: User selects expert type (nutritionist, trainer, motivator, educator, psychologist, doctor) but cannot choose specific expert by name
+2. **Order Submission**: Request becomes an "order" that goes into admin panel queue
+3. **Admin Assignment**: 3 real admins review all incoming orders and assign them to available experts based on:
+   - Expert capacity and current workload
+   - Specialist availability and schedule
+   - Expert expertise match for user's specific needs
+   - User's health conditions and consultation history
+4. **Expert Assignment**: Once assigned, user receives notification that their consultation is ready
+5. **Consultation Delivery**: Expert provides personalized advice via chat, video call, or content creation
+
+**Available Expert Types**:
+- **Nutritionist**: Meal planning, dietary advice, cultural food integration
+- **Trainer**: Workout modifications, form checks, exercise progressions  
+- **Psychologist**: Mental health support, stress management, body image
+- **Doctor**: Medical consultations, health condition management, exercise clearance
+- **Physiotherapist**: Injury prevention, rehabilitation, movement therapy
+- **Motivator**: Emotional support, goal setting, accountability coaching
+- **Educator**: Health information, lifestyle guidance, habit formation
+
+**Mobile App UI Implications**:
+- Users see expert **categories**, not individual expert profiles
+- No "choose your expert" interface - system assigns automatically
+- Order status tracking: "Submitted" → "Being Assigned" → "Expert Assigned" → "In Progress" → "Completed"
+- Push notifications for order status updates
+- History shows which expert was assigned after the fact
+
+**Peak Hour Impact**:
+- High order volume (7-9pm) creates admin bottleneck for assignments
+- Users experience delays between order submission and expert assignment
+- Critical that mobile app manages user expectations during assignment delays
 
 ## User Journey Analysis
 
@@ -230,7 +265,7 @@
 - **Home Workouts**: 95% (core value proposition)
 - **Meal Planning**: 70% (Croatian recipe integration)
 - **Progress Photos**: 55% (privacy concerns, storage limits)
-- **Expert Chat**: 65% (peak hour performance issues)
+- **Expert Consultation Orders**: 65% (order assignment delays during peak hours)
 - **Challenges**: 35% (social feature adoption lower)
 - **Download for Offline**: 80% (data usage consciousness)
 
@@ -238,7 +273,7 @@
 - **Home Workouts**: 98% (seamless video streaming)
 - **Meal Planning**: 75% (HealthKit nutrition sync)
 - **Progress Photos**: 70% (iCloud sync, sharing features)
-- **Expert Chat**: 80% (better real-time performance)
+- **Expert Consultation Orders**: 80% (faster order processing and assignment)
 - **Challenges**: 60% (social sharing integration)
 - **Apple Watch Sync**: 45% (among watch owners: 80%)
 
