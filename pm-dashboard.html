@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Anny - Product Management Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f4f5f7;
+            min-height: 100vh;
+            color: #172b4d;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #ffffff;
+            color: #172b4d;
+            padding: 24px 32px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
+            border-left: 4px solid #0052cc;
+        }
+
+        .header h1 {
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #172b4d;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #5e6c84;
+            margin-bottom: 16px;
+        }
+
+        .sync-status {
+            background: #f4f5f7;
+            padding: 8px 12px;
+            border-radius: 3px;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: #5e6c84;
+            border: 1px solid #dfe1e6;
+        }
+
+        .lifecycle-header {
+            text-align: center;
+            margin: 32px 0 24px 0;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
+            border: 1px solid #dfe1e6;
+        }
+
+        .lifecycle-header h2 {
+            color: #172b4d;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .lifecycle-header p {
+            color: #5e6c84;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 3px;
+            padding: 0;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
+            margin-bottom: 24px;
+            border: 1px solid #dfe1e6;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px 24px;
+            border-bottom: 1px solid #dfe1e6;
+            background: #f4f5f7;
+        }
+
+        .section-text {
+            flex: 1;
+            margin-left: 8px;
+        }
+
+        .section-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-right: 8px;
+            color: #5e6c84;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 4px;
+        }
+
+        .section-subtitle {
+            font-size: 0.8rem;
+            color: #5e6c84;
+            font-style: italic;
+            margin-right: auto;
+        }
+
+        .section-count {
+            margin-left: auto;
+            background: #dfe1e6;
+            color: #5e6c84;
+            padding: 2px 8px;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Stage-specific styling */
+        .stage-ideas {
+            border-left: 4px solid #ff8b00;
+        }
+
+        .stage-ideas .section-header {
+            background: #fffae6;
+        }
+
+        .stage-features {
+            border-left: 4px solid #0052cc;
+        }
+
+        .stage-features .section-header {
+            background: #e6f3ff;
+        }
+
+        .stage-backlog {
+            border-left: 4px solid #006644;
+        }
+
+        .stage-backlog .section-header {
+            background: #e3fcef;
+        }
+
+        .stage-bugs {
+            border-left: 4px solid #bf2600;
+        }
+
+        .stage-bugs .section-header {
+            background: #ffebe6;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            justify-content: flex-end;
+        }
+
+        .action-btn {
+            background: #0052cc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn:hover {
+            background: #0747a6;
+        }
+
+        .action-btn.secondary {
+            background: #f4f5f7;
+            color: #172b4d;
+            border: 1px solid #dfe1e6;
+        }
+
+        .action-btn.secondary:hover {
+            background: #ebecf0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 30, 66, 0.54);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 3px;
+            box-shadow: 0 10px 50px rgba(9, 30, 66, 0.15);
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 24px 24px 16px 24px;
+            border-bottom: 1px solid #dfe1e6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #172b4d;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #5e6c84;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #172b4d;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            color: #172b4d;
+            background: white;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #0052cc;
+            box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #dfe1e6;
+        }
+
+        .priority-selector {
+            display: flex;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .priority-option {
+            padding: 6px 12px;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            background: #f4f5f7;
+            color: #5e6c84;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .priority-option.selected {
+            border-color: #0052cc;
+            background: #0052cc;
+            color: white;
+        }
+
+        .priority-option.high {
+            border-color: #bf2600;
+            color: #bf2600;
+        }
+
+        .priority-option.high.selected {
+            background: #bf2600;
+            color: white;
+        }
+
+        .priority-option.medium {
+            border-color: #ff8b00;
+            color: #ff8b00;
+        }
+
+        .priority-option.medium.selected {
+            background: #ff8b00;
+            color: white;
+        }
+
+        .priority-option.low {
+            border-color: #006644;
+            color: #006644;
+        }
+
+        .priority-option.low.selected {
+            background: #006644;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                margin: 20px;
+                width: calc(100% - 40px);
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 32px 24px;
+            color: #5e6c84;
+            font-size: 0.9rem;
+        }
+
+        .spinner {
+            border: 2px solid #dfe1e6;
+            border-top: 2px solid #0052cc;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 12px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .item {
+            padding: 16px 24px;
+            border-bottom: 1px solid #dfe1e6;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item:hover {
+            background: #f4f5f7;
+        }
+
+        .item-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #172b4d;
+            margin-bottom: 4px;
+        }
+
+        .item-description {
+            color: #5e6c84;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .item-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #dfe1e6;
+            color: #5e6c84;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .tag.priority-high { 
+            background: #ffebe6; 
+            color: #bf2600; 
+        }
+        .tag.priority-medium { 
+            background: #fffae6; 
+            color: #ff8b00; 
+        }
+        .tag.priority-low { 
+            background: #e3fcef; 
+            color: #006644; 
+        }
+        .tag.platform-mobile { 
+            background: #eae6ff; 
+            color: #5243aa; 
+        }
+        .tag.platform-admin { 
+            background: #f4f5f7; 
+            color: #172b4d; 
+        }
+        .tag.platform-web { 
+            background: #e6fcff; 
+            color: #0052cc; 
+        }
+
+        .filters {
+            background: #ffffff;
+            padding: 16px 24px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            border: 1px solid #dfe1e6;
+        }
+
+        .filter-btn {
+            background: #f4f5f7;
+            border: 1px solid #dfe1e6;
+            padding: 6px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #5e6c84;
+        }
+
+        .filter-btn.active {
+            background: #0052cc;
+            color: white;
+            border-color: #0052cc;
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: #ebecf0;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 8px 12px;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            color: #172b4d;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #0052cc;
+            box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+        }
+
+        .error {
+            background: #ffebe6;
+            color: #bf2600;
+            padding: 16px 24px;
+            border-radius: 3px;
+            border: 1px solid #ffbdad;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 32px 24px;
+            color: #5e6c84;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            
+            .filter-btn {
+                text-align: center;
+            }
+            
+            .search-box {
+                min-width: auto;
+                margin-top: 8px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .header {
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏋️‍♀️ Fitness Anny</h1>
+            <p>Product Management Dashboard</p>
+            <div class="sync-status" id="syncStatus">
+                <span id="lastSync">Last sync: Loading...</span> | 
+                <span id="repoStatus">Repository: anthropics/claude-code</span>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div style="font-weight: 600; color: #172b4d; margin-right: 12px; font-size: 0.9rem;">Platform:</div>
+            <button class="filter-btn active" data-filter="all">All Platforms</button>
+            <button class="filter-btn" data-filter="mobile">Mobile App</button>
+            <button class="filter-btn" data-filter="admin">Admin Panel</button>
+            <button class="filter-btn" data-filter="web">Website</button>
+            <input type="text" class="search-box" placeholder="Search across all stages..." id="searchBox">
+        </div>
+
+        <div class="lifecycle-header">
+            <h2>Product Development Lifecycle</h2>
+            <p>Track items through different stages of refinement and readiness</p>
+        </div>
+
+        <div class="action-buttons">
+            <button class="action-btn secondary" onclick="openReportModal('idea')">
+                💡 Report Idea
+            </button>
+            <button class="action-btn secondary" onclick="openReportModal('bug')">
+                🐛 Report Bug
+            </button>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Ideas Stage -->
+            <div class="section stage-ideas" id="ideasSection">
+                <div class="section-header">
+                    <div class="section-icon">💡</div>
+                    <div class="section-text">
+                        <div class="section-title">Ideas</div>
+                        <div class="section-subtitle">Raw concepts needing validation</div>
+                    </div>
+                    <div class="section-count" id="ideasCount">-</div>
+                </div>
+                <div id="ideaItems" class="loading">
+                    <div class="spinner"></div>
+                    <div>Loading ideas...</div>
+                </div>
+            </div>
+
+            <!-- Features Stage -->
+            <div class="section stage-features" id="featuresSection">
+                <div class="section-header">
+                    <div class="section-icon">⚡</div>
+                    <div class="section-text">
+                        <div class="section-title">Features</div>
+                        <div class="section-subtitle">Approved concepts being refined</div>
+                    </div>
+                    <div class="section-count" id="featuresCount">-</div>
+                </div>
+                <div id="featureItems" class="loading">
+                    <div class="spinner"></div>
+                    <div>Loading features...</div>
+                </div>
+            </div>
+
+            <!-- Ready Backlog Stage -->
+            <div class="section stage-backlog" id="backlogSection">
+                <div class="section-header">
+                    <div class="section-icon">📋</div>
+                    <div class="section-text">
+                        <div class="section-title">Ready Backlog</div>
+                        <div class="section-subtitle">Refined & ready for development</div>
+                    </div>
+                    <div class="section-count" id="backlogCount">-</div>
+                </div>
+                <div id="backlogItems" class="loading">
+                    <div class="spinner"></div>
+                    <div>Loading backlog...</div>
+                </div>
+            </div>
+
+            <!-- Bugs Section -->
+            <div class="section stage-bugs" id="bugsSection">
+                <div class="section-header">
+                    <div class="section-icon">🐛</div>
+                    <div class="section-text">
+                        <div class="section-title">Bugs & Issues</div>
+                        <div class="section-subtitle">Problems requiring investigation</div>
+                    </div>
+                    <div class="section-count" id="bugsCount">-</div>
+                </div>
+                <div id="bugItems" class="loading">
+                    <div class="spinner"></div>
+                    <div>Loading bugs...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class PMDashboard {
+            constructor() {
+                this.repoOwner = 'vbrajcic'; // Update with your GitHub username
+                this.repoName = 'fitness-claude'; // Update with your repo name
+                this.branch = 'main';
+                this.apiBase = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}`;
+                this.rawBase = `https://raw.githubusercontent.com/${this.repoOwner}/${this.repoName}/${this.branch}`;
+                
+                this.allItems = [];
+                this.filteredItems = [];
+                this.currentFilter = 'all';
+                
+                this.init();
+            }
+
+            async init() {
+                this.setupEventListeners();
+                await this.loadData();
+                this.updateSyncStatus();
+                
+                // Auto-refresh every 5 minutes
+                setInterval(() => this.loadData(), 5 * 60 * 1000);
+            }
+
+            setupEventListeners() {
+                // Filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        this.currentFilter = e.target.dataset.filter;
+                        this.filterAndDisplayItems();
+                    });
+                });
+
+                // Search box
+                document.getElementById('searchBox').addEventListener('input', (e) => {
+                    this.filterAndDisplayItems(e.target.value);
+                });
+            }
+
+            async loadData() {
+                try {
+                    this.updateSyncStatus('Syncing with GitHub...');
+                    
+                    // Load different types of content
+                    const [backlog, bugs, ideas, features] = await Promise.all([
+                        this.loadBacklogItems(),
+                        this.loadBugItems(),
+                        this.loadIdeaItems(),
+                        this.loadFeatureItems()
+                    ]);
+
+                    this.allItems = [...backlog, ...bugs, ...ideas, ...features];
+                    this.filterAndDisplayItems();
+                    
+                    this.updateSyncStatus('✅ Synced successfully');
+                    
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                    this.showError('Failed to load data from GitHub. Please check the repository configuration.');
+                    this.updateSyncStatus('❌ Sync failed');
+                }
+            }
+
+            async loadBacklogItems() {
+                const items = [];
+                
+                try {
+                    // Load mobile app backlog
+                    const mobileBacklog = await this.fetchMarkdownContent('.claude/platforms/mobile-app/features/backlog.md');
+                    if (mobileBacklog) {
+                        items.push(...this.parseMarkdownItems(mobileBacklog, 'backlog', 'mobile'));
+                    }
+
+                    // Load admin panel backlog (if exists)
+                    const adminBacklog = await this.fetchMarkdownContent('.claude/platforms/admin-panel/features/backlog.md');
+                    if (adminBacklog) {
+                        items.push(...this.parseMarkdownItems(adminBacklog, 'backlog', 'admin'));
+                    }
+
+                } catch (error) {
+                    console.warn('Error loading backlog items:', error);
+                }
+                
+                return items;
+            }
+
+            async loadBugItems() {
+                const items = [];
+                
+                try {
+                    // Check for bug reports in various locations
+                    const bugFiles = [
+                        'docs/bugs.md',
+                        '.claude/bugs.md',
+                        'BUGS.md',
+                        'bug-reports.md'
+                    ];
+
+                    for (const file of bugFiles) {
+                        try {
+                            const content = await this.fetchMarkdownContent(file);
+                            if (content) {
+                                items.push(...this.parseMarkdownItems(content, 'bug', 'general'));
+                            }
+                        } catch (e) {
+                            // File doesn't exist, continue
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.warn('Error loading bug items:', error);
+                }
+                
+                return items;
+            }
+
+            async loadIdeaItems() {
+                const items = [];
+                
+                try {
+                    // Load ideas from various sources
+                    const ideaFiles = [
+                        'docs/ideas.md',
+                        '.claude/ideas.md',
+                        'IDEAS.md',
+                        'feature-ideas.md'
+                    ];
+
+                    for (const file of ideaFiles) {
+                        try {
+                            const content = await this.fetchMarkdownContent(file);
+                            if (content) {
+                                items.push(...this.parseMarkdownItems(content, 'idea', 'general'));
+                            }
+                        } catch (e) {
+                            // File doesn't exist, continue
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.warn('Error loading idea items:', error);
+                }
+                
+                return items;
+            }
+
+            async loadFeatureItems() {
+                const items = [];
+                
+                try {
+                    // Load features in refinement
+                    const featureFiles = [
+                        'FEATURES.md',
+                        '.claude/platforms/mobile-app/features/roadmap.md',
+                        '.claude/platforms/admin-panel/features/roadmap.md',
+                        'docs/prds/mobile-app/workout-tracking-prd.md'
+                    ];
+
+                    for (const file of featureFiles) {
+                        try {
+                            const content = await this.fetchMarkdownContent(file);
+                            if (content) {
+                                const platform = file.includes('mobile-app') ? 'mobile' : 
+                                               file.includes('admin-panel') ? 'admin' : 'general';
+                                items.push(...this.parseMarkdownItems(content, 'feature', platform));
+                            }
+                        } catch (e) {
+                            // File doesn't exist, continue
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.warn('Error loading feature items:', error);
+                }
+                
+                return items;
+            }
+
+            async fetchMarkdownContent(filePath) {
+                const response = await fetch(`${this.rawBase}/${filePath}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${filePath}`);
+                }
+                return await response.text();
+            }
+
+            parseMarkdownItems(content, type, platform) {
+                const items = [];
+                const lines = content.split('\n');
+                let currentItem = null;
+
+                for (const line of lines) {
+                    // Look for headers as item titles
+                    if (line.startsWith('# ') || line.startsWith('## ') || line.startsWith('### ')) {
+                        if (currentItem) {
+                            items.push(currentItem);
+                        }
+                        
+                        currentItem = {
+                            id: Date.now() + Math.random(),
+                            title: line.replace(/^#+\s*/, '').trim(),
+                            description: '',
+                            type,
+                            platform,
+                            priority: this.extractPriority(line),
+                            tags: this.extractTags(line),
+                            content: line
+                        };
+                    } else if (currentItem && line.trim()) {
+                        // Add content to current item
+                        currentItem.description += line + ' ';
+                        currentItem.content += '\n' + line;
+                    }
+                }
+
+                if (currentItem) {
+                    items.push(currentItem);
+                }
+
+                // Clean up descriptions
+                items.forEach(item => {
+                    item.description = item.description.trim().substring(0, 200) + '...';
+                });
+
+                return items;
+            }
+
+            extractPriority(text) {
+                const lowerText = text.toLowerCase();
+                if (lowerText.includes('high') || lowerText.includes('critical') || lowerText.includes('urgent')) {
+                    return 'high';
+                } else if (lowerText.includes('medium') || lowerText.includes('moderate')) {
+                    return 'medium';
+                } else if (lowerText.includes('low') || lowerText.includes('nice')) {
+                    return 'low';
+                }
+                return 'medium';
+            }
+
+            extractTags(text) {
+                const tags = [];
+                const lowerText = text.toLowerCase();
+                
+                if (lowerText.includes('mobile')) tags.push('mobile');
+                if (lowerText.includes('admin')) tags.push('admin');
+                if (lowerText.includes('web')) tags.push('web');
+                if (lowerText.includes('api')) tags.push('api');
+                if (lowerText.includes('ui')) tags.push('ui');
+                if (lowerText.includes('backend')) tags.push('backend');
+                
+                return tags;
+            }
+
+            filterAndDisplayItems(searchTerm = '') {
+                // Filter by platform
+                this.filteredItems = this.currentFilter === 'all' ? 
+                    [...this.allItems] : 
+                    this.allItems.filter(item => {
+                        return item.platform === this.currentFilter;
+                    });
+
+                // Filter by search term
+                if (searchTerm) {
+                    const term = searchTerm.toLowerCase();
+                    this.filteredItems = this.filteredItems.filter(item =>
+                        item.title.toLowerCase().includes(term) ||
+                        item.description.toLowerCase().includes(term) ||
+                        item.type.toLowerCase().includes(term) ||
+                        item.tags.some(tag => tag.toLowerCase().includes(term))
+                    );
+                }
+
+                this.displayItems();
+            }
+
+            displayItems() {
+                const backlogItems = this.filteredItems.filter(item => item.type === 'backlog');
+                const bugItems = this.filteredItems.filter(item => item.type === 'bug');
+                const ideaItems = this.filteredItems.filter(item => item.type === 'idea');
+                const featureItems = this.filteredItems.filter(item => item.type === 'feature');
+
+                this.renderSection('backlogItems', backlogItems, 'backlogCount');
+                this.renderSection('bugItems', bugItems, 'bugsCount');
+                this.renderSection('ideaItems', ideaItems, 'ideasCount');
+                this.renderSection('featureItems', featureItems, 'featuresCount');
+            }
+
+            renderSection(containerId, items, countId) {
+                const container = document.getElementById(containerId);
+                const countElement = document.getElementById(countId);
+                
+                countElement.textContent = items.length;
+
+                if (items.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📭</div>
+                            <div>No items found</div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const html = items.map(item => `
+                    <div class="item" data-type="${item.type}" data-platform="${item.platform}">
+                        <div class="item-title">${item.title}</div>
+                        <div class="item-description">${item.description}</div>
+                        <div class="item-meta">
+                            <span class="tag">${item.type.toUpperCase()}</span>
+                            <span class="tag priority-${item.priority}">${item.priority.toUpperCase()}</span>
+                            <span class="tag platform-${item.platform}">${item.platform.toUpperCase()}</span>
+                            ${item.tags.map(tag => `<span class="tag">${tag.toUpperCase()}</span>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
+
+                container.innerHTML = html;
+            }
+
+            updateSyncStatus(message = null) {
+                const syncElement = document.getElementById('lastSync');
+                const repoElement = document.getElementById('repoStatus');
+                
+                if (message) {
+                    syncElement.textContent = message;
+                } else {
+                    syncElement.textContent = `Last sync: ${new Date().toLocaleTimeString()}`;
+                }
+                
+                repoElement.textContent = `Repository: ${this.repoOwner}/${this.repoName}`;
+            }
+
+            showError(message) {
+                const sections = ['backlogItems', 'bugItems', 'ideaItems', 'featureItems'];
+                sections.forEach(sectionId => {
+                    document.getElementById(sectionId).innerHTML = `<div class="error">${message}</div>`;
+                });
+            }
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new PMDashboard();
+        });
+    </script>
+</body>
+</html>
