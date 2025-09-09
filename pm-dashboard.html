@@ -410,9 +410,8 @@
         }
 
         .item {
-            padding: 16px 24px;
             border-bottom: 1px solid #dfe1e6;
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
@@ -424,24 +423,116 @@
             background: #f4f5f7;
         }
 
+        .item-summary {
+            padding: 16px 24px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
         .item-title {
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             color: #172b4d;
+            flex: 1;
+            margin-right: 12px;
+        }
+
+        .item-priority {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .item-priority.high {
+            background: #ffebe6;
+            color: #bf2600;
+        }
+
+        .item-priority.medium {
+            background: #fffae6;
+            color: #ff8b00;
+        }
+
+        .item-priority.low {
+            background: #e3fcef;
+            color: #006644;
+        }
+
+        .item-priority.critical {
+            background: #ff5630;
+            color: white;
+        }
+
+        .item-summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 4px;
         }
 
         .item-description {
             color: #5e6c84;
             line-height: 1.4;
-            margin-bottom: 8px;
             font-size: 0.9rem;
+            margin-bottom: 8px;
         }
 
-        .item-meta {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+        .item-platform {
+            font-size: 0.8rem;
+            color: #5e6c84;
+            font-weight: 500;
+        }
+
+        .item-details {
+            display: none;
+            background: #f4f5f7;
+            padding: 16px 24px;
+            border-top: 1px solid #dfe1e6;
+            white-space: pre-wrap;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #172b4d;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .item-details h3,
+        .item-details h4 {
+            color: #172b4d;
+            margin: 12px 0 8px 0;
+        }
+
+        .item-details strong {
+            color: #172b4d;
+        }
+
+        .item-details ul,
+        .item-details ol {
+            margin: 8px 0 8px 20px;
+        }
+
+        .item.expanded .item-details {
+            display: block;
+        }
+
+        .expand-indicator {
+            font-size: 0.8rem;
+            color: #5e6c84;
+            margin-left: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .item.expanded .expand-indicator {
+            transform: rotate(90deg);
         }
 
         .tag {
@@ -905,9 +996,17 @@
                     items.push(currentItem);
                 }
 
-                // Clean up descriptions
+                // Clean up descriptions and preserve full content
                 items.forEach(item => {
-                    item.description = item.description.trim().substring(0, 200) + '...';
+                    // Extract first few sentences for description
+                    const sentences = item.description.trim().split(/[.!?]+/);
+                    const shortDesc = sentences.slice(0, 2).join('. ').trim();
+                    item.description = shortDesc.length > 150 ? 
+                        shortDesc.substring(0, 150) + '...' : 
+                        (shortDesc + (sentences.length > 2 ? '...' : ''));
+                    
+                    // Keep full content for details view
+                    item.content = item.content.trim();
                 });
 
                 return items;
@@ -915,7 +1014,9 @@
 
             extractPriority(text) {
                 const lowerText = text.toLowerCase();
-                if (lowerText.includes('high') || lowerText.includes('critical') || lowerText.includes('urgent')) {
+                if (lowerText.includes('critical')) {
+                    return 'critical';
+                } else if (lowerText.includes('high') || lowerText.includes('urgent')) {
                     return 'high';
                 } else if (lowerText.includes('medium') || lowerText.includes('moderate')) {
                     return 'medium';
@@ -990,15 +1091,18 @@
                 }
 
                 const html = items.map(item => `
-                    <div class="item" data-type="${item.type}" data-platform="${item.platform}">
-                        <div class="item-title">${item.title}</div>
-                        <div class="item-description">${item.description}</div>
-                        <div class="item-meta">
-                            <span class="tag">${item.type.toUpperCase()}</span>
-                            <span class="tag priority-${item.priority}">${item.priority.toUpperCase()}</span>
-                            <span class="tag platform-${item.platform}">${item.platform.toUpperCase()}</span>
-                            ${item.tags.map(tag => `<span class="tag">${tag.toUpperCase()}</span>`).join('')}
+                    <div class="item" data-type="${item.type}" data-platform="${item.platform}" onclick="toggleItemDetails(this)">
+                        <div class="item-summary">
+                            <div class="item-header">
+                                <div class="item-title">${item.title}<span class="expand-indicator">▶</span></div>
+                                <div class="item-priority ${item.priority.toLowerCase()}">${item.priority}</div>
+                            </div>
+                            <div class="item-summary-row">
+                                <div class="item-description">${item.description}</div>
+                            </div>
+                            <div class="item-platform">Platform: ${item.platform.charAt(0).toUpperCase() + item.platform.slice(1)}</div>
                         </div>
+                        <div class="item-details">${item.content || 'No additional details available.'}</div>
                     </div>
                 `).join('');
 
@@ -1024,6 +1128,11 @@
                     document.getElementById(sectionId).innerHTML = `<div class="error">${message}</div>`;
                 });
             }
+        }
+
+        // Global function to toggle item details
+        function toggleItemDetails(element) {
+            element.classList.toggle('expanded');
         }
 
         // Initialize dashboard when page loads
