@@ -22,9 +22,10 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css" />
+  <link rel="stylesheet" href="professional-doc.css" />
 </head>
 <body>
+<div class="container">
 <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#fitness-anny-admin-panel---project-brief"
@@ -77,25 +78,61 @@ Control Review</a></li>
 id="toc-team-efficiency-management">3. Team Efficiency
 Management</a></li>
 </ul></li>
-<li><a href="#additional-admin-panel-features"
-id="toc-additional-admin-panel-features">Additional Admin Panel
-Features</a>
+<li><a href="#complete-admin-panel-feature-system"
+id="toc-complete-admin-panel-feature-system">Complete Admin Panel
+Feature System</a>
 <ul>
-<li><a href="#content-management-admin-only-access"
-id="toc-content-management-admin-only-access">Content Management
-(Admin-Only Access)</a></li>
+<li><a href="#live-chat-message-request-management-core-feature"
+id="toc-live-chat-message-request-management-core-feature">1. Live Chat
+&amp; Message Request Management (Core Feature)</a></li>
+<li><a href="#advanced-operator-management-system-80-person-team"
+id="toc-advanced-operator-management-system-80-person-team">2. Advanced
+Operator Management System (80-Person Team)</a></li>
+<li><a href="#sophisticated-group-management-system-15000-users"
+id="toc-sophisticated-group-management-system-15000-users">3.
+Sophisticated Group Management System (15,000+ Users)</a></li>
+<li><a href="#live-events-video-content-management-system"
+id="toc-live-events-video-content-management-system">4. Live Events
+&amp; Video Content Management System</a></li>
+<li><a href="#education-workshop-system-advanced-feature"
+id="toc-education-workshop-system-advanced-feature">5. Education
+Workshop System (Advanced Feature)</a></li>
+<li><a
+href="#task-distribution-system-nalozi---critical-operational-feature"
+id="toc-task-distribution-system-nalozi---critical-operational-feature">6.
+Task Distribution System (“Nalozi” - Critical Operational
+Feature)</a></li>
+<li><a href="#comprehensive-user-data-management-system"
+id="toc-comprehensive-user-data-management-system">7. Comprehensive User
+Data Management System</a></li>
+<li><a href="#payment-subscription-management-system"
+id="toc-payment-subscription-management-system">8. Payment &amp;
+Subscription Management System</a></li>
+<li><a href="#analytics-performance-monitoring-system"
+id="toc-analytics-performance-monitoring-system">9. Analytics &amp;
+Performance Monitoring System</a></li>
+<li><a href="#system-configuration-global-administration"
+id="toc-system-configuration-global-administration">10. System
+Configuration &amp; Global Administration</a></li>
 <li><a href="#user-management-payment-administration"
-id="toc-user-management-payment-administration">User Management &amp;
-Payment Administration</a></li>
+id="toc-user-management-payment-administration">11. User Management
+&amp; Payment Administration</a></li>
 </ul></li>
-<li><a href="#technical-architecture-context"
-id="toc-technical-architecture-context">Technical Architecture
-Context</a>
+<li><a href="#technical-architecture-integration-points"
+id="toc-technical-architecture-integration-points">Technical
+Architecture &amp; Integration Points</a>
 <ul>
+<li><a href="#database-storage-architecture"
+id="toc-database-storage-architecture">Database &amp; Storage
+Architecture</a></li>
+<li><a href="#external-system-dependencies"
+id="toc-external-system-dependencies">External System
+Dependencies</a></li>
+<li><a href="#performance-scalability-considerations"
+id="toc-performance-scalability-considerations">Performance &amp;
+Scalability Considerations</a></li>
 <li><a href="#current-system-limitations"
 id="toc-current-system-limitations">Current System Limitations</a></li>
-<li><a href="#external-dependencies"
-id="toc-external-dependencies">External Dependencies</a></li>
 </ul></li>
 <li><a href="#key-performance-metrics-targets"
 id="toc-key-performance-metrics-targets">Key Performance Metrics &amp;
@@ -320,71 +357,415 @@ experience levels - 54 experts across 7 different specializations -
 Uneven workload distribution (Nutritionists and Psychologists handle
 majority) - Performance tracking and training coordination</p>
 <hr />
-<h2 id="additional-admin-panel-features">Additional Admin Panel
-Features</h2>
-<h3 id="content-management-admin-only-access">Content Management
-(Admin-Only Access)</h3>
-<h4 id="live-event-scheduling-management">Live Event Scheduling &amp;
+<h2 id="complete-admin-panel-feature-system">Complete Admin Panel
+Feature System</h2>
+<p><em>This section provides a comprehensive overview of ALL admin panel
+capabilities - essential for understanding the full scope of the
+system.</em></p>
+<h3 id="live-chat-message-request-management-core-feature">1. Live Chat
+&amp; Message Request Management (Core Feature)</h3>
+<h4 id="automated-message-processing-system">Automated Message
+Processing System</h4>
+<p><strong>Background Processing</strong>: - <strong>Minute-by-Minute
+Jobs</strong>: Background system scans chat rooms every minute for new
+messages - <strong>Message Request Creation</strong>: Automatically
+converts user messages into assignable “message requests” -
+<strong>Global Assignment Toggle</strong>: Can enable/disable automatic
+assignment system-wide - <strong>Queue Management</strong>: Organizes
+requests by priority, category, and operator availability</p>
+<h4 id="real-time-chat-interface-admin-controls">Real-time Chat
+Interface &amp; Admin Controls</h4>
+<p><strong>Live Monitoring Capabilities</strong>: -
+<strong>Multi-Conversation View</strong>: Admins can monitor any active
+conversation in real-time - <strong>Admin Override Function</strong>:
+Admins can write messages on behalf of any operator - <strong>Seamless
+Handoff</strong>: Transfer conversations between operators without user
+disruption - <strong>System Messages</strong>: Internal notes visible
+only to staff (maintains user anonymity) - <strong>Conversation
+States</strong>: Track lifecycle from request → assignment → active →
+completion → archive</p>
+<h4 id="message-request-lifecycle-7-stage-process">Message Request
+Lifecycle (7-Stage Process)</h4>
+<ol type="1">
+<li><strong>Request Creation</strong>: User message automatically
+generates message request</li>
+<li><strong>Queue Assignment</strong>: Request appears in admin queue
+with user context</li>
+<li><strong>Manual/Auto Assignment</strong>: Admin assigns to available
+operator (or automated routing)</li>
+<li><strong>Operator Acceptance</strong>: Assigned operator accepts the
+conversation</li>
+<li><strong>Active Chat</strong>: Real-time conversation management with
+quality monitoring</li>
+<li><strong>Completion with Summary</strong>: Operator closes
+conversation with optional notes</li>
+<li><strong>Grace Period</strong>: 240-second window for user follow-up
+before final archival</li>
+</ol>
+<h3 id="advanced-operator-management-system-80-person-team">2. Advanced
+Operator Management System (80-Person Team)</h3>
+<h4 id="operator-creation-role-configuration">Operator Creation &amp;
+Role Configuration</h4>
+<p><strong>Account Setup &amp; Permissions</strong>: - <strong>Basic
+Configuration</strong>: Email (login), mobile number, assignment
+permissions - <strong>Specialization Categories</strong>: Define which
+expert categories operators can handle - <strong>Granular Permission
+System</strong>: - <strong>Member Management</strong>: View, edit,
+delete user accounts - <strong>Subscription Control</strong>: Handle
+payments and subscription changes - <strong>Group
+Administration</strong>: Create, modify, manage user groups -
+<strong>Event Management</strong>: Live event and video content
+management - <strong>Analytics Access</strong>: Performance reporting
+and system metrics - <strong>Audit Capabilities</strong>: View operator
+actions and system logs</p>
+<h4 id="performance-monitoring-quality-control">Performance Monitoring
+&amp; Quality Control</h4>
+<p><strong>Real-time Activity Tracking</strong>: - <strong>Online Status
+Management</strong>: Manual and admin-controlled availability -
+<strong>Conversation Load Tracking</strong>: Monitor active
+conversations per operator - <strong>Response Time Analytics</strong>:
+Track individual and team performance metrics - <strong>Quality
+Assurance System</strong>: Random conversation review and quality
+scoring - <strong>30-Day Audit Trail</strong>: Complete log of all
+operator actions with retention</p>
+<p><strong>Performance Analytics Dashboard</strong>: - <strong>Daily
+Statistics</strong>: Conversations handled, completion rates, user
+satisfaction - <strong>Individual Performance</strong>: Detailed
+operator analysis with comparative metrics - <strong>Cross-Operator
+Comparison</strong>: Team performance benchmarking - <strong>Training
+Identification</strong>: Flag operators needing additional support</p>
+<h3 id="sophisticated-group-management-system-15000-users">3.
+Sophisticated Group Management System (15,000+ Users)</h3>
+<h4 id="multi-state-group-lifecycle-management">Multi-State Group
+Lifecycle Management</h4>
+<p><strong>Group Types &amp; Categories</strong>: - <strong>Public
+Groups</strong>: All members can write messages (main community groups)
+- <strong>Notification Groups</strong>: Operator-only posting, users
+read-only (announcements) - <strong>Internal Groups</strong>: Staff
+communication (rarely used)</p>
+<p><strong>Complex State Management</strong>: - <strong>Display
+Date</strong>: When group becomes visible to users in app -
+<strong>Activation Date</strong>: When users gain message-writing
+permissions - <strong>Active Period</strong>: Full operational phase
+with all features enabled - <strong>Expiration Date</strong>: When group
+transitions to read-only status - <strong>Archive Process</strong>:
+Final system removal with data cleanup</p>
+<h4 id="advanced-automated-membership-system">Advanced Automated
+Membership System</h4>
+<p><strong>Sophisticated Filter Engine</strong>: - <strong>Subscription
+Filters</strong>: Package type (Basic/Premium/Premium Plus),
+active/inactive status, payment method - <strong>Demographic
+Filters</strong>: Age ranges, geographic location, subscription history,
+device type - <strong>Goal-Based Filters</strong>: Weight loss/gain
+targets, muscle building, maintenance goals - <strong>Health Condition
+Filters</strong>: Pregnancy status, medical conditions, fitness level
+assessments - <strong>Engagement Filters</strong>: App usage patterns,
+workout completion rates, chat participation - <strong>Time-Based
+Filters</strong>: “Active month”, “Next month”, custom date ranges,
+seasonal targeting</p>
+<p><strong>Real-time Synchronization</strong>: - <strong>Background
+Jobs</strong>: Automatic membership updates based on user data changes -
+<strong>Subscription Integration</strong>: Immediate access changes when
+users upgrade/downgrade - <strong>Manual Override</strong>: Individual
+user addition/removal with admin justification - <strong>Cross-system
+Sync</strong>: Group changes propagate to mobile app and chat system</p>
+<h4 id="group-content-interaction-management">Group Content &amp;
+Interaction Management</h4>
+<p><strong>Message &amp; Media Management</strong>: - <strong>Pinned
+Messages</strong>: Important announcements with persistent visibility -
+<strong>Admin Message Deletion</strong>: Remove inappropriate content
+(logged, hidden from users) - <strong>Reaction System</strong>: User
+engagement through message reactions and responses - <strong>Media
+Sharing</strong>: Image and video upload with automatic cleanup
+processes - <strong>Content Moderation</strong>: Real-time monitoring
+and approval workflows</p>
+<h3 id="live-events-video-content-management-system">4. Live Events
+&amp; Video Content Management System</h3>
+<h4 id="live-event-operations-admin-only-access">Live Event Operations
+(Admin-Only Access)</h4>
+<p><strong>Event Creation &amp; Scheduling</strong>: - <strong>Event
+Configuration</strong>: Name, description, date/time, capacity limits -
+<strong>Vimeo Integration</strong>: Automatic stream key generation 15
+minutes before events - <strong>OBS Streaming Setup</strong>:
+Professional streaming software integration - <strong>Participant
+Management</strong>: Registration tracking, attendance monitoring -
+<strong>Real-time Analytics</strong>: Track participation, engagement,
+chat activity during events</p>
+<p><strong>Live Event Execution</strong>: - <strong>Stream
+Control</strong>: Start, stop, pause live streams with admin override -
+<strong>Participant Chat Monitoring</strong>: Real-time message tracking
+during events - <strong>Attendance Analytics</strong>: Track user
+engagement and participation rates - <strong>Automatic
+Recording</strong>: Convert live streams to on-demand content post-event
+- <strong>Quality Control</strong>: Monitor stream quality and
+participant experience</p>
+<h4 id="video-content-management-system">Video Content Management
+System</h4>
+<p><strong>Content Types &amp; Organization</strong>: - <strong>Live
+Event Recordings</strong>: Automatically converted from live stream
+archives - <strong>Pre-recorded Workout Videos</strong>: Exercise
+routines, form demonstrations, specialized programs - <strong>Recipe
+Content</strong>: New feature with ingredients, preparation steps,
+nutritional info - <strong>Educational Materials</strong>: Health
+information, lifestyle guidance, expert consultations -
+<strong>Specialized Content</strong>: Pregnancy workouts, medical
+condition adaptations</p>
+<p><strong>Technical Infrastructure</strong>: - <strong>Vimeo Platform
+Integration</strong>: Professional video hosting and CDN delivery -
+<strong>Storage Management</strong>: ~500GB current usage with automatic
+scaling - <strong>Access Control System</strong>: Subscription-based
+viewing permissions - <strong>Content Categories</strong>: Workout type,
+difficulty level, expert specialization - <strong>Automatic
+Cleanup</strong>: Content removal coordination with group archival</p>
+<h3 id="education-workshop-system-advanced-feature">5. Education
+Workshop System (Advanced Feature)</h3>
+<h4 id="multi-session-workshop-management">Multi-Session Workshop
 Management</h4>
-<ul>
-<li><strong>Event Creation</strong>: Schedule live workout sessions,
-webinars, Q&amp;A sessions</li>
-<li><strong>Trainer Assignment</strong>: Assign trainers to lead events
-(users still see “Fitness Anny”)</li>
-<li><strong>Capacity Management</strong>: Set limits and manage
-registrations</li>
-<li><strong>Real-time Monitoring</strong>: Track attendance and
-engagement</li>
-</ul>
-<h4 id="video-content-management-vimeo-integration">Video Content
-Management (Vimeo Integration)</h4>
-<ul>
-<li><strong>Upload Interface</strong>: Direct Vimeo integration for
-video hosting</li>
-<li><strong>Content Organization</strong>: Categorize by workout type,
-difficulty, specialization</li>
-<li><strong>Content Scheduling</strong>: Manage release calendar</li>
-<li><strong>Quality Control</strong>: Preview and approve before
-publication</li>
-</ul>
-<h3 id="user-management-payment-administration">User Management &amp;
-Payment Administration</h3>
-<h4 id="user-management-tab">User Management Tab</h4>
-<p><strong>Comprehensive Database Interface</strong>: - Complete user
-profiles and subscription status - Payment method tracking (app vs web
-purchases) - Progress photo management - Health information and
-consultation history - Usage analytics and engagement tracking</p>
-<h4 id="payments-tab-separated-for-troubleshooting">Payments Tab
-(Separated for Troubleshooting)</h4>
-<p><strong>Dedicated Payment Resolution</strong>: - Complete transaction
-history per user - Duplicate payment detection and resolution - Access
-issue troubleshooting (“paid but no access” scenarios) - Platform
-payment conflict resolution (app store vs web)</p>
-<p><strong>Common Admin Scenarios</strong>: - “I paid but don’t have
-access” → Cross-reference payment with account status - “Payment went
-through twice” → Identify duplicates and process refunds - Subscription
-troubleshooting and billing dispute management</p>
+<p><strong>Workshop Creation &amp; Structure</strong>: -
+<strong>Multi-presentation Events</strong>: Define multiple sessions
+within single education program - <strong>Presenter Assignment</strong>:
+Multiple instructors for different workshop sessions - <strong>Resource
+Library</strong>: Upload supporting materials (PDFs, guides, meal plans,
+worksheets) - <strong>Session Scheduling</strong>: Complex date/time
+management for multi-day programs - <strong>Capacity
+Management</strong>: Limited participant slots with waiting list
+functionality</p>
+<h4 id="registration-approval-workflow">Registration &amp; Approval
+Workflow</h4>
+<p><strong>Application Process</strong>: - <strong>User Application
+System</strong>: Participants apply with motivation and contact
+information - <strong>Admin Review Process</strong>: Approve/reject
+applications with detailed reasoning - <strong>Contact Information
+Collection</strong>: Phone numbers for external communication -
+<strong>Automatic Capacity Tracking</strong>: Real-time slot
+availability monitoring</p>
+<p><strong>Behavioral Management System</strong>: - <strong>No-Show
+Penalties</strong>: Automatic 3-day platform ban for non-attendance -
+<strong>Manual Ban System</strong>: Admin-imposed temporary restrictions
+for behavior issues - <strong>Viber Group Integration</strong>: Approved
+participants automatically added to communication groups -
+<strong>Attendance Tracking</strong>: Monitor participation and
+engagement across sessions</p>
+<h3
+id="task-distribution-system-nalozi---critical-operational-feature">6.
+Task Distribution System (“Nalozi” - Critical Operational Feature)</h3>
+<h4 id="mass-communication-management">Mass Communication
+Management</h4>
+<p><strong>Task Creation &amp; Scheduling</strong>: - <strong>Bulk
+Communication Tasks</strong>: Create campaigns to contact
+hundreds/thousands of users - <strong>Individual Task
+Assignment</strong>: Single-user specific tasks for targeted outreach -
+<strong>Load Distribution System</strong>: Spread task execution across
+multiple days and operators - <strong>Time-slot Management</strong>:
+Define specific execution hours for optimal user engagement -
+<strong>Category-based Routing</strong>: Route tasks to appropriate
+operator specializations</p>
+<p><strong>Automated Task Processing</strong>: - <strong>5-Minute
+Background Jobs</strong>: System processes tasks every 5 minutes
+automatically - <strong>Load Balancing</strong>: Prevent overwhelming
+individual operators with simultaneous tasks - <strong>Approval
+Workflow</strong>: Admin approval required before task execution begins
+- <strong>Performance Tracking</strong>: Monitor task completion rates
+and campaign effectiveness</p>
+<p><strong>Common Task Types (Monthly Operations)</strong>: -
+<strong>Subscriber Appreciation</strong>: Contact all 15,000+
+subscribers to thank for payments - <strong>Progress Photo
+Campaigns</strong>: Systematic requests for user progress photo uploads
+- <strong>Engagement Re-activation</strong>: Contact inactive users with
+personalized re-engagement - <strong>Premium Support Outreach</strong>:
+Specialized communication for premium subscribers - <strong>Health
+Check-ins</strong>: Follow-up with users who have medical conditions</p>
+<h3 id="comprehensive-user-data-management-system">7. Comprehensive User
+Data Management System</h3>
+<h4 id="complete-user-profile-database">Complete User Profile
+Database</h4>
+<p><strong>Personal Information Management</strong>: -
+<strong>Demographics</strong>: Age, location, contact details, family
+information - <strong>Health &amp; Fitness Data</strong>: Weight,
+height, medical conditions, fitness goals - <strong>Progress
+Tracking</strong>: Photo uploads, measurement history, goal achievements
+- <strong>Subscription History</strong>: Complete payment records,
+package changes, renewal dates - <strong>Communication Archive</strong>:
+All conversations across all expert categories - <strong>Engagement
+Analytics</strong>: App usage patterns, workout completion, group
+participation</p>
+<p><strong>Advanced Search &amp; Filtering System</strong>: -
+<strong>Multi-criteria Search Engine</strong>: Combine multiple filter
+types for precise user targeting - <strong>Saved Filter
+Templates</strong>: Reusable filter configurations for common searches -
+<strong>Real-time Data Updates</strong>: Automatic synchronization when
+user information changes - <strong>Export Capabilities</strong>:
+Generate user data reports for marketing analysis - <strong>Bulk
+Operations</strong>: Manage multiple user accounts simultaneously</p>
+<h4 id="goal-management-algorithm-system">Goal Management &amp;
+Algorithm System</h4>
+<p><strong>Automated Goal Calculation</strong>: - <strong>Weight-based
+Algorithms</strong>: Automatic target weight calculations based on
+health data - <strong>Progress Monitoring</strong>: Track user
+advancement toward personalized goals - <strong>Dynamic
+Recommendations</strong>: Adjust suggestions based on progress and
+engagement - <strong>Group Assignment</strong>: Automatic placement in
+appropriate groups based on goals - <strong>Achievement
+Tracking</strong>: Monitor milestones and celebrate user successes</p>
+<h3 id="payment-subscription-management-system">8. Payment &amp;
+Subscription Management System</h3>
+<h4 id="multi-platform-payment-processing">Multi-Platform Payment
+Processing</h4>
+<p><strong>Payment Integration Points</strong>: - <strong>VSP Web
+Payments</strong>: Primary web-based payment processor integration -
+<strong>Apple App Store</strong>: iOS in-app purchase with webhook
+processing - <strong>Manual Assignment</strong>: Admin-created
+subscriptions for gifts and adjustments - <strong>Promo Code
+System</strong>: Discount codes with validity periods and usage
+tracking</p>
+<h4 id="subscription-lifecycle-management">Subscription Lifecycle
+Management</h4>
+<p><strong>Package Types &amp; Pricing Structure</strong>: -
+<strong>Basic Packages</strong>: Weight loss/gain specific programs
+(limited adoption) - <strong>Premium</strong>: Most popular tier
+(~13,000 of 15,000 subscribers) - <strong>Premium Plus</strong>: Limited
+capacity tier (~160 users) with personalized nutrition -
+<strong>Specialist Access Control</strong>: Premium+ required for
+specialist consultations</p>
+<p><strong>Automated Subscription Processing</strong>: -
+<strong>Purchase Webhooks</strong>: Real-time payment confirmation and
+account activation - <strong>Access Provisioning</strong>: Automatic
+group and content access assignment - <strong>Monthly Renewals</strong>:
+Automated subscription renewal processing - <strong>Grace Period
+Management</strong>: Handle payment failures and reactivations -
+<strong>Cancellation Processing</strong>: Graceful subscription
+termination with data retention</p>
+<h3 id="analytics-performance-monitoring-system">9. Analytics &amp;
+Performance Monitoring System</h3>
+<h4 id="operator-performance-analytics">Operator Performance
+Analytics</h4>
+<p><strong>Individual Metrics Tracking</strong>: - <strong>Conversation
+Volume</strong>: Daily conversation counts with trend analysis -
+<strong>Response Time Analytics</strong>: Average response times during
+peak/off-peak hours - <strong>Quality Scoring</strong>: User
+satisfaction ratings and conversation quality assessment -
+<strong>Productivity Analysis</strong>: Conversations per hour, daily
+efficiency metrics - <strong>Specialization Performance</strong>:
+Category-specific performance tracking</p>
+<p><strong>Team Performance Management</strong>: - <strong>Comparative
+Analytics</strong>: Cross-operator performance comparison and ranking -
+<strong>Capacity Utilization</strong>: Track operator workload and
+availability optimization - <strong>Quality Trends</strong>: System-wide
+conversation quality monitoring - <strong>Training Needs
+Identification</strong>: Flag operators requiring additional support -
+<strong>Workload Distribution</strong>: Monitor and optimize task
+distribution across team</p>
+<h4 id="system-performance-monitoring">System Performance
+Monitoring</h4>
+<p><strong>Technical Performance Metrics</strong>: - <strong>Message
+Processing</strong>: Response times, queue depths, processing delays -
+<strong>Database Performance</strong>: Query execution times, storage
+utilization - <strong>Integration Health</strong>: Status monitoring for
+ejabberd, Vimeo, payment systems - <strong>User Experience
+Tracking</strong>: App performance, conversation completion rates -
+<strong>Peak Hour Analytics</strong>: Performance monitoring during
+high-demand periods</p>
+<h3 id="system-configuration-global-administration">10. System
+Configuration &amp; Global Administration</h3>
+<h4 id="global-system-controls">Global System Controls</h4>
+<p><strong>Operational Settings Management</strong>: - <strong>Free
+Access Periods</strong>: Configure “open doors” days for free platform
+access - <strong>Assignment Toggle</strong>: Enable/disable automatic
+message assignment globally - <strong>Shift Management</strong>:
+Automated operator availability based on work schedules - <strong>System
+Breaks</strong>: Scheduled pauses (11:00-12:00, 18:00-19:00 daily) -
+<strong>Holiday Configurations</strong>: Special operating hours and
+capacity adjustments</p>
+<h4 id="content-access-management">Content &amp; Access Management</h4>
+<p><strong>Program Configuration</strong>: - <strong>Package
+Availability</strong>: Enable/disable specific subscription packages -
+<strong>Dynamic Pricing</strong>: Update subscription costs across all
+platforms - <strong>Feature Access Control</strong>: Define capabilities
+for each subscription tier - <strong>Content Restrictions</strong>:
+Manage access to specialist chats and premium features -
+<strong>Geographic Access</strong>: Control platform availability by
+region</p>
+<h3 id="user-management-payment-administration">11. User Management
+&amp; Payment Administration</h3>
+<h4 id="user-management-tab-comprehensive-database-interface">User
+Management Tab (Comprehensive Database Interface)</h4>
+<p><strong>Complete User Profiles</strong>: - <strong>Account
+Information</strong>: Registration history, login patterns, device usage
+- <strong>Subscription Status</strong>: Active/inactive status, tier
+levels, payment methods - <strong>Progress Documentation</strong>: Photo
+timeline, measurement tracking, achievement history - <strong>Health
+Information</strong>: Medical conditions, fitness goals, consultation
+records - <strong>Usage Analytics</strong>: App engagement, workout
+completion, expert consultation frequency - <strong>Communication
+History</strong>: Complete interaction log across all channels</p>
+<p><strong>Advanced User Operations</strong>: - <strong>Quick
+Search</strong>: Find users by name, email, phone, subscription ID -
+<strong>Bulk Management</strong>: Process multiple user accounts
+simultaneously - <strong>Account Modifications</strong>: Subscription
+changes, access adjustments, data corrections - <strong>Export
+Functions</strong>: Generate comprehensive user data reports</p>
+<h4 id="payments-tab-dedicated-payment-resolution">Payments Tab
+(Dedicated Payment Resolution)</h4>
+<p><strong>Payment Troubleshooting Interface</strong>: -
+<strong>Transaction History</strong>: Complete payment log for each user
+with detailed records - <strong>Payment Method Details</strong>: Credit
+card info, app store records, web payment data - <strong>Status
+Tracking</strong>: Successful, failed, pending, refunded transaction
+monitoring - <strong>Duplicate Detection</strong>: Identify and resolve
+double-charge issues - <strong>Access Issue Resolution</strong>: Match
+payments to accounts when access problems occur - <strong>Dispute
+Management</strong>: Handle subscription and payment complaints</p>
+<p><strong>Common Resolution Scenarios</strong>: - <strong>“I paid but
+don’t have access”</strong>: Cross-reference payment records with
+account status - <strong>“Payment charged twice”</strong>: Identify
+duplicate transactions and process refunds - <strong>“Subscription not
+working”</strong>: Verify payment processing and account activation -
+<strong>Platform Conflicts</strong>: Resolve app store vs web payment
+mismatches</p>
 <hr />
-<h2 id="technical-architecture-context">Technical Architecture
-Context</h2>
+<h2 id="technical-architecture-integration-points">Technical
+Architecture &amp; Integration Points</h2>
+<h3 id="database-storage-architecture">Database &amp; Storage
+Architecture</h3>
+<p><strong>Multi-System Data Management</strong>: - <strong>Separate
+Database Systems</strong>: Admin panel, ejabberd chat, mobile app data -
+<strong>Soft Delete System</strong>: All deletions are logical, not
+physical (enables data recovery) - <strong>Storage Integration</strong>:
+Azure CDN for media files (~500GB with automatic scaling) -
+<strong>Performance Optimization</strong>: Pagination and caching for
+large datasets (15,000+ users) - <strong>Cross-system
+Synchronization</strong>: Real-time data coordination between
+platforms</p>
+<h3 id="external-system-dependencies">External System Dependencies</h3>
+<p><strong>Critical Integration Points</strong>: - <strong>ejabberd Chat
+System</strong>: Separate login interface with millions of message
+records - <strong>Vimeo Platform</strong>: Video hosting, live
+streaming, and CDN delivery - <strong>VSP Payment Processing</strong>:
+Web-based payment handling and transaction management - <strong>Apple
+App Store</strong>: iOS subscription management with webhook processing
+- <strong>Email Systems</strong>: Automated notifications,
+confirmations, and user communications - <strong>Mobile App
+APIs</strong>: Real-time data sync for iOS/Android applications</p>
+<h3 id="performance-scalability-considerations">Performance &amp;
+Scalability Considerations</h3>
+<p><strong>Current Scale Challenges</strong>: - <strong>High-volume
+Chat</strong>: Millions of messages requiring real-time processing -
+<strong>Minute-by-Minute Processing</strong>: Background jobs for
+message request generation - <strong>Complex Query
+Optimization</strong>: Advanced filtering requires optimized database
+performance - <strong>Multi-system Coordination</strong>:
+Synchronization between admin panel, chat, and mobile app - <strong>Peak
+Hour Load</strong>: System stress during 7-10pm user demand periods</p>
 <h3 id="current-system-limitations">Current System Limitations</h3>
 <ul>
-<li><strong>Legacy admin panel</strong> not built for current 80-person
-scale</li>
-<li><strong>Separate systems</strong> for chat, billing, user data,
-content management</li>
-<li><strong>Manual processes</strong> that don’t scale with team
-growth</li>
-<li><strong>Peak hour performance issues</strong> during 7-10pm user
-demand</li>
-</ul>
-<h3 id="external-dependencies">External Dependencies</h3>
-<ul>
-<li><strong>ejabberd</strong> (chat system) - separate login and
-interface</li>
-<li><strong>Vimeo</strong> integration for video hosting</li>
-<li><strong>Multiple payment systems</strong> (app store vs web)
-creating complexity</li>
+<li><strong>Legacy Architecture</strong>: Admin panel not built for
+current 80-person operational scale</li>
+<li><strong>Manual Process Dependencies</strong>: Critical workflows
+requiring human intervention at scale</li>
+<li><strong>Integration Complexity</strong>: Separate systems for chat,
+billing, user data, content management</li>
+<li><strong>Performance Bottlenecks</strong>: Peak hour performance
+issues during high user demand</li>
 </ul>
 <hr />
 <h2 id="key-performance-metrics-targets">Key Performance Metrics &amp;
@@ -574,13 +955,16 @@ members</li>
 transition</li>
 </ul>
 <hr />
+<div class="document-footer">
 <p><strong>Document Owner</strong>: Product Manager<br />
 <strong>Technical Lead</strong>: [To be assigned]<br />
 <strong>Stakeholder Review</strong>: Real Admins + Operations Team<br />
 <strong>Next Update</strong>: Weekly during active development</p>
-<hr />
+<hr style="margin: 20px 0; border-top: 1px solid #e9ecef;">
 <p><em>This document provides foundational understanding for project
 planning. Additional technical specifications and detailed requirements
 gathering will be conducted during project kickoff phase.</em></p>
+</div>
+</div>
 </body>
 </html>

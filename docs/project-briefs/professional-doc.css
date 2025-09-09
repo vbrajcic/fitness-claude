@@ -1,0 +1,485 @@
+/* Professional PM Document Styling */
+/* Optimized for readability and executive presentation */
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --background-color: #ffffff;
+    --light-bg: #f8f9fa;
+    --border-color: #e9ecef;
+    --text-primary: #2c3e50;
+    --text-secondary: #6c757d;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+}
+
+/* Base Typography & Layout */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    counter-reset: section-counter;
+}
+
+/* Container & Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Document Header */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--secondary-color);
+    text-align: center;
+}
+
+/* Document Meta Information */
+h1 + p {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0 40px 0;
+    border-left: 4px solid var(--secondary-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+h1 + p strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Table of Contents */
+nav#TOC {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin: 30px 0 50px 0;
+    box-shadow: var(--shadow);
+}
+
+nav#TOC::before {
+    content: "📋 Table of Contents";
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+nav#TOC ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+nav#TOC > ul > li {
+    margin-bottom: 12px;
+}
+
+nav#TOC a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: block;
+    font-weight: 500;
+}
+
+nav#TOC a:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateX(5px);
+}
+
+nav#TOC ul ul {
+    margin-top: 8px;
+    margin-left: 20px;
+    border-left: 2px solid var(--border-color);
+    padding-left: 15px;
+}
+
+nav#TOC ul ul a {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 60px 0 25px 0;
+    padding: 20px 0 15px 0;
+    border-bottom: 2px solid var(--secondary-color);
+    counter-increment: section-counter;
+    position: relative;
+}
+
+h2::before {
+    content: counter(section-counter, decimal) ". ";
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 40px 0 20px 0;
+    padding-left: 15px;
+    border-left: 4px solid var(--secondary-color);
+    background: rgba(52, 152, 219, 0.05);
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 30px 0 15px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+h4::before {
+    content: "▶";
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Paragraphs & Text */
+p {
+    margin: 20px 0;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Emphasized Content */
+strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+em {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 30px;
+    margin: 20px 0;
+}
+
+li {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+ul li::marker {
+    color: var(--secondary-color);
+}
+
+ol li::marker {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Special List Formatting for Key Points */
+ul li strong:first-child {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Nested Lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+/* Horizontal Rules */
+hr {
+    border: none;
+    border-top: 2px solid var(--border-color);
+    margin: 50px 0;
+    position: relative;
+}
+
+hr::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: var(--secondary-color);
+}
+
+/* Call-out Boxes for Important Information */
+.callout, blockquote {
+    background: var(--light-bg);
+    border-left: 5px solid var(--secondary-color);
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    box-shadow: var(--shadow);
+}
+
+.callout.warning {
+    border-left-color: var(--warning-color);
+    background: rgba(243, 156, 18, 0.05);
+}
+
+.callout.success {
+    border-left-color: var(--success-color);
+    background: rgba(39, 174, 96, 0.05);
+}
+
+.callout.danger {
+    border-left-color: var(--accent-color);
+    background: rgba(231, 76, 60, 0.05);
+}
+
+/* Code and Technical Content */
+code {
+    background: var(--light-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "SF Mono", "Monaco", "Consolas", monospace;
+    font-size: 0.9em;
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+}
+
+pre {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 25px 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+th {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    text-align: left;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+tr:nth-child(even) {
+    background: var(--light-bg);
+}
+
+tr:hover {
+    background: rgba(52, 152, 219, 0.05);
+}
+
+/* Professional Badges and Status Indicators */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.high-priority {
+    background: var(--accent-color);
+    color: white;
+}
+
+.badge.medium-priority {
+    background: var(--warning-color);
+    color: white;
+}
+
+.badge.low-priority {
+    background: var(--success-color);
+    color: white;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* Document Footer */
+.document-footer {
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.document-footer p {
+    margin: 8px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    h1 {
+        page-break-after: avoid;
+    }
+    
+    h2, h3, h4 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    nav#TOC {
+        display: none;
+    }
+    
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        margin: 10px;
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    nav#TOC {
+        padding: 15px;
+    }
+    
+    nav#TOC ul ul {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}
+
+/* Smooth scrolling for navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+a:focus, button:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Loading animation placeholder */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Executive Summary styling */
+h2#executive-summary + p {
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(52, 152, 219, 0.05));
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--secondary-color);
+    margin: 25px 0;
+}
+
+/* Key metrics highlighting */
+p:contains("15,000"), p:contains("25,000"), p:contains("80 team members") {
+    background: rgba(39, 174, 96, 0.05);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--success-color);
+}
