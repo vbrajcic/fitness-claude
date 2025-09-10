@@ -33,6 +33,31 @@
             margin-bottom: 24px;
             box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
             border-left: 4px solid #0052cc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .nav-button {
+            background: #0052cc;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            background: #0747a6;
         }
 
         .header h1 {
@@ -177,6 +202,7 @@
         .stage-bugs .section-header {
             background: #ffebe6;
         }
+
 
         /* Action Buttons */
         .action-buttons {
@@ -385,6 +411,12 @@
                 margin: 20px;
                 width: calc(100% - 40px);
             }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
         }
 
         .loading {
@@ -410,21 +442,20 @@
         }
 
         .item {
-            border-bottom: 1px solid #dfe1e6;
+            background: white;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            margin-bottom: 8px;
+            padding: 16px;
             transition: all 0.2s ease;
             cursor: pointer;
-        }
-
-        .item:last-child {
-            border-bottom: none;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.04);
         }
 
         .item:hover {
-            background: #f4f5f7;
-        }
-
-        .item-summary {
-            padding: 16px 24px;
+            box-shadow: 0 2px 4px rgba(9, 30, 66, 0.08);
+            border-color: #b3bac5;
+            background: #f8f9fa;
         }
 
         .item-header {
@@ -435,9 +466,10 @@
         }
 
         .item-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #172b4d;
+            line-height: 1.3;
             flex: 1;
             margin-right: 12px;
         }
@@ -445,10 +477,15 @@
         .item-priority {
             font-size: 0.75rem;
             font-weight: 600;
-            padding: 3px 8px;
+            padding: 2px 6px;
             border-radius: 2px;
             text-transform: uppercase;
             white-space: nowrap;
+        }
+
+        .item-priority.critical {
+            background: #de350b;
+            color: white;
         }
 
         .item-priority.high {
@@ -457,8 +494,8 @@
         }
 
         .item-priority.medium {
-            background: #fffae6;
-            color: #ff8b00;
+            background: #fff0b3;
+            color: #974f0c;
         }
 
         .item-priority.low {
@@ -466,73 +503,620 @@
             color: #006644;
         }
 
-        .item-priority.critical {
-            background: #ff5630;
-            color: white;
+        .item-summary {
+            color: #5e6c84;
+            line-height: 1.4;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .item-summary-row {
+        .item-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px;
-        }
-
-        .item-description {
-            color: #5e6c84;
-            line-height: 1.4;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
         }
 
         .item-platform {
+            font-size: 0.75rem;
+            color: #5e6c84;
+            font-weight: 500;
+            background: #f4f5f7;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .item-id {
+            font-size: 0.75rem;
+            color: #8993a4;
+            font-family: monospace;
+        }
+
+        /* Modal Styles - Jira Inspired */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 30, 66, 0.54);
+            z-index: 1000;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 3px;
+            box-shadow: 0 10px 50px rgba(9, 30, 66, 0.15);
+            width: 100%;
+            max-width: 1200px;
+            max-height: calc(100vh - 60px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 20px 24px 16px 24px;
+            border-bottom: 1px solid #dfe1e6;
+            background: #f4f5f7;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-header-left {
+            flex: 1;
+        }
+
+        .modal-issue-id {
             font-size: 0.8rem;
             color: #5e6c84;
+            font-family: monospace;
+            margin-bottom: 8px;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .modal-priority {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .modal-priority.critical {
+            background: #de350b;
+            color: white;
+        }
+
+        .modal-priority.high {
+            background: #ffebe6;
+            color: #bf2600;
+        }
+
+        .modal-priority.medium {
+            background: #fff0b3;
+            color: #974f0c;
+        }
+
+        .modal-priority.low {
+            background: #e3fcef;
+            color: #006644;
+        }
+
+        .modal-platform {
+            font-size: 0.8rem;
+            color: #5e6c84;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 2px;
+            border: 1px solid #dfe1e6;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #5e6c84;
+            cursor: pointer;
+            padding: 4px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+
+        .close-btn:hover {
+            background: #ebecf0;
+            color: #172b4d;
+        }
+
+        .modal-body {
+            padding: 0;
+            overflow-y: auto;
+            flex: 1;
+            background: #f4f5f7;
+        }
+
+        .modal-content-wrapper {
+            padding: 20px 24px 24px 24px;
+        }
+
+        .modal-section {
+            background: white;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            border: 1px solid #dfe1e6;
+        }
+
+        .modal-section-header {
+            padding: 12px 16px;
+            background: #f4f5f7;
+            border-bottom: 1px solid #dfe1e6;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #172b4d;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-section-content {
+            padding: 16px;
+        }
+
+        .user-story-card {
+            background: #f8f9fa;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            border-left: 4px solid #0052cc;
+        }
+
+        .user-story-header {
+            padding: 12px 16px;
+            background: #e6f3ff;
+            border-bottom: 1px solid #dfe1e6;
+            font-weight: 600;
+            color: #0052cc;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-story-header::before {
+            content: '👤';
+            margin-right: 8px;
+        }
+
+        .user-story-content {
+            padding: 12px 16px;
+        }
+
+        .user-story-text {
+            font-style: italic;
+            color: #5e6c84;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .acceptance-criteria {
+            margin-top: 12px;
+        }
+
+        .acceptance-criteria h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #172b4d;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .criteria-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            color: #172b4d;
+        }
+
+        .criteria-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #dfe1e6;
+            border-radius: 2px;
+            margin-right: 8px;
+            margin-top: 1px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .criteria-checkbox.completed {
+            background: #36b37e;
+            border-color: #36b37e;
+        }
+
+        .criteria-checkbox.completed::after {
+            content: '✓';
+            color: white;
+            font-size: 10px;
+            position: absolute;
+            top: 0px;
+            left: 2px;
+        }
+
+        .phase-section {
+            margin-bottom: 24px;
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: #172b4d;
+            color: white;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(9, 30, 66, 0.15);
+        }
+
+        .phase-title {
+            font-weight: 700;
+            color: white;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .phase-title::before {
+            content: '📦';
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .phase-progress {
+            font-size: 0.85rem;
+            color: #b3d4fc;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 3px;
+        }
+
+        .task-list {
+            background: white;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            padding: 12px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid #f4f5f7;
+            font-size: 0.85rem;
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #dfe1e6;
+            border-radius: 2px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            position: relative;
+            background: white;
+        }
+
+        .task-checkbox.completed {
+            background: #36b37e;
+            border-color: #36b37e;
+        }
+
+        .task-checkbox.completed::after {
+            content: '✓';
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            position: absolute;
+            top: 0px;
+            left: 2px;
+            line-height: 1;
+        }
+
+        .count-badge {
+            background: #dfe1e6;
+            color: #5e6c84;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 0.75rem;
             font-weight: 500;
         }
 
-        .item-details {
-            display: none;
-            background: #f4f5f7;
-            padding: 16px 24px;
-            border-top: 1px solid #dfe1e6;
-            white-space: pre-wrap;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
-            font-size: 0.85rem;
-            line-height: 1.5;
+        .count-badge.stories {
+            background: #e6f3ff;
+            color: #0052cc;
+        }
+
+        .count-badge.tasks {
+            background: #fff0b3;
+            color: #974f0c;
+        }
+
+        .summary-stats {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 3px;
+            border: 1px solid #dfe1e6;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: 600;
             color: #172b4d;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .item-details h3,
-        .item-details h4 {
-            color: #172b4d;
-            margin: 12px 0 8px 0;
-        }
-
-        .item-details strong {
-            color: #172b4d;
-        }
-
-        .item-details ul,
-        .item-details ol {
-            margin: 8px 0 8px 20px;
-        }
-
-        .item.expanded .item-details {
             display: block;
         }
 
-        .expand-indicator {
-            font-size: 0.8rem;
+        .stat-label {
+            font-size: 0.75rem;
             color: #5e6c84;
-            margin-left: 8px;
-            transition: transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .item.expanded .expand-indicator {
-            transform: rotate(90deg);
+        .tickets-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .ticket-card {
+            background: white;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .ticket-header {
+            padding: 12px 16px;
+            background: white;
+            border-bottom: 1px solid #f4f5f7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ticket-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ticket-badges {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .ticket-content {
+            padding: 16px;
+        }
+
+        .ticket-section {
+            margin-bottom: 16px;
+        }
+
+        .ticket-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .ticket-section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #5e6c84;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .ticket-section-content {
+            color: #172b4d;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .ticket-section-content.user-story-text {
+            font-style: italic;
+            color: #0052cc;
+            background: #e6f3ff;
+            padding: 8px 12px;
+            border-radius: 3px;
+            border-left: 3px solid #0052cc;
+        }
+
+        .modal-field {
+            margin-bottom: 16px;
+        }
+
+        .modal-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .field-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #5e6c84;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .field-content {
+            color: #172b4d;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .field-content.user-story {
+            background: #f4f5f7;
+            padding: 12px;
+            border-radius: 3px;
+            border-left: 3px solid #0052cc;
+            font-style: italic;
+        }
+
+        .field-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .modal-chip {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .modal-chip.impact-high {
+            background: #ffebe6;
+            color: #bf2600;
+        }
+
+        .modal-chip.impact-medium {
+            background: #fff0b3;
+            color: #974f0c;
+        }
+
+        .modal-chip.impact-low {
+            background: #e3fcef;
+            color: #006644;
+        }
+
+        .modal-chip.effort-high {
+            background: #eae6ff;
+            color: #5243aa;
+        }
+
+        .modal-chip.effort-medium {
+            background: #f0f0f0;
+            color: #42526e;
+        }
+
+        .modal-chip.effort-low {
+            background: #e3fcef;
+            color: #006644;
+        }
+
+        .modal-chip.complexity {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .modal-chip.story-points {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .acceptance-list {
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        .acceptance-list li {
+            margin-bottom: 6px;
+            color: #172b4d;
+        }
+
+        .modal-divider {
+            height: 1px;
+            background: #dfe1e6;
+            margin: 16px 0;
+        }
+
+        .modal-description h3,
+        .modal-description h4 {
+            color: #172b4d;
+            margin: 16px 0 8px 0;
+            font-weight: 600;
+        }
+
+        .modal-description strong {
+            font-weight: 600;
+            color: #172b4d;
+        }
+
+        .modal-description ul,
+        .modal-description ol {
+            margin: 8px 0 8px 20px;
+        }
+
+        .modal-description li {
+            margin-bottom: 4px;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         .tag {
@@ -676,12 +1260,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🏋️‍♀️ Fitness Anny</h1>
-            <p>Product Management Dashboard</p>
-            <div class="sync-status" id="syncStatus">
-                <span id="lastSync">Last sync: Loading...</span> | 
-                <span id="repoStatus">Repository: anthropics/claude-code</span>
+            <div class="header-content">
+                <h1>🏋️‍♀️ Fitness Anny</h1>
+                <p>Product Management Dashboard</p>
+                <div class="sync-status" id="syncStatus">
+                    <span id="lastSync">Last sync: Loading...</span> | 
+                    <span id="repoStatus">Repository: vbrajcic/fitness-claude</span>
+                </div>
             </div>
+            <a href="prds.html" class="nav-button">📋 View PRDs</a>
         </div>
 
         <div class="filters">
@@ -740,21 +1327,6 @@
                 </div>
             </div>
 
-            <!-- Ready Backlog Stage -->
-            <div class="section stage-backlog" id="backlogSection">
-                <div class="section-header">
-                    <div class="section-icon">📋</div>
-                    <div class="section-text">
-                        <div class="section-title">Ready Backlog</div>
-                        <div class="section-subtitle">Refined & ready for development</div>
-                    </div>
-                    <div class="section-count" id="backlogCount">-</div>
-                </div>
-                <div id="backlogItems" class="loading">
-                    <div class="spinner"></div>
-                    <div>Loading backlog...</div>
-                </div>
-            </div>
 
             <!-- Bugs Section -->
             <div class="section stage-bugs" id="bugsSection">
@@ -771,6 +1343,7 @@
                     <div>Loading bugs...</div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -783,11 +1356,27 @@
                 this.apiBase = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}`;
                 this.rawBase = `https://raw.githubusercontent.com/${this.repoOwner}/${this.repoName}/${this.branch}`;
                 
+                // Detect if running locally vs GitHub Pages
+                this.isLocal = this.detectLocalEnvironment();
+                
                 this.allItems = [];
                 this.filteredItems = [];
                 this.currentFilter = 'all';
                 
                 this.init();
+            }
+
+            detectLocalEnvironment() {
+                const hostname = window.location.hostname;
+                const protocol = window.location.protocol;
+                
+                // Local indicators: file://, localhost, 127.0.0.1, or local IP
+                return protocol === 'file:' || 
+                       hostname === 'localhost' || 
+                       hostname === '127.0.0.1' ||
+                       hostname.startsWith('192.168.') ||
+                       hostname.startsWith('10.') ||
+                       hostname.includes('.local');
             }
 
             async init() {
@@ -821,14 +1410,13 @@
                     this.updateSyncStatus('Syncing with GitHub...');
                     
                     // Load different types of content
-                    const [backlog, bugs, ideas, features] = await Promise.all([
-                        this.loadBacklogItems(),
+                    const [bugs, ideas, features] = await Promise.all([
                         this.loadBugItems(),
                         this.loadIdeaItems(),
                         this.loadFeatureItems()
                     ]);
 
-                    this.allItems = [...backlog, ...bugs, ...ideas, ...features];
+                    this.allItems = [...bugs, ...ideas, ...features];
                     this.filterAndDisplayItems();
                     
                     this.updateSyncStatus('✅ Synced successfully');
@@ -840,28 +1428,6 @@
                 }
             }
 
-            async loadBacklogItems() {
-                const items = [];
-                
-                try {
-                    // Load mobile app backlog
-                    const mobileBacklog = await this.fetchMarkdownContent('.claude/platforms/mobile-app/features/backlog.md');
-                    if (mobileBacklog) {
-                        items.push(...this.parseMarkdownItems(mobileBacklog, 'backlog', 'mobile'));
-                    }
-
-                    // Load admin panel backlog (if exists)
-                    const adminBacklog = await this.fetchMarkdownContent('.claude/platforms/admin-panel/features/backlog.md');
-                    if (adminBacklog) {
-                        items.push(...this.parseMarkdownItems(adminBacklog, 'backlog', 'admin'));
-                    }
-
-                } catch (error) {
-                    console.warn('Error loading backlog items:', error);
-                }
-                
-                return items;
-            }
 
             async loadBugItems() {
                 const items = [];
@@ -927,61 +1493,90 @@
                 const items = [];
                 
                 try {
-                    // Load features in refinement
+                    // Simple list of feature files to load
                     const featureFiles = [
                         'FEATURES.md',
-                        '.claude/platforms/mobile-app/features/roadmap.md',
-                        '.claude/platforms/admin-panel/features/roadmap.md',
-                        'docs/prds/mobile-app/workout-tracking-prd.md'
+                        '.claude/platforms/mobile-app/features/smartwatch-integration-tickets.md'
+                        // Add more feature files here, but exclude roadmap.md
                     ];
-
+                    
                     for (const file of featureFiles) {
                         try {
                             const content = await this.fetchMarkdownContent(file);
                             if (content) {
                                 const platform = file.includes('mobile-app') ? 'mobile' : 
                                                file.includes('admin-panel') ? 'admin' : 'general';
-                                items.push(...this.parseMarkdownItems(content, 'feature', platform));
+                                
+                                // Use simple PRD parsing for all feature files
+                                const item = this.parsePRDContent(content, file, platform);
+                                items.push(item);
                             }
                         } catch (e) {
-                            // File doesn't exist, continue
+                            console.log(`Could not load feature file: ${file}`);
                         }
                     }
                     
                 } catch (error) {
-                    console.warn('Error loading feature items:', error);
+                    console.error('Error loading feature items:', error);
                 }
                 
                 return items;
             }
 
             async fetchMarkdownContent(filePath) {
-                const response = await fetch(`${this.rawBase}/${filePath}`);
+                let url;
+                
+                if (this.isLocal) {
+                    // Local file path - remove leading ./ if present
+                    const cleanPath = filePath.startsWith('./') ? filePath.substring(2) : filePath;
+                    url = `./${cleanPath}`;
+                } else {
+                    // GitHub raw content URL
+                    url = `${this.rawBase}/${filePath}`;
+                }
+                
+                const response = await fetch(url);
                 if (!response.ok) {
-                    throw new Error(`Failed to fetch ${filePath}`);
+                    throw new Error(`Failed to fetch ${filePath} from ${this.isLocal ? 'local' : 'GitHub'}`);
                 }
                 return await response.text();
             }
 
             parseMarkdownItems(content, type, platform) {
+
                 const items = [];
                 const lines = content.split('\n');
                 let currentItem = null;
+                let inCodeBlock = false;
 
                 for (const line of lines) {
-                    // Look for headers as item titles
-                    if (line.startsWith('# ') || line.startsWith('## ') || line.startsWith('### ')) {
-                        if (currentItem) {
+                    // Track code blocks to avoid parsing headers inside them
+                    if (line.trim().startsWith('```')) {
+                        inCodeBlock = !inCodeBlock;
+                    }
+
+                    // Look for headers as item titles (but not in code blocks)
+                    if (!inCodeBlock && (line.startsWith('# ') || line.startsWith('## ') || line.startsWith('### '))) {
+                        // Save previous item if it exists
+                        if (currentItem && this.isValidItem(currentItem, type)) {
                             items.push(currentItem);
                         }
                         
+                        const title = line.replace(/^#+\s*/, '').trim();
+                        
+                        // Skip non-issue headers based on type
+                        if (!this.shouldIncludeHeader(title, type)) {
+                            currentItem = null;
+                            continue;
+                        }
+
                         currentItem = {
                             id: Date.now() + Math.random(),
-                            title: line.replace(/^#+\s*/, '').trim(),
+                            title: title,
                             description: '',
                             type,
-                            platform,
-                            priority: this.extractPriority(line),
+                            platform: this.extractPlatform(line, platform),
+                            priority: this.extractPriority(line + content),
                             tags: this.extractTags(line),
                             content: line
                         };
@@ -992,24 +1587,202 @@
                     }
                 }
 
-                if (currentItem) {
+                // Add final item if valid
+                if (currentItem && this.isValidItem(currentItem, type)) {
                     items.push(currentItem);
                 }
 
-                // Clean up descriptions and preserve full content
+                // Create summaries and preserve full content
                 items.forEach(item => {
-                    // Extract first few sentences for description
-                    const sentences = item.description.trim().split(/[.!?]+/);
-                    const shortDesc = sentences.slice(0, 2).join('. ').trim();
-                    item.description = shortDesc.length > 150 ? 
-                        shortDesc.substring(0, 150) + '...' : 
-                        (shortDesc + (sentences.length > 2 ? '...' : ''));
-                    
-                    // Keep full content for details view
-                    item.content = item.content.trim();
+                    item.summary = this.createSummary(item.description, item.title);
+                    // Keep full content for modal
                 });
 
                 return items;
+            }
+
+
+            extractField(content, startMarker, endMarker) {
+                const lines = content.split('\n');
+                let capturing = false;
+                let result = [];
+
+                for (const line of lines) {
+                    if (line.includes(`**${startMarker}**`) || line.includes(`**${startMarker}:`)) {
+                        capturing = true;
+                        // Get text after the marker on same line
+                        const afterMarker = line.split(`**${startMarker}**`)[1] || line.split(`**${startMarker}:`)[1];
+                        if (afterMarker && afterMarker.trim()) {
+                            result.push(afterMarker.trim());
+                        }
+                        continue;
+                    }
+                    
+                    if (capturing) {
+                        if (endMarker && (line.includes(`**${endMarker}**`) || line.includes(`**${endMarker}:`))) {
+                            break;
+                        }
+                        if (line.trim()) {
+                            result.push(line.trim());
+                        }
+                    }
+                }
+
+                return result.join(' ').trim();
+            }
+
+            extractStoryPoints(content) {
+                const match = content.match(/\b([1-9]|1[0-3])\s*(points?|pts?)\b/i);
+                return match ? match[1] : null;
+            }
+
+            extractComplexity(content) {
+                const complexityMatch = content.toLowerCase().match(/\b(xs|small?|medium?|large?|xl)\b/);
+                return complexityMatch ? complexityMatch[1].toUpperCase() : null;
+            }
+
+            generateChips(item) {
+                const chips = [];
+                
+                // Story points chip
+                if (item.storyPoints) {
+                    chips.push(`<span class="chip story-points">${item.storyPoints} pts</span>`);
+                }
+                
+                // Complexity chip
+                if (item.complexity) {
+                    chips.push(`<span class="chip complexity">${item.complexity}</span>`);
+                }
+                
+                // Impact chip (for backlog items)
+                if (item.type === 'backlog' && item.impact) {
+                    const impactLevel = this.extractImpactLevel(item.impact);
+                    if (impactLevel) {
+                        chips.push(`<span class="chip impact">${impactLevel} impact</span>`);
+                    }
+                }
+                
+                // Effort chip (for backlog items)
+                if (item.type === 'backlog' && item.effort) {
+                    const effortLevel = this.extractEffortLevel(item.effort);
+                    if (effortLevel) {
+                        chips.push(`<span class="chip effort">${effortLevel} effort</span>`);
+                    }
+                }
+                
+                return chips.join('');
+            }
+            
+            extractImpactLevel(impact) {
+                const lower = impact.toLowerCase();
+                if (lower.includes('high') || lower.includes('critical') || lower.includes('major')) return 'High';
+                if (lower.includes('medium') || lower.includes('moderate')) return 'Med';
+                if (lower.includes('low') || lower.includes('minor') || lower.includes('small')) return 'Low';
+                return null;
+            }
+            
+            extractEffortLevel(effort) {
+                const lower = effort.toLowerCase();
+                if (lower.includes('high') || lower.includes('large') || lower.includes('complex')) return 'High';
+                if (lower.includes('medium') || lower.includes('moderate')) return 'Med';
+                if (lower.includes('low') || lower.includes('small') || lower.includes('simple')) return 'Low';
+                return null;
+            }
+
+            shouldIncludeHeader(title, type) {
+                const lowerTitle = title.toLowerCase();
+                
+                // For ideas and features, be more inclusive
+                if (type === 'idea' || type === 'feature') {
+                    // Skip only major section headers
+                    const skipHeaders = [
+                        'ideas & concept pipeline',
+                        'features in development',
+                        'technical architecture',
+                        'overview',
+                        'introduction',
+                        'conclusion',
+                        'background'
+                    ];
+                    return !skipHeaders.some(skip => lowerTitle.includes(skip));
+                }
+                
+                // For bugs and other types, skip generic headers
+                const skipHeaders = [
+                    'bug reports & issues',
+                    'critical issues',
+                    'high priority issues',
+                    'medium priority issues',
+                    'low priority issues',
+                    'backlog',
+                    'ready backlog',
+                    'technical architecture',
+                    'overview',
+                    'background',
+                    'introduction',
+                    'summary',
+                    'conclusion',
+                    'next steps',
+                    'implementation',
+                    'requirements'
+                ];
+                
+                return !skipHeaders.some(skip => lowerTitle.includes(skip));
+            }
+
+            isValidItem(item, type) {
+                // Must have meaningful content
+                if (!item.description.trim() || item.description.trim().length < 20) {
+                    return false;
+                }
+                
+                // For bugs, must indicate it's a problem/issue
+                if (type === 'bug') {
+                    const desc = item.description.toLowerCase();
+                    return desc.includes('issue') || desc.includes('problem') || desc.includes('bug') || 
+                           desc.includes('error') || desc.includes('fail') || desc.includes('not work');
+                }
+                
+                
+                return true;
+            }
+
+            extractPlatform(line, defaultPlatform) {
+                const lowerLine = line.toLowerCase();
+                if (lowerLine.includes('mobile') || lowerLine.includes('app')) return 'mobile';
+                if (lowerLine.includes('admin') || lowerLine.includes('panel')) return 'admin';
+                if (lowerLine.includes('web') || lowerLine.includes('website')) return 'web';
+                return defaultPlatform;
+            }
+
+            createSummary(description, title) {
+                // Extract first meaningful sentence or two
+                let text = description
+                    .replace(/\*\*(.*?)\*\*/g, '$1')  // Remove bold
+                    .replace(/\*(.*?)\*/g, '$1')      // Remove italics
+                    .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links, keep text
+                    .replace(/`(.*?)`/g, '$1')        // Remove inline code
+                    .replace(/^-\s+/gm, '')           // Remove list bullets
+                    .replace(/\n+/g, ' ')             // Replace newlines with spaces
+                    .trim();
+                
+                // Find first 1-2 sentences
+                const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 10);
+                let summary = sentences.slice(0, 2).join('. ').trim();
+                
+                // If too long, truncate to first sentence
+                if (summary.length > 100) {
+                    summary = sentences[0].trim();
+                }
+                
+                // Final length check
+                if (summary.length > 80) {
+                    summary = summary.substring(0, 77) + '...';
+                } else if (summary && !summary.endsWith('.') && !summary.endsWith('!') && !summary.endsWith('?')) {
+                    summary += '.';
+                }
+                
+                return summary || 'No summary available.';
             }
 
             extractPriority(text) {
@@ -1063,12 +1836,10 @@
             }
 
             displayItems() {
-                const backlogItems = this.filteredItems.filter(item => item.type === 'backlog');
                 const bugItems = this.filteredItems.filter(item => item.type === 'bug');
                 const ideaItems = this.filteredItems.filter(item => item.type === 'idea');
                 const featureItems = this.filteredItems.filter(item => item.type === 'feature');
 
-                this.renderSection('backlogItems', backlogItems, 'backlogCount');
                 this.renderSection('bugItems', bugItems, 'bugsCount');
                 this.renderSection('ideaItems', ideaItems, 'ideasCount');
                 this.renderSection('featureItems', featureItems, 'featuresCount');
@@ -1090,21 +1861,22 @@
                     return;
                 }
 
-                const html = items.map(item => `
-                    <div class="item" data-type="${item.type}" data-platform="${item.platform}" onclick="toggleItemDetails(this)">
-                        <div class="item-summary">
+                const html = items.map((item, index) => {
+                    const itemId = `${item.type.toUpperCase()}-${String(index + 1).padStart(3, '0')}`;
+                    return `
+                        <div class="item" data-type="${item.type}" data-platform="${item.platform}" onclick="openItemModal('${itemId}', ${JSON.stringify(item).replace(/"/g, '&quot;')})">
                             <div class="item-header">
-                                <div class="item-title">${item.title}<span class="expand-indicator">▶</span></div>
+                                <div class="item-title">${item.title}</div>
                                 <div class="item-priority ${item.priority.toLowerCase()}">${item.priority}</div>
                             </div>
-                            <div class="item-summary-row">
-                                <div class="item-description">${item.description}</div>
+                            <div class="item-summary">${item.summary}</div>
+                            <div class="item-footer">
+                                <div class="item-platform">${item.platform.charAt(0).toUpperCase() + item.platform.slice(1)}</div>
+                                <div class="item-id">#${itemId}</div>
                             </div>
-                            <div class="item-platform">Platform: ${item.platform.charAt(0).toUpperCase() + item.platform.slice(1)}</div>
                         </div>
-                        <div class="item-details">${item.content || 'No additional details available.'}</div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
 
                 container.innerHTML = html;
             }
@@ -1116,23 +1888,1004 @@
                 if (message) {
                     syncElement.textContent = message;
                 } else {
-                    syncElement.textContent = `Last sync: ${new Date().toLocaleTimeString()}`;
+                    const timeStr = new Date().toLocaleTimeString();
+                    const sourceStr = this.isLocal ? 'local files' : 'GitHub';
+                    syncElement.textContent = `Last sync: ${timeStr} (${sourceStr})`;
                 }
                 
-                repoElement.textContent = `Repository: ${this.repoOwner}/${this.repoName}`;
+                const locationStr = this.isLocal ? 'Local Development' : `${this.repoOwner}/${this.repoName}`;
+                repoElement.textContent = `Source: ${locationStr}`;
+            }
+
+            async loadPRDItems() {
+                const items = [];
+                
+                try {
+                    // Scan for PRD files in the docs/prds directory
+                    const prdPaths = [
+                        'docs/prds/mobile-app/workout-tracking-prd.md',
+                        'docs/prds/admin-panel/operator-efficiency-prd.md',
+                        'docs/prds/general/subscription-management-prd.md'
+                    ];
+
+                    for (const prdPath of prdPaths) {
+                        try {
+                            const content = await this.fetchMarkdownContent(prdPath);
+                            if (content) {
+                                const prdItem = this.parsePRDContent(content, prdPath);
+                                if (prdItem) {
+                                    items.push(prdItem);
+                                }
+                            }
+                        } catch (e) {
+                            // File doesn't exist, continue
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.warn('Error loading PRD items:', error);
+                }
+                
+                return items;
+            }
+
+            parsePRDContent(content, filePath, platform) {
+                const lines = content.split('\n');
+                const title = this.extractPRDTitle(lines);
+                const summary = this.extractPRDSummary(content);
+                const status = this.extractPRDStatus(content);
+                const lastUpdated = this.extractLastUpdated(content);
+                
+                return {
+                    id: Date.now() + Math.random(),
+                    title: title || this.generateTitleFromPath(filePath),
+                    type: 'feature',
+                    platform: platform || this.determinePlatform(filePath),
+                    priority: 'medium',
+                    summary: summary,
+                    description: summary,
+                    content: content,
+                    filePath: filePath,
+                    status: status,
+                    lastUpdated: lastUpdated
+                };
+            }
+
+            extractPRDTitle(lines) {
+                for (const line of lines) {
+                    if (line.startsWith('# ')) {
+                        return line.replace(/^#\s*/, '').trim();
+                    }
+                }
+                return null;
+            }
+
+            parseTicketItems(content, filePath, platform) {
+                const items = [];
+                
+                // Split content into sections based on ## and ### headers
+                const sections = content.split(/(?=^##|^###)/m);
+                
+                for (let i = 0; i < sections.length; i++) {
+                    const section = sections[i].trim();
+                    if (!section) continue;
+                    
+                    // Epic sections (## Epic)
+                    if (section.startsWith('## Epic')) {
+                        const titleMatch = section.match(/^## (Epic \d+: .+?)(?:\n|$)/);
+                        const title = titleMatch ? titleMatch[1] : 'Epic';
+                        
+                        const businessOutcomeMatch = section.match(/\*\*Business Outcome\*\*:\s*(.+?)(?:\n|$)/);
+                        const summary = businessOutcomeMatch ? businessOutcomeMatch[1] : '';
+                        
+                        items.push({
+                            id: `epic-${i}-${Date.now()}`,
+                            title: title,
+                            type: 'epic',
+                            platform: platform,
+                            content: section,
+                            summary: summary,
+                            status: 'pending',
+                            priority: 'high',
+                            filePath: filePath,
+                            isDevelopmentTickets: true
+                        });
+                    }
+                    
+                    // Story sections (### Story)
+                    else if (section.startsWith('### Story')) {
+                        const titleMatch = section.match(/^### (Story \d+: .+?)(?:\n|$)/);
+                        const title = titleMatch ? titleMatch[1] : 'Story';
+                        
+                        const customerMatch = section.match(/\*\*Customer Job\*\*:\s*(.+?)(?:\n|$)/);
+                        const summary = customerMatch ? customerMatch[1] : title.replace(/^Story \d+: /, '');
+                        
+                        items.push({
+                            id: `story-${i}-${Date.now()}`,
+                            title: title,
+                            type: 'story',
+                            platform: platform,
+                            content: section,
+                            summary: summary,
+                            status: 'pending',
+                            priority: 'medium',
+                            filePath: filePath,
+                            isDevelopmentTickets: true
+                        });
+                    }
+                    
+                    // Technical Spike sections (### Technical Spike)
+                    else if (section.startsWith('### Technical Spike')) {
+                        const titleMatch = section.match(/^### (Technical Spike \d+: .+?)(?:\n|$)/);
+                        const title = titleMatch ? titleMatch[1] : 'Technical Spike';
+                        
+                        const questionMatch = section.match(/\*\*Technical Question\*\*:\s*(.+?)(?:\n|$)/);
+                        const summary = questionMatch ? questionMatch[1] : title.replace(/^Technical Spike \d+: /, '');
+                        
+                        items.push({
+                            id: `spike-${i}-${Date.now()}`,
+                            title: title,
+                            type: 'spike',
+                            platform: platform,
+                            content: section,
+                            summary: summary,
+                            status: 'pending',
+                            priority: 'high',
+                            filePath: filePath,
+                            isDevelopmentTickets: true
+                        });
+                    }
+                }
+                
+                console.log(`Parsed ${items.length} items from ${filePath}`);
+                return items;
+            }
+
+            extractPRDSummary(content) {
+                // Look for summary, overview, or description section
+                const summaryMatch = content.match(/##\s*(Summary|Overview|Description)\s*\n([\s\S]*?)(?=##|$)/i);
+                if (summaryMatch) {
+                    const summary = summaryMatch[2].trim().split('\n')[0];
+                    return summary.length > 120 ? summary.substring(0, 120) + '...' : summary;
+                }
+                
+                // Look for Business Outcome or Problem Statement for ticket files
+                const businessOutcomeMatch = content.match(/\*\*Business Outcome\*\*:\s*(.*?)(?:\n|$)/);
+                if (businessOutcomeMatch) {
+                    const outcome = businessOutcomeMatch[1].trim();
+                    return outcome.length > 120 ? outcome.substring(0, 120) + '...' : outcome;
+                }
+                
+                // Look for Epic descriptions
+                const epicMatch = content.match(/##\s*Epic\s*\d+:\s*(.*?)(?:\n|$)/);
+                if (epicMatch) {
+                    const epic = epicMatch[1].trim();
+                    return epic.length > 120 ? epic.substring(0, 120) + '...' : epic;
+                }
+                
+                // Fallback: get first paragraph after title and metadata
+                const lines = content.split('\n');
+                let foundTitle = false;
+                let skipMetadata = false;
+                
+                for (const line of lines) {
+                    if (line.startsWith('# ')) {
+                        foundTitle = true;
+                        continue;
+                    }
+                    
+                    // Skip metadata line that starts with *
+                    if (foundTitle && line.trim().startsWith('*') && line.trim().endsWith('*')) {
+                        skipMetadata = true;
+                        continue;
+                    }
+                    
+                    // Find first substantial content line
+                    if (foundTitle && line.trim() && !line.startsWith('#') && !line.trim().startsWith('*')) {
+                        const summary = line.trim().replace(/\*\*/g, ''); // Remove bold formatting
+                        return summary.length > 120 ? summary.substring(0, 120) + '...' : summary;
+                    }
+                }
+                
+                return 'Development tickets and feature breakdown';
+            }
+
+            determinePlatform(filePath) {
+                if (filePath.includes('mobile-app')) return 'mobile';
+                if (filePath.includes('admin-panel')) return 'admin';
+                if (filePath.includes('web')) return 'web';
+                return 'general';
+            }
+
+            extractPRDStatus(content) {
+                const statusMatch = content.match(/\*\*Status\*\*:?\s*(Draft|Review|Approved|In Development|Complete)/i);
+                return statusMatch ? statusMatch[1].toLowerCase() : 'draft';
+            }
+
+            extractLastUpdated(content) {
+                const dateMatch = content.match(/\*\*Last Updated\*\*:?\s*([\d\/\-\.]+)/i) || 
+                                content.match(/Updated:?\s*([\d\/\-\.]+)/i);
+                return dateMatch ? dateMatch[1] : null;
+            }
+
+            generateTitleFromPath(filePath) {
+                const fileName = filePath.split('/').pop().replace('.md', '');
+                return fileName.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
             }
 
             showError(message) {
-                const sections = ['backlogItems', 'bugItems', 'ideaItems', 'featureItems'];
+                const sections = ['bugItems', 'ideaItems', 'featureItems'];
                 sections.forEach(sectionId => {
                     document.getElementById(sectionId).innerHTML = `<div class="error">${message}</div>`;
                 });
             }
         }
 
-        // Global function to toggle item details
-        function toggleItemDetails(element) {
-            element.classList.toggle('expanded');
+        // Modal functionality
+        function openItemModal(itemId, item) {
+            const modal = document.getElementById('itemModal');
+            if (!modal) {
+                createModal();
+            }
+            
+            // Populate modal content
+            document.getElementById('modalIssueId').textContent = `#${itemId}`;
+            document.getElementById('modalTitle').textContent = item.title;
+            document.getElementById('modalPriority').textContent = item.priority;
+            document.getElementById('modalPriority').className = `modal-priority ${item.priority.toLowerCase()}`;
+            document.getElementById('modalPlatform').textContent = item.platform.charAt(0).toUpperCase() + item.platform.slice(1);
+            
+            // Generate structured modal content
+            document.getElementById('modalSections').innerHTML = generateModalSections(item);
+            
+            // Show modal and ensure proper scrolling
+            const modalElement = document.getElementById('itemModal');
+            modalElement.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset modal scroll position
+            const modalBody = modalElement.querySelector('.modal-body');
+            if (modalBody) {
+                modalBody.scrollTop = 0;
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('itemModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function generateModalSections(item) {
+            if (item.type === 'feature') {
+                return generateFeatureModal(item);
+            } else {
+                return generateGenericModal(item);
+            }
+        }
+
+        function generateFeatureModal(item) {
+            const parsed = parseFeaturePRD(item.content);
+            let content = '';
+
+            // Summary Stats (only show relevant ones)
+            const statsToShow = [];
+            if (parsed.userStories.length > 0) {
+                statsToShow.push({ number: parsed.userStories.length, label: 'User Stories' });
+            }
+            if (parsed.phases.length > 0) {
+                statsToShow.push({ number: parsed.phases.length, label: 'Implementation Phases' });
+            }
+            if (parsed.totalTasks > 0) {
+                statsToShow.push({ number: parsed.totalTasks, label: 'Tasks' });
+            }
+            if (parsed.epics && parsed.epics.length > 0) {
+                statsToShow.push({ number: parsed.epics.length, label: 'Epics' });
+            }
+            if (parsed.tickets && parsed.tickets.length > 0) {
+                statsToShow.push({ number: parsed.tickets.length, label: 'Tickets' });
+            }
+            // Add total story points for development tickets
+            if (parsed.projectInfo && parsed.projectInfo.totalStoryPoints) {
+                statsToShow.push({ number: parsed.projectInfo.totalStoryPoints, label: 'Story Points' });
+            }
+
+            if (statsToShow.length > 0) {
+                content += `
+                    <div class="summary-stats">
+                        ${statsToShow.map(stat => `
+                            <div class="stat-item">
+                                <span class="stat-number">${stat.number}</span>
+                                <span class="stat-label">${stat.label}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            // Project Overview (for development tickets)
+            if (parsed.projectInfo && (parsed.projectInfo.timeline || parsed.projectInfo.target || parsed.projectInfo.businessImpact)) {
+                content += `
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            🎯 Project Overview
+                        </div>
+                        <div class="modal-section-content">
+                            ${parsed.projectInfo.timeline ? `
+                                <div style="margin-bottom: 12px;">
+                                    <strong>Timeline:</strong> ${cleanText(parsed.projectInfo.timeline)}
+                                </div>
+                            ` : ''}
+                            ${parsed.projectInfo.target ? `
+                                <div style="margin-bottom: 12px;">
+                                    <strong>Target:</strong> ${cleanText(parsed.projectInfo.target)}
+                                </div>
+                            ` : ''}
+                            ${parsed.projectInfo.businessImpact ? `
+                                <div>
+                                    <strong>Business Impact:</strong> ${cleanText(parsed.projectInfo.businessImpact)}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Executive Summary (for PRDs)
+            if (parsed.summary.problem || parsed.summary.solution) {
+                content += `
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            📋 Executive Summary
+                        </div>
+                        <div class="modal-section-content">
+                            ${parsed.summary.problem ? `
+                                <div style="margin-bottom: 12px;">
+                                    <strong>Problem:</strong> ${cleanText(parsed.summary.problem)}
+                                </div>
+                            ` : ''}
+                            ${parsed.summary.solution ? `
+                                <div style="margin-bottom: 12px;">
+                                    <strong>Solution:</strong> ${cleanText(parsed.summary.solution)}
+                                </div>
+                            ` : ''}
+                            ${parsed.summary.timeline ? `
+                                <div style="margin-bottom: 12px;">
+                                    <strong>Timeline:</strong> ${cleanText(parsed.summary.timeline)}
+                                </div>
+                            ` : ''}
+                            ${parsed.summary.businessImpact ? `
+                                <div>
+                                    <strong>Business Impact:</strong> ${cleanText(parsed.summary.businessImpact)}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // User Stories
+            if (parsed.userStories.length > 0) {
+                content += `
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            👤 User Stories
+                            <span class="count-badge stories">${parsed.userStories.length} stories</span>
+                        </div>
+                        <div class="modal-section-content">
+                `;
+                
+                parsed.userStories.forEach((story, index) => {
+                    const completedCriteria = story.acceptanceCriteria.filter(c => c.completed).length;
+                    const totalCriteria = story.acceptanceCriteria.length;
+                    
+                    content += `
+                        <div class="user-story-card">
+                            <div class="user-story-header">
+                                ${story.title || `Story ${index + 1}`}
+                                ${totalCriteria > 0 ? `<span class="count-badge">${completedCriteria}/${totalCriteria}</span>` : ''}
+                            </div>
+                            <div class="user-story-content">
+                                <div class="user-story-text">${cleanText(story.text)}</div>
+                                ${story.acceptanceCriteria.length > 0 ? `
+                                    <div class="acceptance-criteria">
+                                        <h4>Acceptance Criteria</h4>
+                                        <ul class="criteria-list">
+                                            ${story.acceptanceCriteria.map(criteria => `
+                                                <li class="criteria-item">
+                                                    <div class="criteria-checkbox ${criteria.completed ? 'completed' : ''}"></div>
+                                                    ${cleanText(criteria.text)}
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                content += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Implementation Phases
+            if (parsed.phases.length > 0) {
+                content += `
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            🚀 Implementation Phases
+                            <span class="count-badge tasks">${parsed.phases.length} phases</span>
+                        </div>
+                        <div class="modal-section-content">
+                `;
+                
+                parsed.phases.forEach((phase, index) => {
+                    const completedTasks = phase.tasks.filter(t => t.completed).length;
+                    const totalTasks = phase.tasks.length;
+                    
+                    content += `
+                        <div class="phase-section">
+                            <div class="phase-header">
+                                <div class="phase-title">${phase.title}</div>
+                                ${totalTasks > 0 ? `<div class="phase-progress">${completedTasks}/${totalTasks} tasks</div>` : ''}
+                            </div>
+                            ${phase.tasks.length > 0 ? `
+                                <div class="task-list">
+                                    ${phase.tasks.map(task => `
+                                        <div class="task-item">
+                                            <div class="task-checkbox ${task.completed ? 'completed' : ''}"></div>
+                                            ${cleanText(task.text)}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+                
+                content += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Epics & Tickets (for development tickets format)
+            if (parsed.epics && parsed.epics.length > 0) {
+                content += `
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            📦 Development Epics
+                            <span class="count-badge tasks">${parsed.epics.length} epics</span>
+                        </div>
+                        <div class="modal-section-content">
+                `;
+                
+                parsed.epics.forEach((epic, index) => {
+                    const completedTickets = epic.tickets.filter(t => t.completed).length;
+                    const totalTickets = epic.tickets.length;
+                    
+                    content += `
+                        <div class="phase-section">
+                            <div class="phase-header">
+                                <div class="phase-title">${epic.title}</div>
+                                ${totalTickets > 0 ? `<div class="phase-progress">${completedTickets}/${totalTickets} tickets</div>` : ''}
+                            </div>
+                            ${epic.tickets.length > 0 ? `
+                                <div class="tickets-list">
+                                    ${epic.tickets.map(ticket => `
+                                        <div class="ticket-card">
+                                            <div class="ticket-header">
+                                                <div class="ticket-status ${ticket.completed ? 'completed' : 'pending'}">
+                                                    <div class="task-checkbox ${ticket.completed ? 'completed' : ''}"></div>
+                                                    <strong>${ticket.title}</strong>
+                                                </div>
+                                                <div class="ticket-badges">
+                                                    ${ticket.storyPoints ? `<span class="count-badge">${ticket.storyPoints} pts</span>` : ''}
+                                                    <span class="count-badge priority">${ticket.priority || 'Medium'}</span>
+                                                </div>
+                                            </div>
+                                            <div class="ticket-content">
+                                                ${ticket.userStory ? `
+                                                    <div class="ticket-section">
+                                                        <div class="ticket-section-label">User Story</div>
+                                                        <div class="ticket-section-content user-story-text">${cleanText(ticket.userStory)}</div>
+                                                    </div>
+                                                ` : ''}
+                                                ${ticket.problemStatement ? `
+                                                    <div class="ticket-section">
+                                                        <div class="ticket-section-label">Problem Statement</div>
+                                                        <div class="ticket-section-content">${cleanText(ticket.problemStatement)}</div>
+                                                    </div>
+                                                ` : ''}
+                                                ${ticket.acceptanceCriteria && ticket.acceptanceCriteria.length > 0 ? `
+                                                    <div class="ticket-section">
+                                                        <div class="ticket-section-label">Acceptance Criteria</div>
+                                                        <ul class="criteria-list">
+                                                            ${ticket.acceptanceCriteria.map(criteria => `
+                                                                <li class="criteria-item">
+                                                                    <div class="criteria-checkbox ${criteria.completed ? 'completed' : ''}"></div>
+                                                                    ${cleanText(criteria.text)}
+                                                                </li>
+                                                            `).join('')}
+                                                        </ul>
+                                                    </div>
+                                                ` : ''}
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+                
+                content += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Dependencies and Timeline (for development tickets)
+            if (parsed.projectInfo && (parsed.projectInfo.dependencies || parsed.projectInfo.developmentTimeline)) {
+                content += `
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            🔗 Dependencies & Timeline
+                        </div>
+                        <div class="modal-section-content">
+                            ${parsed.projectInfo.dependencies ? `
+                                <div style="margin-bottom: 16px;">
+                                    <strong>Epic Dependencies:</strong>
+                                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                                        ${formatListItems(parsed.projectInfo.dependencies)}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                            ${parsed.projectInfo.developmentTimeline ? `
+                                <div style="margin-bottom: 16px;">
+                                    <strong>Development Timeline:</strong>
+                                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
+                                        ${formatListItems(parsed.projectInfo.developmentTimeline)}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                            ${parsed.projectInfo.teamVelocity || parsed.projectInfo.targetCompletion ? `
+                                <div style="display: flex; gap: 16px;">
+                                    ${parsed.projectInfo.teamVelocity ? `
+                                        <div style="flex: 1;">
+                                            <strong>Team Velocity:</strong><br>
+                                            <span style="font-size: 0.85rem; color: #5e6c84;">${cleanText(parsed.projectInfo.teamVelocity)}</span>
+                                        </div>
+                                    ` : ''}
+                                    ${parsed.projectInfo.targetCompletion ? `
+                                        <div style="flex: 1;">
+                                            <strong>Target Completion:</strong><br>
+                                            <span style="font-size: 0.85rem; color: #5e6c84;">${cleanText(parsed.projectInfo.targetCompletion)}</span>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // If no structured content, show simple description
+            if (!parsed.summary.problem && !parsed.summary.solution && parsed.userStories.length === 0 && parsed.phases.length === 0 && (!parsed.epics || parsed.epics.length === 0) && (!parsed.projectInfo || !parsed.projectInfo.timeline)) {
+                content += `
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            📝 Description
+                        </div>
+                        <div class="modal-section-content">
+                            ${formatModalContent(item.content || 'No description available.')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            return content;
+        }
+
+        function generateGenericModal(item) {
+            // For non-feature items, show simpler layout
+            return `
+                <div class="modal-section">
+                    <div class="modal-section-header">
+                        📝 Description
+                    </div>
+                    <div class="modal-section-content">
+                        ${formatModalContent(item.content || item.description || 'No description available.')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function parseFeaturePRD(content) {
+            const lines = content.split('\n');
+            const result = {
+                summary: {},
+                userStories: [],
+                phases: [],
+                epics: [],
+                tickets: [],
+                totalCriteria: 0,
+                totalTasks: 0
+            };
+
+            // Extract executive summary
+            result.summary = extractExecutiveSummary(content);
+
+            // Extract user stories (for PRD format)
+            result.userStories = extractUserStories(content);
+            result.totalCriteria = result.userStories.reduce((sum, story) => sum + story.acceptanceCriteria.length, 0);
+
+            // Extract implementation phases (for PRD format)
+            result.phases = extractImplementationPhases(content);
+            result.totalTasks = result.phases.reduce((sum, phase) => sum + phase.tasks.length, 0);
+
+            // Extract epics and tickets (for development tickets format)
+            result.epics = extractEpics(content);
+            result.tickets = result.epics.reduce((all, epic) => all.concat(epic.tickets), []);
+
+            // Extract project metadata (for development tickets)
+            result.projectInfo = extractProjectInfo(content);
+
+            return result;
+        }
+
+        function extractExecutiveSummary(content) {
+            const summary = {};
+            
+            // Extract Problem
+            const problemMatch = content.match(/\*\*Problem\*\*:\s*(.+?)(?=\n\*\*|$)/s);
+            if (problemMatch) {
+                summary.problem = problemMatch[1].trim();
+            }
+
+            // Extract Solution
+            const solutionMatch = content.match(/\*\*Solution\*\*:\s*(.+?)(?=\n\*\*|$)/s);
+            if (solutionMatch) {
+                summary.solution = solutionMatch[1].trim();
+            }
+
+            // Extract Timeline
+            const timelineMatch = content.match(/\*\*Timeline\*\*:\s*(.+?)(?=\n|$)/);
+            if (timelineMatch) {
+                summary.timeline = timelineMatch[1].trim();
+            }
+
+            // Extract Business Impact
+            const businessImpactMatch = content.match(/\*\*Business Impact\*\*:\s*([\s\S]*?)(?=\n\*\*Timeline|$)/);
+            if (businessImpactMatch) {
+                summary.businessImpact = businessImpactMatch[1].trim();
+            }
+
+            return summary;
+        }
+
+        function extractUserStories(content) {
+            const stories = [];
+            const userStoryRegex = /###\s+(.+?User Story.*?)\n([\s\S]*?)(?=###|##(?!\#)|$)/g;
+            let match;
+
+            while ((match = userStoryRegex.exec(content)) !== null) {
+                const storyTitle = match[1].trim();
+                const storyContent = match[2].trim();
+
+                // Extract user story text (As... I want... So that...)
+                const storyTextMatch = storyContent.match(/\*\*As\s+(.+?)\*\*[\s\S]*?\*\*I want\*\*\s+(.+?)[\s\S]*?\*\*So that\*\*\s+(.+?)(?=\n\*\*|$)/s);
+                let storyText = '';
+                if (storyTextMatch) {
+                    storyText = `As ${storyTextMatch[1]}, I want ${storyTextMatch[2]}, so that ${storyTextMatch[3]}`;
+                } else {
+                    // Fallback: extract first paragraph
+                    const firstParagraph = storyContent.split('\n')[0];
+                    storyText = firstParagraph.replace(/\*\*/g, '');
+                }
+
+                // Extract acceptance criteria
+                const acceptanceCriteria = extractAcceptanceCriteria(storyContent);
+
+                stories.push({
+                    title: storyTitle.replace(/User Story/, '').trim(),
+                    text: storyText,
+                    acceptanceCriteria: acceptanceCriteria
+                });
+            }
+
+            return stories;
+        }
+
+        function extractAcceptanceCriteria(content) {
+            const criteria = [];
+            const criteriaRegex = /- \[([ x])\] (.+?)(?=\n|$)/g;
+            let match;
+
+            while ((match = criteriaRegex.exec(content)) !== null) {
+                const isCompleted = match[1] === 'x';
+                const text = match[2].trim();
+                
+                criteria.push({
+                    text: text,
+                    completed: isCompleted
+                });
+            }
+
+            return criteria;
+        }
+
+        function extractImplementationPhases(content) {
+            const phases = [];
+            const phaseRegex = /###\s+Phase\s+\d+[:\s]*(.+?)\n([\s\S]*?)(?=###|##(?!\#)|$)/g;
+            let match;
+
+            while ((match = phaseRegex.exec(content)) !== null) {
+                const phaseTitle = match[1].trim();
+                const phaseContent = match[2].trim();
+
+                // Extract tasks from this phase
+                const tasks = extractTasks(phaseContent);
+
+                phases.push({
+                    title: phaseTitle,
+                    tasks: tasks
+                });
+            }
+
+            return phases;
+        }
+
+        function extractTasks(content) {
+            const tasks = [];
+            const taskRegex = /- \[([ x])\] \*\*(.+?)\*\*/g;
+            let match;
+
+            while ((match = taskRegex.exec(content)) !== null) {
+                const isCompleted = match[1] === 'x';
+                const text = match[2].trim();
+                
+                tasks.push({
+                    text: text,
+                    completed: isCompleted
+                });
+            }
+
+            return tasks;
+        }
+
+        function extractEpics(content) {
+            const epics = [];
+            const epicRegex = /##\s+EPIC\s+[\d\.]+[:\s]*(.+?)\n([\s\S]*?)(?=##\s+EPIC|$)/g;
+            let match;
+
+            while ((match = epicRegex.exec(content)) !== null) {
+                const epicTitle = match[1].trim();
+                const epicContent = match[2].trim();
+
+                // Extract tickets from this epic
+                const tickets = extractTickets(epicContent);
+
+                epics.push({
+                    title: epicTitle,
+                    tickets: tickets
+                });
+            }
+
+            return epics;
+        }
+
+        function extractTickets(content) {
+            const tickets = [];
+            const ticketRegex = /###\s+Ticket\s+[\d\.]+[:\s]*(.+?)\n([\s\S]*?)(?=###\s+Ticket|##|$)/g;
+            let match;
+
+            while ((match = ticketRegex.exec(content)) !== null) {
+                const ticketTitle = match[1].trim();
+                const ticketContent = match[2].trim();
+
+                // Extract story points
+                const storyPointsMatch = ticketContent.match(/\*\*Story Points\*\*:\s*(\d+)/);
+                const storyPoints = storyPointsMatch ? parseInt(storyPointsMatch[1]) : null;
+
+                // Extract priority
+                const priorityMatch = ticketContent.match(/\*\*Priority\*\*:\s*(\w+)/);
+                const priority = priorityMatch ? priorityMatch[1] : 'Medium';
+
+                // Extract user story
+                const userStoryMatch = ticketContent.match(/\*\*User Story\*\*:\s*(.+?)(?=\n\*\*|$)/s);
+                const userStory = userStoryMatch ? userStoryMatch[1].trim() : '';
+
+                // Extract problem statement
+                const problemMatch = ticketContent.match(/\*\*Problem Statement\*\*:\s*(.+?)(?=\n\*\*|$)/s);
+                const problemStatement = problemMatch ? problemMatch[1].trim() : '';
+
+                // Extract acceptance criteria (using existing function)
+                const acceptanceCriteria = extractAcceptanceCriteria(ticketContent);
+
+                // Check if completed (simple heuristic - only look for [x] checkboxes, not words)
+                const completed = ticketContent.includes('[x]') || ticketContent.includes('✓');
+
+                // Create summary
+                let summary = '';
+                if (userStory) summary = userStory;
+                else if (problemStatement) summary = problemStatement;
+                else summary = ticketContent.split('\n')[0] || '';
+
+                // Truncate summary
+                if (summary.length > 80) {
+                    summary = summary.substring(0, 77) + '...';
+                }
+
+                tickets.push({
+                    title: ticketTitle,
+                    summary: summary,
+                    storyPoints: storyPoints,
+                    priority: priority,
+                    userStory: userStory,
+                    problemStatement: problemStatement,
+                    acceptanceCriteria: acceptanceCriteria,
+                    completed: completed,
+                    content: ticketContent
+                });
+            }
+
+            return tickets;
+        }
+
+        function extractProjectInfo(content) {
+            const info = {};
+
+            // Extract total story points
+            const totalPointsMatch = content.match(/\*\*Total Story Points\*\*:\s*(\d+)/);
+            info.totalStoryPoints = totalPointsMatch ? parseInt(totalPointsMatch[1]) : null;
+
+            // Extract timeline
+            const timelineMatch = content.match(/\*Timeline:\s*(.+?)(?=\*|$)/);
+            info.timeline = timelineMatch ? timelineMatch[1].trim() : null;
+
+            // Extract target
+            const targetMatch = content.match(/\*Target:\s*(.+?)(?=\*|$)/);
+            info.target = targetMatch ? targetMatch[1].trim() : null;
+
+            // Extract business impact
+            const businessImpactMatch = content.match(/\*Business Impact:\s*(.+?)(?=\*|$)/);
+            info.businessImpact = businessImpactMatch ? businessImpactMatch[1].trim() : null;
+
+            // Extract dependencies
+            const dependenciesMatch = content.match(/\*\*Epic Dependencies\*\*:\s*([\s\S]*?)(?=\*\*Development Timeline|$)/);
+            info.dependencies = dependenciesMatch ? dependenciesMatch[1].trim() : null;
+
+            // Extract development timeline
+            const devTimelineMatch = content.match(/\*\*Development Timeline\*\*:\s*([\s\S]*?)(?=\*\*Risk Mitigation|$)/);
+            info.developmentTimeline = devTimelineMatch ? devTimelineMatch[1].trim() : null;
+
+            // Extract estimated velocity
+            const velocityMatch = content.match(/\*\*Estimated Team Velocity\*\*:\s*(.+?)(?=\*\*|$)/);
+            info.teamVelocity = velocityMatch ? velocityMatch[1].trim() : null;
+
+            // Extract target completion
+            const completionMatch = content.match(/\*\*Target Completion\*\*:\s*(.+?)(?=\*\*|$)/);
+            info.targetCompletion = completionMatch ? completionMatch[1].trim() : null;
+
+            return info;
+        }
+
+        function formatListItems(text) {
+            if (!text) return '';
+            
+            // Split by lines and filter for list items (lines starting with -)
+            const lines = text.split('\n');
+            const listItems = lines
+                .map(line => line.trim())
+                .filter(line => line.startsWith('-'))
+                .map(line => {
+                    // Remove the leading - and clean up
+                    let content = line.substring(1).trim();
+                    // Convert markdown bold (**text**) to HTML
+                    content = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                    return `<li style="margin-bottom: 6px; font-size: 0.9rem; line-height: 1.4;">${content}</li>`;
+                });
+            
+            return listItems.join('');
+        }
+        
+        function extractLevelFromText(text) {
+            if (!text) return null;
+            const lower = text.toLowerCase();
+            if (lower.includes('high') || lower.includes('critical') || lower.includes('major')) return 'High';
+            if (lower.includes('medium') || lower.includes('moderate') || lower.includes('med')) return 'Medium';
+            if (lower.includes('low') || lower.includes('minor') || lower.includes('small')) return 'Low';
+            return null;
+        }
+        
+        function cleanText(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`(.*?)`/g, '<code style="background: #f4f5f7; padding: 2px 4px; border-radius: 2px; font-size: 0.85em;">$1</code>')
+                .trim();
+        }
+        
+        function createModal() {
+            const modalHTML = `
+                <div id="itemModal" class="modal">
+                    <div class="modal-overlay" onclick="closeModal()"></div>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-header-left">
+                                <div id="modalIssueId" class="modal-issue-id">#ITEM-001</div>
+                                <div id="modalTitle" class="modal-title">Issue Title</div>
+                                <div class="modal-meta">
+                                    <div id="modalPriority" class="modal-priority high">High</div>
+                                    <div id="modalPlatform" class="modal-platform">Mobile</div>
+                                </div>
+                            </div>
+                            <button class="close-btn" onclick="closeModal()">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-content-wrapper">
+                                <div id="modalSections">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
+        function formatModalContent(content) {
+            if (!content) return 'No content available.';
+            
+            // Convert markdown to HTML with proper formatting
+            let formatted = content
+                // Headers - convert to HTML with proper hierarchy
+                .replace(/^### (.*$)/gm, '<h4 style="margin: 20px 0 10px 0; color: #172b4d; border-bottom: 1px solid #dfe1e6; padding-bottom: 8px;">$1</h4>')
+                .replace(/^## (.*$)/gm, '<h3 style="margin: 24px 0 12px 0; color: #172b4d; border-bottom: 2px solid #dfe1e6; padding-bottom: 10px;">$1</h3>')
+                .replace(/^# (.*$)/gm, '<h2 style="margin: 28px 0 16px 0; color: #172b4d; border-bottom: 3px solid #0052cc; padding-bottom: 12px;">$1</h2>')
+                
+                // Bold and italic text
+                .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #172b4d;">$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                
+                // Code blocks and inline code
+                .replace(/`(.*?)`/g, '<code style="background: #f4f5f7; padding: 3px 6px; border-radius: 3px; font-size: 0.9em; font-family: monospace;">$1</code>')
+                
+                // Checkboxes
+                .replace(/^- \[ \] (.*$)/gm, '<div style="margin: 4px 0;"><span style="color: #6b778c;">☐</span> $1</div>')
+                .replace(/^- \[x\] (.*$)/gm, '<div style="margin: 4px 0;"><span style="color: #00875a;">☑</span> <span style="text-decoration: line-through; color: #6b778c;">$1</span></div>')
+                
+                // Regular bullet points
+                .replace(/^- (.*$)/gm, '<div style="margin: 4px 0 4px 16px;">• $1</div>')
+                
+                // Links (basic support)
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: #0052cc; text-decoration: none;">$1</a>')
+                
+                // Split into paragraphs and format
+                .split('\n\n')
+                .map(paragraph => {
+                    paragraph = paragraph.trim();
+                    if (!paragraph) return '';
+                    
+                    // Don't wrap headers, lists, or checkboxes in <p> tags
+                    if (paragraph.match(/^<(h[1-6]|div)/)) {
+                        return paragraph;
+                    }
+                    
+                    // Regular paragraphs
+                    return `<p style="margin: 12px 0; line-height: 1.5; color: #172b4d;">${paragraph}</p>`;
+                })
+                .join('')
+                
+                // Clean up extra spaces and empty elements
+                .replace(/<p[^>]*><\/p>/g, '')
+                .replace(/\n{3,}/g, '\n\n');
+                
+            return formatted;
         }
 
         // Initialize dashboard when page loads

@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Requirements Documents - Fitness Anny</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f4f5f7;
+            min-height: 100vh;
+            color: #172b4d;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #ffffff;
+            color: #172b4d;
+            padding: 24px 32px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
+            border: 1px solid #dfe1e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content h1 {
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #172b4d;
+        }
+
+        .header-content p {
+            font-size: 1rem;
+            color: #5e6c84;
+            margin-bottom: 16px;
+        }
+
+        .nav-button {
+            background: #0052cc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            background: #0747a6;
+        }
+
+        .sync-status {
+            background: #f4f5f7;
+            padding: 8px 12px;
+            border-radius: 3px;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: #5e6c84;
+            border: 1px solid #dfe1e6;
+        }
+
+        .prds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .prd-card {
+            background: #ffffff;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(9, 30, 66, 0.04);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .prd-card:hover {
+            box-shadow: 0 4px 8px rgba(9, 30, 66, 0.15);
+            border-color: #b3bac5;
+            transform: translateY(-1px);
+        }
+
+        .prd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .prd-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #172b4d;
+            line-height: 1.4;
+            flex: 1;
+            margin-right: 12px;
+            margin-bottom: 0;
+        }
+
+        .prd-status {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .prd-status.draft {
+            background: #f4f5f7;
+            color: #5e6c84;
+        }
+
+        .prd-status.review {
+            background: #fff0b3;
+            color: #974f0c;
+        }
+
+        .prd-status.approved {
+            background: #e3fcef;
+            color: #006644;
+        }
+
+        .prd-status.complete {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .prd-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid #dfe1e6;
+        }
+
+        .prd-platform {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .prd-platform.mobile {
+            background: #eae6ff;
+            color: #5243aa;
+            border-color: #c5b8ff;
+        }
+
+        .prd-platform.admin {
+            background: #f4f5f7;
+            color: #172b4d;
+            border-color: #dfe1e6;
+        }
+
+        .prd-platform.web {
+            background: #e6fcff;
+            color: #0052cc;
+            border-color: #b3f0ff;
+        }
+
+        .prd-platform.general {
+            background: #f0f0f0;
+            color: #42526e;
+            border-color: #ddd;
+        }
+
+        .prd-updated {
+            font-size: 0.75rem;
+            color: #8993a4;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 32px 24px;
+            color: #5e6c84;
+            font-size: 0.9rem;
+        }
+
+        .spinner {
+            border: 2px solid #dfe1e6;
+            border-top: 2px solid #8b5a2b;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 12px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 64px 24px;
+            color: #5e6c84;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .empty-state h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #172b4d;
+        }
+
+        .error {
+            background: #ffebe6;
+            color: #bf2600;
+            padding: 16px 24px;
+            border-radius: 3px;
+            border: 1px solid #ffbdad;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 30, 66, 0.54);
+            z-index: 1000;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 3px;
+            box-shadow: 0 10px 50px rgba(9, 30, 66, 0.15);
+            width: 100%;
+            max-width: 1100px;
+            max-height: calc(100vh - 80px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid #dfe1e6;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .modal-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-issue-type {
+            width: 20px;
+            height: 20px;
+            background: #8b5a2b;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #172b4d;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #5e6c84;
+            cursor: pointer;
+            padding: 4px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+
+        .close-btn:hover {
+            background: #ebecf0;
+            color: #172b4d;
+        }
+
+        .modal-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .modal-main {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .modal-sidebar {
+            width: 300px;
+            background: #f4f5f7;
+            border-left: 1px solid #dfe1e6;
+            padding: 24px 20px;
+            overflow-y: auto;
+        }
+
+        .field-group {
+            margin-bottom: 20px;
+        }
+
+        .field-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #5e6c84;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .field-value {
+            font-size: 0.9rem;
+            color: #172b4d;
+            line-height: 1.4;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge.draft {
+            background: #f4f5f7;
+            color: #5e6c84;
+        }
+
+        .status-badge.review {
+            background: #fff0b3;
+            color: #974f0c;
+        }
+
+        .status-badge.approved {
+            background: #e3fcef;
+            color: #006644;
+        }
+
+        .status-badge.complete {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .platform-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: #e6f3ff;
+            color: #0052cc;
+            text-transform: capitalize;
+            border: 1px solid #b3d9ff;
+        }
+
+        .platform-badge.mobile {
+            background: #eae6ff;
+            color: #5243aa;
+            border-color: #c5b8ff;
+        }
+
+        .platform-badge.admin {
+            background: #f4f5f7;
+            color: #172b4d;
+            border-color: #dfe1e6;
+        }
+
+        .platform-badge.web {
+            background: #e6fcff;
+            color: #0052cc;
+            border-color: #b3f0ff;
+        }
+
+        .platform-badge.general {
+            background: #f0f0f0;
+            color: #42526e;
+            border-color: #ddd;
+        }
+
+        .modal-main h1, .modal-main h2, .modal-main h3, .modal-main h4, .modal-main h5, .modal-main h6 {
+            color: #172b4d;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .modal-main h1:first-child,
+        .modal-main h2:first-child,
+        .modal-main h3:first-child,
+        .modal-main h4:first-child,
+        .modal-main h5:first-child,
+        .modal-main h6:first-child {
+            margin-top: 0;
+        }
+
+        .modal-main h1 { 
+            font-size: 1.5rem; 
+            margin: 32px 0 16px 0;
+            border-bottom: 2px solid #0052cc;
+            padding-bottom: 12px;
+        }
+        
+        .modal-main h2 { 
+            font-size: 1.3rem;
+            margin: 32px 0 16px 0;
+            border-bottom: 1px solid #dfe1e6;
+            padding-bottom: 8px;
+            color: #0052cc;
+        }
+
+        /* Jira-like section dividers for H3 elements */
+        .modal-main h3 { 
+            font-size: 1.3rem; 
+            margin: 48px 0 24px 0;
+            color: #172b4d;
+            font-weight: 600;
+            padding: 0 0 12px 0;
+            border-bottom: 1px solid #dfe1e6;
+        }
+
+        .modal-main h3:first-child {
+            margin-top: 0;
+        }
+        
+        .modal-main h4 { 
+            font-size: 1.05rem; 
+            margin: 20px 0 10px 0;
+            color: #5e6c84;
+        }
+        
+        .modal-main h5 { 
+            font-size: 1rem; 
+            margin: 18px 0 8px 0;
+            color: #172b4d;
+            border-left: 3px solid #0052cc;
+            padding-left: 12px;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 3px;
+        }
+        
+        .modal-main h6 { 
+            font-size: 0.95rem; 
+            margin: 16px 0 8px 0;
+            color: #5e6c84;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-main p {
+            margin-bottom: 16px;
+            color: #172b4d;
+            line-height: 1.6;
+        }
+        
+        .modal-main p + h2,
+        .modal-main p + h3,
+        .modal-main p + h4,
+        .modal-main p + h5 {
+            margin-top: 28px;
+        }
+
+
+        .modal-main ul, .modal-main ol {
+            margin: 16px 0 16px 24px;
+            padding-left: 8px;
+        }
+
+        .modal-main li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #172b4d;
+        }
+        
+        .modal-main ul li {
+            list-style-type: disc;
+        }
+        
+        .modal-main ol li {
+            list-style-type: decimal;
+        }
+
+        .modal-main strong {
+            font-weight: 600;
+        }
+
+        .modal-main code {
+            background: #f4f5f7;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-size: 0.85em;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+
+        .modal-main pre {
+            background: #f8f9fa;
+            border: 1px solid #dfe1e6;
+            border-left: 4px solid #0052cc;
+            border-radius: 3px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 3px rgba(9, 30, 66, 0.08);
+        }
+
+        .modal-main pre code {
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            font-size: inherit;
+        }
+
+        .modal-main blockquote {
+            border-left: 4px solid #ff8b00;
+            background: #fffae6;
+            padding: 16px 20px;
+            margin: 20px 0;
+            color: #5e6c84;
+            border-radius: 0 3px 3px 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+            }
+            
+            .prds-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .modal-content {
+                margin: 20px;
+                width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>📋 Product Requirements Documents</h1>
+                <p>Detailed specification documents for features and projects</p>
+                <div class="sync-status" id="syncStatus">
+                    <span id="lastSync">Last sync: Loading...</span> | 
+                    <span id="repoStatus">Repository: vbrajcic/fitness-claude</span>
+                </div>
+            </div>
+            <a href="pm-dashboard.html" class="nav-button">← Back to Dashboard</a>
+        </div>
+
+        <div id="prdsContainer" class="prds-grid loading">
+            <div class="spinner"></div>
+            <div>Loading PRDs...</div>
+        </div>
+    </div>
+
+    <!-- PRD Modal -->
+    <div id="prdModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <div class="modal-issue-type">📋</div>
+                    <div class="modal-title" id="modalTitle">PRD Title</div>
+                </div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-main" id="modalMain">
+                    Loading...
+                </div>
+                <div class="modal-sidebar">
+                    <div class="field-group">
+                        <div class="field-label">Status</div>
+                        <div class="field-value" id="modalStatus">
+                            <span class="status-badge draft">Draft</span>
+                        </div>
+                    </div>
+                    
+                    <div class="field-group">
+                        <div class="field-label">Platform</div>
+                        <div class="field-value" id="modalPlatform">
+                            <span class="platform-badge">Mobile</span>
+                        </div>
+                    </div>
+                    
+                    <div class="field-group">
+                        <div class="field-label">Last Updated</div>
+                        <div class="field-value" id="modalUpdated">-</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class PRDViewer {
+            constructor() {
+                this.repoOwner = 'vbrajcic';
+                this.repoName = 'fitness-claude';
+                this.branch = 'main';
+                this.apiBase = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}`;
+                this.rawBase = `https://raw.githubusercontent.com/${this.repoOwner}/${this.repoName}/${this.branch}`;
+                
+                this.prds = [];
+                this.isLocal = this.detectLocalEnvironment();
+                
+                this.init();
+            }
+
+            detectLocalEnvironment() {
+                const hostname = window.location.hostname;
+                const protocol = window.location.protocol;
+                
+                // Local indicators: file://, localhost, 127.0.0.1, or local IP
+                return protocol === 'file:' || 
+                       hostname === 'localhost' || 
+                       hostname === '127.0.0.1' ||
+                       hostname.startsWith('192.168.') ||
+                       hostname.startsWith('10.') ||
+                       hostname.includes('.local');
+            }
+
+            async init() {
+                this.updateRepoStatus();
+                await this.loadPRDs();
+                this.updateSyncStatus();
+                
+                // Auto-refresh every 10 minutes (only for GitHub Pages)
+                if (!this.isLocal) {
+                    setInterval(() => this.loadPRDs(), 10 * 60 * 1000);
+                }
+            }
+
+            updateRepoStatus() {
+                const repoElement = document.getElementById('repoStatus');
+                const locationStr = this.isLocal ? 'Local Development' : `${this.repoOwner}/${this.repoName}`;
+                repoElement.textContent = `Source: ${locationStr}`;
+            }
+
+            async loadPRDs() {
+                try {
+                    const statusMsg = this.isLocal ? 'Loading local PRDs...' : 'Syncing with GitHub...';
+                    this.updateSyncStatus(statusMsg);
+                    
+                    this.prds = [];
+                    
+                    if (this.isLocal) {
+                        // For local environment, try to load known PRD files
+                        const prdPaths = [
+                            'docs/prds/mobile-app/workout-tracking-prd.md',
+                            'docs/prds/mobile-app/smartwatch-integration-prd.md',
+                            'docs/prds/admin-panel/operator-efficiency-prd.md',
+                            'docs/prds/general/subscription-management-prd.md'
+                        ];
+
+                        for (const prdPath of prdPaths) {
+                            try {
+                                const content = await this.fetchMarkdownContent(prdPath);
+                                if (content) {
+                                    const prdItem = this.parsePRDContent(content, prdPath);
+                                    if (prdItem) {
+                                        this.prds.push(prdItem);
+                                    }
+                                }
+                            } catch (e) {
+                                // File doesn't exist, continue
+                            }
+                        }
+                    } else {
+                        // For GitHub Pages, discover PRDs dynamically
+                        const prdPaths = await this.discoverPRDFiles();
+                        
+                        for (const prdPath of prdPaths) {
+                            try {
+                                const content = await this.fetchMarkdownContent(prdPath);
+                                if (content) {
+                                    const prdItem = this.parsePRDContent(content, prdPath);
+                                    if (prdItem) {
+                                        this.prds.push(prdItem);
+                                    }
+                                }
+                            } catch (e) {
+                                // File doesn't exist, continue
+                            }
+                        }
+                    }
+                    
+                    this.renderPRDs();
+                    const successMsg = this.isLocal ? '✅ Local PRDs loaded' : '✅ Synced successfully';
+                    this.updateSyncStatus(successMsg);
+                    
+                } catch (error) {
+                    console.error('Error loading PRDs:', error);
+                    const errorMsg = this.isLocal ? 'Failed to load local PRD files.' : 'Failed to load PRDs from GitHub. Please check the repository configuration.';
+                    this.showError(errorMsg);
+                    this.updateSyncStatus('❌ Load failed');
+                }
+            }
+
+            async discoverPRDFiles() {
+                try {
+                    // Get the docs/prds directory structure from GitHub API
+                    const response = await fetch(`${this.apiBase}/contents/docs/prds?ref=${this.branch}`);
+                    const data = await response.json();
+                    
+                    const prdFiles = [];
+                    
+                    // Process subdirectories
+                    for (const item of data) {
+                        if (item.type === 'dir') {
+                            const dirResponse = await fetch(`${this.apiBase}/contents/docs/prds/${item.name}?ref=${this.branch}`);
+                            const dirData = await dirResponse.json();
+                            
+                            for (const file of dirData) {
+                                if (file.name.endsWith('.md') && file.name !== 'README.md') {
+                                    prdFiles.push(`docs/prds/${item.name}/${file.name}`);
+                                }
+                            }
+                        } else if (item.name.endsWith('.md') && item.name !== 'README.md') {
+                            prdFiles.push(`docs/prds/${item.name}`);
+                        }
+                    }
+                    
+                    return prdFiles;
+                } catch (error) {
+                    console.warn('Failed to discover PRD files, using fallback list:', error);
+                    // Fallback to known files
+                    return [
+                        'docs/prds/mobile-app/workout-tracking-prd.md',
+                        'docs/prds/mobile-app/smartwatch-integration-prd.md',
+                        'docs/prds/admin-panel/operator-efficiency-prd.md',
+                        'docs/prds/general/subscription-management-prd.md'
+                    ];
+                }
+            }
+
+            async fetchMarkdownContent(filePath) {
+                try {
+                    let response;
+                    
+                    if (this.isLocal) {
+                        // Local environment: fetch directly from file system
+                        response = await fetch(filePath);
+                    } else {
+                        // GitHub Pages: fetch from raw GitHub
+                        response = await fetch(`${this.rawBase}/${filePath}`);
+                    }
+                    
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch ${filePath} from ${this.isLocal ? 'local' : 'GitHub'}`);
+                    }
+                    
+                    return await response.text();
+                } catch (error) {
+                    console.warn(`Failed to fetch ${filePath}:`, error);
+                    throw error;
+                }
+            }
+
+            parsePRDContent(content, filePath) {
+                const lines = content.split('\n');
+                const title = this.extractPRDTitle(lines);
+                const summary = this.extractPRDSummary(content);
+                const platform = this.determinePlatform(filePath);
+                const status = this.extractPRDStatus(content);
+                const lastUpdated = this.extractLastUpdated(content);
+                
+                return {
+                    id: Date.now() + Math.random(),
+                    title: title || this.generateTitleFromPath(filePath),
+                    platform: platform,
+                    summary: summary,
+                    content: content,
+                    filePath: filePath,
+                    status: status,
+                    lastUpdated: lastUpdated
+                };
+            }
+
+            extractPRDTitle(lines) {
+                for (const line of lines) {
+                    if (line.startsWith('# ')) {
+                        return line.replace(/^#\s*/, '').trim();
+                    }
+                }
+                return null;
+            }
+
+            extractPRDSummary(content) {
+                // Look for summary, overview, or description section
+                const summaryMatch = content.match(/##\s*(Summary|Overview|Description)\s*\n([\s\S]*?)(?=##|$)/i);
+                if (summaryMatch) {
+                    const summary = summaryMatch[2].trim().split('\n')[0];
+                    return summary.length > 200 ? summary.substring(0, 200) + '...' : summary;
+                }
+                
+                // Fallback: get first paragraph after title
+                const lines = content.split('\n');
+                let foundTitle = false;
+                for (const line of lines) {
+                    if (line.startsWith('# ')) {
+                        foundTitle = true;
+                        continue;
+                    }
+                    if (foundTitle && line.trim() && !line.startsWith('#')) {
+                        return line.length > 200 ? line.substring(0, 200) + '...' : line;
+                    }
+                }
+                
+                return 'Product requirements document';
+            }
+
+            determinePlatform(filePath) {
+                if (filePath.includes('mobile-app')) return 'mobile';
+                if (filePath.includes('admin-panel')) return 'admin';
+                if (filePath.includes('web')) return 'web';
+                return 'general';
+            }
+
+            extractPRDStatus(content) {
+                const statusMatch = content.match(/\*\*Status\*\*:?\s*(Draft|Review|Approved|In Development|Complete)/i);
+                return statusMatch ? statusMatch[1].toLowerCase() : 'draft';
+            }
+
+            extractLastUpdated(content) {
+                const dateMatch = content.match(/\*\*Last Updated\*\*:?\s*([\d\/\-\.]+)/i) || 
+                                content.match(/Updated:?\s*([\d\/\-\.]+)/i);
+                return dateMatch ? dateMatch[1] : null;
+            }
+
+            generateTitleFromPath(filePath) {
+                const fileName = filePath.split('/').pop().replace('.md', '');
+                return fileName.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
+            }
+
+            renderPRDs() {
+                const container = document.getElementById('prdsContainer');
+                
+                if (this.prds.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📋</div>
+                            <h3>No PRDs Found</h3>
+                            <p>Add PRD files to the docs/prds/ directory to see them here.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const html = this.prds.map(prd => `
+                    <div class="prd-card" onclick="openPRDModal('${prd.id}', ${JSON.stringify(prd).replace(/"/g, '&quot;')})">
+                        <div class="prd-header">
+                            <div class="prd-title">${prd.title}</div>
+                            <div class="prd-status ${prd.status}">${prd.status.charAt(0).toUpperCase() + prd.status.slice(1)}</div>
+                        </div>
+                        <div class="prd-meta">
+                            <div class="prd-platform ${prd.platform}">${prd.platform.charAt(0).toUpperCase() + prd.platform.slice(1)}</div>
+                            <div class="prd-updated">${prd.lastUpdated ? 'Updated ' + prd.lastUpdated : 'No update date'}</div>
+                        </div>
+                    </div>
+                `).join('');
+
+                container.innerHTML = html;
+                container.className = 'prds-grid';
+            }
+
+            updateSyncStatus(message = null) {
+                const syncElement = document.getElementById('lastSync');
+                
+                if (message) {
+                    syncElement.textContent = message;
+                } else {
+                    syncElement.textContent = `Last sync: ${new Date().toLocaleTimeString()}`;
+                }
+            }
+
+            showError(message) {
+                const container = document.getElementById('prdsContainer');
+                container.innerHTML = `<div class="error">${message}</div>`;
+            }
+        }
+
+        // Modal functionality
+        function openPRDModal(prdId, prd) {
+            const modal = document.getElementById('prdModal');
+            
+            // Set title
+            document.getElementById('modalTitle').textContent = prd.title;
+            
+            // Set main content
+            document.getElementById('modalMain').innerHTML = formatPRDContent(prd.content);
+            
+            // Set sidebar fields
+            const statusEl = document.getElementById('modalStatus');
+            statusEl.innerHTML = `<span class="status-badge ${prd.status}">${prd.status.charAt(0).toUpperCase() + prd.status.slice(1)}</span>`;
+            
+            const platformEl = document.getElementById('modalPlatform');
+            platformEl.innerHTML = `<span class="platform-badge ${prd.platform}">${prd.platform.charAt(0).toUpperCase() + prd.platform.slice(1)}</span>`;
+            
+            document.getElementById('modalUpdated').textContent = prd.lastUpdated || 'No date available';
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('prdModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function formatPRDContent(content) {
+            // First, normalize line breaks and clean up the content
+            let formatted = content
+                .replace(/\r\n/g, '\n') // Normalize line breaks
+                .replace(/\r/g, '\n')   // Handle old Mac line breaks
+                .trim();
+
+            // Handle code blocks first (to preserve them from other processing)
+            const codeBlocks = [];
+            let codeBlockIndex = 0;
+            formatted = formatted.replace(/```([\s\S]*?)```/g, (match, code) => {
+                const placeholder = `__CODE_BLOCK_${codeBlockIndex}__`;
+                codeBlocks[codeBlockIndex] = `<pre><code>${code.trim()}</code></pre>`;
+                codeBlockIndex++;
+                return placeholder;
+            });
+
+            // Process markdown formatting
+            formatted = formatted
+                // Handle headers first (maintain hierarchy) - include h5 for ####
+                .replace(/^##### (.*$)/gm, '<h6>$1</h6>')
+                .replace(/^#### (.*$)/gm, '<h5>$1</h5>')
+                .replace(/^### (.*$)/gm, '<h4>$1</h4>')
+                .replace(/^## (.*$)/gm, '<h3>$1</h3>')
+                .replace(/^# (.*$)/gm, '<h2>$1</h2>')
+                
+                // Handle text formatting
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>') // Avoid double asterisks
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                
+                // Handle lists more carefully
+                .replace(/^(\s*)-\s+(.*)$/gm, '<li>$2</li>')
+                .replace(/^(\s*)\d+\.\s+(.*)$/gm, '<li>$2</li>'); // Numbered lists
+            
+            // Split into paragraphs and process
+            const sections = formatted.split(/\n\s*\n/);
+            let result = '';
+            let inList = false;
+            
+            for (let section of sections) {
+                section = section.trim();
+                if (!section) continue;
+                
+                // Check if this section is a code block placeholder
+                if (section.startsWith('__CODE_BLOCK_')) {
+                    // Close any open list
+                    if (inList) {
+                        result += '</ul>\n';
+                        inList = false;
+                    }
+                    const blockIndex = parseInt(section.match(/\d+/)[0]);
+                    result += codeBlocks[blockIndex] + '\n';
+                    continue;
+                }
+                
+                const lines = section.split('\n');
+                let sectionHtml = '';
+                
+                for (const line of lines) {
+                    const trimmedLine = line.trim();
+                    
+                    if (trimmedLine.startsWith('<h')) {
+                        // Close any open list
+                        if (inList) {
+                            sectionHtml += '</ul>\n';
+                            inList = false;
+                        }
+                        sectionHtml += trimmedLine + '\n';
+                    } else if (trimmedLine.startsWith('<li>')) {
+                        if (!inList) {
+                            sectionHtml += '<ul>\n';
+                            inList = true;
+                        }
+                        sectionHtml += '  ' + trimmedLine + '\n';
+                    } else if (trimmedLine.startsWith('__CODE_BLOCK_')) {
+                        // Handle inline code blocks
+                        if (inList) {
+                            sectionHtml += '</ul>\n';
+                            inList = false;
+                        }
+                        const blockIndex = parseInt(trimmedLine.match(/\d+/)[0]);
+                        sectionHtml += codeBlocks[blockIndex] + '\n';
+                    } else if (trimmedLine) {
+                        // Close any open list
+                        if (inList) {
+                            sectionHtml += '</ul>\n';
+                            inList = false;
+                        }
+                        sectionHtml += '<p>' + trimmedLine + '</p>\n';
+                    }
+                }
+                
+                // Close any remaining list
+                if (inList) {
+                    sectionHtml += '</ul>\n';
+                    inList = false;
+                }
+                
+                result += sectionHtml;
+            }
+            
+            // Close any remaining list at the end
+            if (inList) {
+                result += '</ul>\n';
+            }
+            
+            // Clean up any remaining issues
+            return result
+                .replace(/<p>\s*<\/p>/g, '') // Remove empty paragraphs
+                .replace(/\n\s*\n/g, '\n')    // Remove excessive line breaks
+                .trim();
+        }
+
+        // Initialize PRD viewer when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new PRDViewer();
+        });
+
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
