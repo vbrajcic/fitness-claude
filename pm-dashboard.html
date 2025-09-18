@@ -678,6 +678,267 @@
             border: 1px solid #dfe1e6;
         }
 
+        /* Jira-style layout */
+        .jira-header {
+            background: #f4f5f7;
+            padding: 16px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .jira-metrics {
+            display: flex;
+            gap: 24px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-number {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #0052cc;
+        }
+
+        .jira-section {
+            margin-bottom: 24px;
+        }
+
+        .jira-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #172b4d;
+            border-bottom: 1px solid #dfe1e6;
+            padding-bottom: 8px;
+        }
+
+        .jira-content {
+            background: white;
+            border-radius: 3px;
+            padding: 16px;
+            border: 1px solid #dfe1e6;
+        }
+
+        .epic-container {
+            border: 1px solid #0052cc;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            background: #f4f5f7;
+        }
+
+        .epic-header {
+            background: #0052cc;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .epic-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .epic-meta {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .stories-container {
+            padding: 12px;
+        }
+
+        .story-card {
+            background: white;
+            border: 1px solid #dfe1e6;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            padding: 12px;
+        }
+
+        .story-header {
+            margin-bottom: 8px;
+        }
+
+        .story-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+            color: #172b4d;
+        }
+
+        .story-description {
+            margin-bottom: 12px;
+            color: #5e6c84;
+            font-style: italic;
+        }
+
+        .acceptance-criteria {
+            margin-top: 12px;
+        }
+
+        .criteria-list {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 0 0;
+        }
+
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .criteria-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #dfe1e6;
+            border-radius: 2px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .criteria-checkbox.checked {
+            background: #36b37e;
+            border-color: #36b37e;
+            position: relative;
+        }
+
+        .criteria-checkbox.checked:after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+            position: absolute;
+            top: -1px;
+            left: 2px;
+        }
+
+        .criteria-item.completed {
+            opacity: 0.7;
+            text-decoration: line-through;
+        }
+
+        .tickets-container {
+            padding: 12px;
+            border-top: 1px solid #dfe1e6;
+        }
+
+        .tickets-container h6 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #5e6c84;
+        }
+
+        .tickets-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ticket-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f4f5f7;
+            font-size: 13px;
+        }
+
+        .ticket-checkbox {
+            width: 14px;
+            height: 14px;
+            border: 1px solid #dfe1e6;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .ticket-checkbox.checked {
+            background: #36b37e;
+            border-color: #36b37e;
+        }
+
+        .spike-container {
+            border: 1px solid #ff8b00;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            background: #fffae6;
+        }
+
+        .spike-title {
+            background: #ff8b00;
+            color: white;
+            padding: 8px 12px;
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .spike-content {
+            padding: 12px;
+            background: white;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .phase-container {
+            border: 1px solid #6554c0;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            background: #f4f3ff;
+        }
+
+        .phase-title {
+            background: #6554c0;
+            color: white;
+            padding: 8px 12px;
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .phase-tasks {
+            list-style: none;
+            padding: 12px;
+            margin: 0;
+            background: white;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .task-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #dfe1e6;
+            border-radius: 2px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .task-checkbox.checked {
+            background: #36b37e;
+            border-color: #36b37e;
+        }
+
+        .task-item.completed {
+            opacity: 0.7;
+            text-decoration: line-through;
+        }
+
         .modal-section-header {
             padding: 12px 16px;
             background: #f4f5f7;
@@ -1347,6 +1608,28 @@
         </div>
     </div>
 
+    <!-- Modal for item details -->
+    <div class="modal" id="itemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <div class="modal-issue-id" id="modalIssueId">#ID</div>
+                    <h2 class="modal-title" id="modalTitle">Item Title</h2>
+                    <div class="modal-meta">
+                        <span class="modal-priority" id="modalPriority">Priority</span>
+                        <span class="modal-platform" id="modalPlatform">Platform</span>
+                    </div>
+                </div>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content-wrapper" id="modalContent">
+                    <!-- Content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         class PMDashboard {
             constructor() {
@@ -1849,6 +2132,11 @@
                 const container = document.getElementById(containerId);
                 const countElement = document.getElementById(countId);
                 
+                // Store items data globally for the simple display function
+                if (containerId === 'bugItems') window.currentBugItems = items;
+                else if (containerId === 'ideaItems') window.currentIdeaItems = items;
+                else if (containerId === 'featureItems') window.currentFeatureItems = items;
+                
                 countElement.textContent = items.length;
 
                 if (items.length === 0) {
@@ -2125,364 +2413,101 @@
 
         // Modal functionality
         function openItemModal(itemId, item) {
-            const modal = document.getElementById('itemModal');
-            if (!modal) {
-                createModal();
-            }
-            
-            // Populate modal content
+            // Populate modal header
             document.getElementById('modalIssueId').textContent = `#${itemId}`;
             document.getElementById('modalTitle').textContent = item.title;
             document.getElementById('modalPriority').textContent = item.priority;
             document.getElementById('modalPriority').className = `modal-priority ${item.priority.toLowerCase()}`;
             document.getElementById('modalPlatform').textContent = item.platform.charAt(0).toUpperCase() + item.platform.slice(1);
             
-            // Generate structured modal content
-            document.getElementById('modalSections').innerHTML = generateModalSections(item);
+            // Generate content based on item type
+            const content = generateModalContent(item);
+            document.getElementById('modalContent').innerHTML = content;
             
-            // Show modal and ensure proper scrolling
-            const modalElement = document.getElementById('itemModal');
-            modalElement.classList.add('show');
+            // Show modal
+            document.getElementById('itemModal').classList.add('show');
             document.body.style.overflow = 'hidden';
-            
-            // Reset modal scroll position
-            const modalBody = modalElement.querySelector('.modal-body');
-            if (modalBody) {
-                modalBody.scrollTop = 0;
-            }
         }
-        
+
         function closeModal() {
             document.getElementById('itemModal').classList.remove('show');
             document.body.style.overflow = 'auto';
         }
-        
-        function generateModalSections(item) {
+
+        function generateModalContent(item) {
+            // Create consistent layout for all item types
+            let content = '';
+            
+            // Summary section
+            content += `
+                <div class="modal-section">
+                    <div class="modal-section-header">
+                        📝 Summary
+                    </div>
+                    <div class="modal-section-content">
+                        ${item.summary || item.description || 'No summary available.'}
+                    </div>
+                </div>
+            `;
+
+            // Main content section
+            content += `
+                <div class="modal-section">
+                    <div class="modal-section-header">
+                        📄 ${item.type === 'feature' ? 'Feature Details' : item.type === 'bug' ? 'Bug Details' : 'Description'}
+                    </div>
+                    <div class="modal-section-content">
+                        ${parseAndFormatContent(item.content, item.type)}
+                    </div>
+                </div>
+            `;
+
+            // Type-specific sections
             if (item.type === 'feature') {
-                return generateFeatureModal(item);
-            } else {
-                return generateGenericModal(item);
+                content += generateFeatureSpecificSections(item);
+            } else if (item.type === 'bug') {
+                content += generateBugSpecificSections(item);
+            } else if (item.type === 'idea') {
+                content += generateIdeaSpecificSections(item);
             }
+
+            return content;
         }
 
-        function generateFeatureModal(item) {
-            const parsed = parseFeaturePRD(item.content);
+        function parseAndFormatContent(content, type) {
+            if (!content) return 'No content available.';
+            
+            // Convert markdown-like formatting to HTML
+            let formatted = content
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // Bold
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')              // Italic
+                .replace(/### (.*$)/gm, '<h4>$1</h4>')             // H4 headers
+                .replace(/## (.*$)/gm, '<h3>$1</h3>')              // H3 headers
+                .replace(/# (.*$)/gm, '<h2>$1</h2>')               // H2 headers
+                .replace(/\n- /g, '\n• ')                          // Bullet points
+                .replace(/\n/g, '<br>')                            // Line breaks
+                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>'); // Links
+            
+            return `<div class="formatted-content">${formatted}</div>`;
+        }
+
+        function generateFeatureSpecificSections(item) {
             let content = '';
-
-            // Summary Stats (only show relevant ones)
-            const statsToShow = [];
-            if (parsed.userStories.length > 0) {
-                statsToShow.push({ number: parsed.userStories.length, label: 'User Stories' });
-            }
-            if (parsed.phases.length > 0) {
-                statsToShow.push({ number: parsed.phases.length, label: 'Implementation Phases' });
-            }
-            if (parsed.totalTasks > 0) {
-                statsToShow.push({ number: parsed.totalTasks, label: 'Tasks' });
-            }
-            if (parsed.epics && parsed.epics.length > 0) {
-                statsToShow.push({ number: parsed.epics.length, label: 'Epics' });
-            }
-            if (parsed.tickets && parsed.tickets.length > 0) {
-                statsToShow.push({ number: parsed.tickets.length, label: 'Tickets' });
-            }
-            // Add total story points for development tickets
-            if (parsed.projectInfo && parsed.projectInfo.totalStoryPoints) {
-                statsToShow.push({ number: parsed.projectInfo.totalStoryPoints, label: 'Story Points' });
-            }
-
-            if (statsToShow.length > 0) {
+            
+            // Look for common feature patterns in content
+            if (item.content && item.content.includes('Epic')) {
                 content += `
-                    <div class="summary-stats">
-                        ${statsToShow.map(stat => `
-                            <div class="stat-item">
-                                <span class="stat-number">${stat.number}</span>
-                                <span class="stat-label">${stat.label}</span>
+                    <div class="modal-section">
+                        <div class="modal-section-header">
+                            📦 Development Structure
+                        </div>
+                        <div class="modal-section-content">
+                            <div class="feature-info">
+                                This feature includes epics, user stories, and implementation details.
+                                <br><br>
+                                <strong>Platform:</strong> ${item.platform}<br>
+                                <strong>Type:</strong> Feature Development
                             </div>
-                        `).join('')}
-                    </div>
-                `;
-            }
-
-            // Project Overview (for development tickets)
-            if (parsed.projectInfo && (parsed.projectInfo.timeline || parsed.projectInfo.target || parsed.projectInfo.businessImpact)) {
-                content += `
-                    <div class="modal-section">
-                        <div class="modal-section-header">
-                            🎯 Project Overview
-                        </div>
-                        <div class="modal-section-content">
-                            ${parsed.projectInfo.timeline ? `
-                                <div style="margin-bottom: 12px;">
-                                    <strong>Timeline:</strong> ${cleanText(parsed.projectInfo.timeline)}
-                                </div>
-                            ` : ''}
-                            ${parsed.projectInfo.target ? `
-                                <div style="margin-bottom: 12px;">
-                                    <strong>Target:</strong> ${cleanText(parsed.projectInfo.target)}
-                                </div>
-                            ` : ''}
-                            ${parsed.projectInfo.businessImpact ? `
-                                <div>
-                                    <strong>Business Impact:</strong> ${cleanText(parsed.projectInfo.businessImpact)}
-                                </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Executive Summary (for PRDs)
-            if (parsed.summary.problem || parsed.summary.solution) {
-                content += `
-                    <div class="modal-section">
-                        <div class="modal-section-header">
-                            📋 Executive Summary
-                        </div>
-                        <div class="modal-section-content">
-                            ${parsed.summary.problem ? `
-                                <div style="margin-bottom: 12px;">
-                                    <strong>Problem:</strong> ${cleanText(parsed.summary.problem)}
-                                </div>
-                            ` : ''}
-                            ${parsed.summary.solution ? `
-                                <div style="margin-bottom: 12px;">
-                                    <strong>Solution:</strong> ${cleanText(parsed.summary.solution)}
-                                </div>
-                            ` : ''}
-                            ${parsed.summary.timeline ? `
-                                <div style="margin-bottom: 12px;">
-                                    <strong>Timeline:</strong> ${cleanText(parsed.summary.timeline)}
-                                </div>
-                            ` : ''}
-                            ${parsed.summary.businessImpact ? `
-                                <div>
-                                    <strong>Business Impact:</strong> ${cleanText(parsed.summary.businessImpact)}
-                                </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                `;
-            }
-
-            // User Stories
-            if (parsed.userStories.length > 0) {
-                content += `
-                    <div class="modal-section">
-                        <div class="modal-section-header">
-                            👤 User Stories
-                            <span class="count-badge stories">${parsed.userStories.length} stories</span>
-                        </div>
-                        <div class="modal-section-content">
-                `;
-                
-                parsed.userStories.forEach((story, index) => {
-                    const completedCriteria = story.acceptanceCriteria.filter(c => c.completed).length;
-                    const totalCriteria = story.acceptanceCriteria.length;
-                    
-                    content += `
-                        <div class="user-story-card">
-                            <div class="user-story-header">
-                                ${story.title || `Story ${index + 1}`}
-                                ${totalCriteria > 0 ? `<span class="count-badge">${completedCriteria}/${totalCriteria}</span>` : ''}
-                            </div>
-                            <div class="user-story-content">
-                                <div class="user-story-text">${cleanText(story.text)}</div>
-                                ${story.acceptanceCriteria.length > 0 ? `
-                                    <div class="acceptance-criteria">
-                                        <h4>Acceptance Criteria</h4>
-                                        <ul class="criteria-list">
-                                            ${story.acceptanceCriteria.map(criteria => `
-                                                <li class="criteria-item">
-                                                    <div class="criteria-checkbox ${criteria.completed ? 'completed' : ''}"></div>
-                                                    ${cleanText(criteria.text)}
-                                                </li>
-                                            `).join('')}
-                                        </ul>
-                                    </div>
-                                ` : ''}
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                content += `
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Implementation Phases
-            if (parsed.phases.length > 0) {
-                content += `
-                    <div class="modal-section">
-                        <div class="modal-section-header">
-                            🚀 Implementation Phases
-                            <span class="count-badge tasks">${parsed.phases.length} phases</span>
-                        </div>
-                        <div class="modal-section-content">
-                `;
-                
-                parsed.phases.forEach((phase, index) => {
-                    const completedTasks = phase.tasks.filter(t => t.completed).length;
-                    const totalTasks = phase.tasks.length;
-                    
-                    content += `
-                        <div class="phase-section">
-                            <div class="phase-header">
-                                <div class="phase-title">${phase.title}</div>
-                                ${totalTasks > 0 ? `<div class="phase-progress">${completedTasks}/${totalTasks} tasks</div>` : ''}
-                            </div>
-                            ${phase.tasks.length > 0 ? `
-                                <div class="task-list">
-                                    ${phase.tasks.map(task => `
-                                        <div class="task-item">
-                                            <div class="task-checkbox ${task.completed ? 'completed' : ''}"></div>
-                                            ${cleanText(task.text)}
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            ` : ''}
-                        </div>
-                    `;
-                });
-                
-                content += `
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Epics & Tickets (for development tickets format)
-            if (parsed.epics && parsed.epics.length > 0) {
-                content += `
-                    <div class="modal-section">
-                        <div class="modal-section-header">
-                            📦 Development Epics
-                            <span class="count-badge tasks">${parsed.epics.length} epics</span>
-                        </div>
-                        <div class="modal-section-content">
-                `;
-                
-                parsed.epics.forEach((epic, index) => {
-                    const completedTickets = epic.tickets.filter(t => t.completed).length;
-                    const totalTickets = epic.tickets.length;
-                    
-                    content += `
-                        <div class="phase-section">
-                            <div class="phase-header">
-                                <div class="phase-title">${epic.title}</div>
-                                ${totalTickets > 0 ? `<div class="phase-progress">${completedTickets}/${totalTickets} tickets</div>` : ''}
-                            </div>
-                            ${epic.tickets.length > 0 ? `
-                                <div class="tickets-list">
-                                    ${epic.tickets.map(ticket => `
-                                        <div class="ticket-card">
-                                            <div class="ticket-header">
-                                                <div class="ticket-status ${ticket.completed ? 'completed' : 'pending'}">
-                                                    <div class="task-checkbox ${ticket.completed ? 'completed' : ''}"></div>
-                                                    <strong>${ticket.title}</strong>
-                                                </div>
-                                                <div class="ticket-badges">
-                                                    ${ticket.storyPoints ? `<span class="count-badge">${ticket.storyPoints} pts</span>` : ''}
-                                                    <span class="count-badge priority">${ticket.priority || 'Medium'}</span>
-                                                </div>
-                                            </div>
-                                            <div class="ticket-content">
-                                                ${ticket.userStory ? `
-                                                    <div class="ticket-section">
-                                                        <div class="ticket-section-label">User Story</div>
-                                                        <div class="ticket-section-content user-story-text">${cleanText(ticket.userStory)}</div>
-                                                    </div>
-                                                ` : ''}
-                                                ${ticket.problemStatement ? `
-                                                    <div class="ticket-section">
-                                                        <div class="ticket-section-label">Problem Statement</div>
-                                                        <div class="ticket-section-content">${cleanText(ticket.problemStatement)}</div>
-                                                    </div>
-                                                ` : ''}
-                                                ${ticket.acceptanceCriteria && ticket.acceptanceCriteria.length > 0 ? `
-                                                    <div class="ticket-section">
-                                                        <div class="ticket-section-label">Acceptance Criteria</div>
-                                                        <ul class="criteria-list">
-                                                            ${ticket.acceptanceCriteria.map(criteria => `
-                                                                <li class="criteria-item">
-                                                                    <div class="criteria-checkbox ${criteria.completed ? 'completed' : ''}"></div>
-                                                                    ${cleanText(criteria.text)}
-                                                                </li>
-                                                            `).join('')}
-                                                        </ul>
-                                                    </div>
-                                                ` : ''}
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            ` : ''}
-                        </div>
-                    `;
-                });
-                
-                content += `
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Dependencies and Timeline (for development tickets)
-            if (parsed.projectInfo && (parsed.projectInfo.dependencies || parsed.projectInfo.developmentTimeline)) {
-                content += `
-                    <div class="modal-section">
-                        <div class="modal-section-header">
-                            🔗 Dependencies & Timeline
-                        </div>
-                        <div class="modal-section-content">
-                            ${parsed.projectInfo.dependencies ? `
-                                <div style="margin-bottom: 16px;">
-                                    <strong>Epic Dependencies:</strong>
-                                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
-                                        ${formatListItems(parsed.projectInfo.dependencies)}
-                                    </ul>
-                                </div>
-                            ` : ''}
-                            ${parsed.projectInfo.developmentTimeline ? `
-                                <div style="margin-bottom: 16px;">
-                                    <strong>Development Timeline:</strong>
-                                    <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px;">
-                                        ${formatListItems(parsed.projectInfo.developmentTimeline)}
-                                    </ul>
-                                </div>
-                            ` : ''}
-                            ${parsed.projectInfo.teamVelocity || parsed.projectInfo.targetCompletion ? `
-                                <div style="display: flex; gap: 16px;">
-                                    ${parsed.projectInfo.teamVelocity ? `
-                                        <div style="flex: 1;">
-                                            <strong>Team Velocity:</strong><br>
-                                            <span style="font-size: 0.85rem; color: #5e6c84;">${cleanText(parsed.projectInfo.teamVelocity)}</span>
-                                        </div>
-                                    ` : ''}
-                                    ${parsed.projectInfo.targetCompletion ? `
-                                        <div style="flex: 1;">
-                                            <strong>Target Completion:</strong><br>
-                                            <span style="font-size: 0.85rem; color: #5e6c84;">${cleanText(parsed.projectInfo.targetCompletion)}</span>
-                                        </div>
-                                    ` : ''}
-                                </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                `;
-            }
-
-            // If no structured content, show simple description
-            if (!parsed.summary.problem && !parsed.summary.solution && parsed.userStories.length === 0 && parsed.phases.length === 0 && (!parsed.epics || parsed.epics.length === 0) && (!parsed.projectInfo || !parsed.projectInfo.timeline)) {
-                content += `
-                    <div class="modal-section">
-                        <div class="modal-section-header">
-                            📝 Description
-                        </div>
-                        <div class="modal-section-content">
-                            ${formatModalContent(item.content || 'No description available.')}
                         </div>
                     </div>
                 `;
@@ -2491,402 +2516,41 @@
             return content;
         }
 
-        function generateGenericModal(item) {
-            // For non-feature items, show simpler layout
+        function generateBugSpecificSections(item) {
             return `
                 <div class="modal-section">
                     <div class="modal-section-header">
-                        📝 Description
+                        🐛 Bug Information
                     </div>
                     <div class="modal-section-content">
-                        ${formatModalContent(item.content || item.description || 'No description available.')}
-                    </div>
-                </div>
-            `;
-        }
-
-        function parseFeaturePRD(content) {
-            const lines = content.split('\n');
-            const result = {
-                summary: {},
-                userStories: [],
-                phases: [],
-                epics: [],
-                tickets: [],
-                totalCriteria: 0,
-                totalTasks: 0
-            };
-
-            // Extract executive summary
-            result.summary = extractExecutiveSummary(content);
-
-            // Extract user stories (for PRD format)
-            result.userStories = extractUserStories(content);
-            result.totalCriteria = result.userStories.reduce((sum, story) => sum + story.acceptanceCriteria.length, 0);
-
-            // Extract implementation phases (for PRD format)
-            result.phases = extractImplementationPhases(content);
-            result.totalTasks = result.phases.reduce((sum, phase) => sum + phase.tasks.length, 0);
-
-            // Extract epics and tickets (for development tickets format)
-            result.epics = extractEpics(content);
-            result.tickets = result.epics.reduce((all, epic) => all.concat(epic.tickets), []);
-
-            // Extract project metadata (for development tickets)
-            result.projectInfo = extractProjectInfo(content);
-
-            return result;
-        }
-
-        function extractExecutiveSummary(content) {
-            const summary = {};
-            
-            // Extract Problem
-            const problemMatch = content.match(/\*\*Problem\*\*:\s*(.+?)(?=\n\*\*|$)/s);
-            if (problemMatch) {
-                summary.problem = problemMatch[1].trim();
-            }
-
-            // Extract Solution
-            const solutionMatch = content.match(/\*\*Solution\*\*:\s*(.+?)(?=\n\*\*|$)/s);
-            if (solutionMatch) {
-                summary.solution = solutionMatch[1].trim();
-            }
-
-            // Extract Timeline
-            const timelineMatch = content.match(/\*\*Timeline\*\*:\s*(.+?)(?=\n|$)/);
-            if (timelineMatch) {
-                summary.timeline = timelineMatch[1].trim();
-            }
-
-            // Extract Business Impact
-            const businessImpactMatch = content.match(/\*\*Business Impact\*\*:\s*([\s\S]*?)(?=\n\*\*Timeline|$)/);
-            if (businessImpactMatch) {
-                summary.businessImpact = businessImpactMatch[1].trim();
-            }
-
-            return summary;
-        }
-
-        function extractUserStories(content) {
-            const stories = [];
-            const userStoryRegex = /###\s+(.+?User Story.*?)\n([\s\S]*?)(?=###|##(?!\#)|$)/g;
-            let match;
-
-            while ((match = userStoryRegex.exec(content)) !== null) {
-                const storyTitle = match[1].trim();
-                const storyContent = match[2].trim();
-
-                // Extract user story text (As... I want... So that...)
-                const storyTextMatch = storyContent.match(/\*\*As\s+(.+?)\*\*[\s\S]*?\*\*I want\*\*\s+(.+?)[\s\S]*?\*\*So that\*\*\s+(.+?)(?=\n\*\*|$)/s);
-                let storyText = '';
-                if (storyTextMatch) {
-                    storyText = `As ${storyTextMatch[1]}, I want ${storyTextMatch[2]}, so that ${storyTextMatch[3]}`;
-                } else {
-                    // Fallback: extract first paragraph
-                    const firstParagraph = storyContent.split('\n')[0];
-                    storyText = firstParagraph.replace(/\*\*/g, '');
-                }
-
-                // Extract acceptance criteria
-                const acceptanceCriteria = extractAcceptanceCriteria(storyContent);
-
-                stories.push({
-                    title: storyTitle.replace(/User Story/, '').trim(),
-                    text: storyText,
-                    acceptanceCriteria: acceptanceCriteria
-                });
-            }
-
-            return stories;
-        }
-
-        function extractAcceptanceCriteria(content) {
-            const criteria = [];
-            const criteriaRegex = /- \[([ x])\] (.+?)(?=\n|$)/g;
-            let match;
-
-            while ((match = criteriaRegex.exec(content)) !== null) {
-                const isCompleted = match[1] === 'x';
-                const text = match[2].trim();
-                
-                criteria.push({
-                    text: text,
-                    completed: isCompleted
-                });
-            }
-
-            return criteria;
-        }
-
-        function extractImplementationPhases(content) {
-            const phases = [];
-            const phaseRegex = /###\s+Phase\s+\d+[:\s]*(.+?)\n([\s\S]*?)(?=###|##(?!\#)|$)/g;
-            let match;
-
-            while ((match = phaseRegex.exec(content)) !== null) {
-                const phaseTitle = match[1].trim();
-                const phaseContent = match[2].trim();
-
-                // Extract tasks from this phase
-                const tasks = extractTasks(phaseContent);
-
-                phases.push({
-                    title: phaseTitle,
-                    tasks: tasks
-                });
-            }
-
-            return phases;
-        }
-
-        function extractTasks(content) {
-            const tasks = [];
-            const taskRegex = /- \[([ x])\] \*\*(.+?)\*\*/g;
-            let match;
-
-            while ((match = taskRegex.exec(content)) !== null) {
-                const isCompleted = match[1] === 'x';
-                const text = match[2].trim();
-                
-                tasks.push({
-                    text: text,
-                    completed: isCompleted
-                });
-            }
-
-            return tasks;
-        }
-
-        function extractEpics(content) {
-            const epics = [];
-            const epicRegex = /##\s+EPIC\s+[\d\.]+[:\s]*(.+?)\n([\s\S]*?)(?=##\s+EPIC|$)/g;
-            let match;
-
-            while ((match = epicRegex.exec(content)) !== null) {
-                const epicTitle = match[1].trim();
-                const epicContent = match[2].trim();
-
-                // Extract tickets from this epic
-                const tickets = extractTickets(epicContent);
-
-                epics.push({
-                    title: epicTitle,
-                    tickets: tickets
-                });
-            }
-
-            return epics;
-        }
-
-        function extractTickets(content) {
-            const tickets = [];
-            const ticketRegex = /###\s+Ticket\s+[\d\.]+[:\s]*(.+?)\n([\s\S]*?)(?=###\s+Ticket|##|$)/g;
-            let match;
-
-            while ((match = ticketRegex.exec(content)) !== null) {
-                const ticketTitle = match[1].trim();
-                const ticketContent = match[2].trim();
-
-                // Extract story points
-                const storyPointsMatch = ticketContent.match(/\*\*Story Points\*\*:\s*(\d+)/);
-                const storyPoints = storyPointsMatch ? parseInt(storyPointsMatch[1]) : null;
-
-                // Extract priority
-                const priorityMatch = ticketContent.match(/\*\*Priority\*\*:\s*(\w+)/);
-                const priority = priorityMatch ? priorityMatch[1] : 'Medium';
-
-                // Extract user story
-                const userStoryMatch = ticketContent.match(/\*\*User Story\*\*:\s*(.+?)(?=\n\*\*|$)/s);
-                const userStory = userStoryMatch ? userStoryMatch[1].trim() : '';
-
-                // Extract problem statement
-                const problemMatch = ticketContent.match(/\*\*Problem Statement\*\*:\s*(.+?)(?=\n\*\*|$)/s);
-                const problemStatement = problemMatch ? problemMatch[1].trim() : '';
-
-                // Extract acceptance criteria (using existing function)
-                const acceptanceCriteria = extractAcceptanceCriteria(ticketContent);
-
-                // Check if completed (simple heuristic - only look for [x] checkboxes, not words)
-                const completed = ticketContent.includes('[x]') || ticketContent.includes('✓');
-
-                // Create summary
-                let summary = '';
-                if (userStory) summary = userStory;
-                else if (problemStatement) summary = problemStatement;
-                else summary = ticketContent.split('\n')[0] || '';
-
-                // Truncate summary
-                if (summary.length > 80) {
-                    summary = summary.substring(0, 77) + '...';
-                }
-
-                tickets.push({
-                    title: ticketTitle,
-                    summary: summary,
-                    storyPoints: storyPoints,
-                    priority: priority,
-                    userStory: userStory,
-                    problemStatement: problemStatement,
-                    acceptanceCriteria: acceptanceCriteria,
-                    completed: completed,
-                    content: ticketContent
-                });
-            }
-
-            return tickets;
-        }
-
-        function extractProjectInfo(content) {
-            const info = {};
-
-            // Extract total story points
-            const totalPointsMatch = content.match(/\*\*Total Story Points\*\*:\s*(\d+)/);
-            info.totalStoryPoints = totalPointsMatch ? parseInt(totalPointsMatch[1]) : null;
-
-            // Extract timeline
-            const timelineMatch = content.match(/\*Timeline:\s*(.+?)(?=\*|$)/);
-            info.timeline = timelineMatch ? timelineMatch[1].trim() : null;
-
-            // Extract target
-            const targetMatch = content.match(/\*Target:\s*(.+?)(?=\*|$)/);
-            info.target = targetMatch ? targetMatch[1].trim() : null;
-
-            // Extract business impact
-            const businessImpactMatch = content.match(/\*Business Impact:\s*(.+?)(?=\*|$)/);
-            info.businessImpact = businessImpactMatch ? businessImpactMatch[1].trim() : null;
-
-            // Extract dependencies
-            const dependenciesMatch = content.match(/\*\*Epic Dependencies\*\*:\s*([\s\S]*?)(?=\*\*Development Timeline|$)/);
-            info.dependencies = dependenciesMatch ? dependenciesMatch[1].trim() : null;
-
-            // Extract development timeline
-            const devTimelineMatch = content.match(/\*\*Development Timeline\*\*:\s*([\s\S]*?)(?=\*\*Risk Mitigation|$)/);
-            info.developmentTimeline = devTimelineMatch ? devTimelineMatch[1].trim() : null;
-
-            // Extract estimated velocity
-            const velocityMatch = content.match(/\*\*Estimated Team Velocity\*\*:\s*(.+?)(?=\*\*|$)/);
-            info.teamVelocity = velocityMatch ? velocityMatch[1].trim() : null;
-
-            // Extract target completion
-            const completionMatch = content.match(/\*\*Target Completion\*\*:\s*(.+?)(?=\*\*|$)/);
-            info.targetCompletion = completionMatch ? completionMatch[1].trim() : null;
-
-            return info;
-        }
-
-        function formatListItems(text) {
-            if (!text) return '';
-            
-            // Split by lines and filter for list items (lines starting with -)
-            const lines = text.split('\n');
-            const listItems = lines
-                .map(line => line.trim())
-                .filter(line => line.startsWith('-'))
-                .map(line => {
-                    // Remove the leading - and clean up
-                    let content = line.substring(1).trim();
-                    // Convert markdown bold (**text**) to HTML
-                    content = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-                    return `<li style="margin-bottom: 6px; font-size: 0.9rem; line-height: 1.4;">${content}</li>`;
-                });
-            
-            return listItems.join('');
-        }
-        
-        function extractLevelFromText(text) {
-            if (!text) return null;
-            const lower = text.toLowerCase();
-            if (lower.includes('high') || lower.includes('critical') || lower.includes('major')) return 'High';
-            if (lower.includes('medium') || lower.includes('moderate') || lower.includes('med')) return 'Medium';
-            if (lower.includes('low') || lower.includes('minor') || lower.includes('small')) return 'Low';
-            return null;
-        }
-        
-        function cleanText(text) {
-            return text
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                .replace(/`(.*?)`/g, '<code style="background: #f4f5f7; padding: 2px 4px; border-radius: 2px; font-size: 0.85em;">$1</code>')
-                .trim();
-        }
-        
-        function createModal() {
-            const modalHTML = `
-                <div id="itemModal" class="modal">
-                    <div class="modal-overlay" onclick="closeModal()"></div>
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <div class="modal-header-left">
-                                <div id="modalIssueId" class="modal-issue-id">#ITEM-001</div>
-                                <div id="modalTitle" class="modal-title">Issue Title</div>
-                                <div class="modal-meta">
-                                    <div id="modalPriority" class="modal-priority high">High</div>
-                                    <div id="modalPlatform" class="modal-platform">Mobile</div>
-                                </div>
-                            </div>
-                            <button class="close-btn" onclick="closeModal()">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-content-wrapper">
-                                <div id="modalSections">Loading...</div>
-                            </div>
+                        <div class="bug-info">
+                            <strong>Platform:</strong> ${item.platform}<br>
+                            <strong>Priority:</strong> ${item.priority}<br>
+                            <strong>Status:</strong> Reported
                         </div>
                     </div>
                 </div>
             `;
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
         }
-        
-        function formatModalContent(content) {
-            if (!content) return 'No content available.';
-            
-            // Convert markdown to HTML with proper formatting
-            let formatted = content
-                // Headers - convert to HTML with proper hierarchy
-                .replace(/^### (.*$)/gm, '<h4 style="margin: 20px 0 10px 0; color: #172b4d; border-bottom: 1px solid #dfe1e6; padding-bottom: 8px;">$1</h4>')
-                .replace(/^## (.*$)/gm, '<h3 style="margin: 24px 0 12px 0; color: #172b4d; border-bottom: 2px solid #dfe1e6; padding-bottom: 10px;">$1</h3>')
-                .replace(/^# (.*$)/gm, '<h2 style="margin: 28px 0 16px 0; color: #172b4d; border-bottom: 3px solid #0052cc; padding-bottom: 12px;">$1</h2>')
-                
-                // Bold and italic text
-                .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #172b4d;">$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                
-                // Code blocks and inline code
-                .replace(/`(.*?)`/g, '<code style="background: #f4f5f7; padding: 3px 6px; border-radius: 3px; font-size: 0.9em; font-family: monospace;">$1</code>')
-                
-                // Checkboxes
-                .replace(/^- \[ \] (.*$)/gm, '<div style="margin: 4px 0;"><span style="color: #6b778c;">☐</span> $1</div>')
-                .replace(/^- \[x\] (.*$)/gm, '<div style="margin: 4px 0;"><span style="color: #00875a;">☑</span> <span style="text-decoration: line-through; color: #6b778c;">$1</span></div>')
-                
-                // Regular bullet points
-                .replace(/^- (.*$)/gm, '<div style="margin: 4px 0 4px 16px;">• $1</div>')
-                
-                // Links (basic support)
-                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: #0052cc; text-decoration: none;">$1</a>')
-                
-                // Split into paragraphs and format
-                .split('\n\n')
-                .map(paragraph => {
-                    paragraph = paragraph.trim();
-                    if (!paragraph) return '';
-                    
-                    // Don't wrap headers, lists, or checkboxes in <p> tags
-                    if (paragraph.match(/^<(h[1-6]|div)/)) {
-                        return paragraph;
-                    }
-                    
-                    // Regular paragraphs
-                    return `<p style="margin: 12px 0; line-height: 1.5; color: #172b4d;">${paragraph}</p>`;
-                })
-                .join('')
-                
-                // Clean up extra spaces and empty elements
-                .replace(/<p[^>]*><\/p>/g, '')
-                .replace(/\n{3,}/g, '\n\n');
-                
-            return formatted;
+
+        function generateIdeaSpecificSections(item) {
+            return `
+                <div class="modal-section">
+                    <div class="modal-section-header">
+                        💡 Idea Information
+                    </div>
+                    <div class="modal-section-content">
+                        <div class="idea-info">
+                            <strong>Platform:</strong> ${item.platform}<br>
+                            <strong>Stage:</strong> Concept<br>
+                            <strong>Status:</strong> Under Review
+                        </div>
+                    </div>
+                </div>
+            `;
         }
+
+        // Clean and simple - no more broken modal functions!
 
         // Initialize dashboard when page loads
         document.addEventListener('DOMContentLoaded', () => {

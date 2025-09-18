@@ -723,13 +723,8 @@
                     this.prds = [];
                     
                     if (this.isLocal) {
-                        // For local environment, try to load known PRD files
-                        const prdPaths = [
-                            'docs/prds/mobile-app/workout-tracking-prd.md',
-                            'docs/prds/mobile-app/smartwatch-integration-prd.md',
-                            'docs/prds/admin-panel/operator-efficiency-prd.md',
-                            'docs/prds/general/subscription-management-prd.md'
-                        ];
+                        // For local environment, discover PRD files dynamically
+                        const prdPaths = await this.discoverLocalPRDFiles();
 
                         for (const prdPath of prdPaths) {
                             try {
@@ -775,20 +770,52 @@
                 }
             }
 
+            async discoverLocalPRDFiles() {
+                const prdFiles = [];
+                const potentialFiles = [
+                    // Known existing files
+                    'docs/prds/mobile-app/smartwatch-integration-prd.md',
+                    'docs/prds/mobile-app/workout-tracking-prd.md',
+                    'docs/prds/mobile-app/prehrana-nutrition-tab-prd.md',
+                    'docs/prds/mobile-app/jelovnici-migration-prd.md',
+
+                    // Common patterns that might exist
+                    'docs/prds/admin-panel/operator-efficiency-prd.md',
+                    'docs/prds/admin-panel/dashboard-improvements-prd.md',
+                    'docs/prds/web/landing-page-prd.md',
+                    'docs/prds/general/subscription-management-prd.md'
+                ];
+
+                // Test each potential file
+                for (const file of potentialFiles) {
+                    try {
+                        const response = await fetch(file);
+                        if (response.ok) {
+                            prdFiles.push(file);
+                        }
+                    } catch (e) {
+                        // File doesn't exist, continue
+                    }
+                }
+
+                console.log(`Discovered ${prdFiles.length} PRD files locally:`, prdFiles);
+                return prdFiles;
+            }
+
             async discoverPRDFiles() {
                 try {
                     // Get the docs/prds directory structure from GitHub API
                     const response = await fetch(`${this.apiBase}/contents/docs/prds?ref=${this.branch}`);
                     const data = await response.json();
-                    
+
                     const prdFiles = [];
-                    
+
                     // Process subdirectories
                     for (const item of data) {
                         if (item.type === 'dir') {
                             const dirResponse = await fetch(`${this.apiBase}/contents/docs/prds/${item.name}?ref=${this.branch}`);
                             const dirData = await dirResponse.json();
-                            
+
                             for (const file of dirData) {
                                 if (file.name.endsWith('.md') && file.name !== 'README.md') {
                                     prdFiles.push(`docs/prds/${item.name}/${file.name}`);
@@ -798,16 +825,16 @@
                             prdFiles.push(`docs/prds/${item.name}`);
                         }
                     }
-                    
+
                     return prdFiles;
                 } catch (error) {
                     console.warn('Failed to discover PRD files, using fallback list:', error);
-                    // Fallback to known files
+                    // Fallback to known files that we expect to exist
                     return [
-                        'docs/prds/mobile-app/workout-tracking-prd.md',
                         'docs/prds/mobile-app/smartwatch-integration-prd.md',
-                        'docs/prds/admin-panel/operator-efficiency-prd.md',
-                        'docs/prds/general/subscription-management-prd.md'
+                        'docs/prds/mobile-app/workout-tracking-prd.md',
+                        'docs/prds/mobile-app/prehrana-nutrition-tab-prd.md',
+                        'docs/prds/mobile-app/jelovnici-migration-prd.md'
                     ];
                 }
             }
