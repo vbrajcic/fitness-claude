@@ -7,9 +7,10 @@ Organized PRDs by platform and feature type for Fitness Anny.
 ```
 docs/prds/
 ├── mobile-app/           # Mobile app features and improvements
-├── admin-panel/          # Internal tools and agent workflows  
+├── admin-panel/          # Internal tools and agent workflows
 ├── web/                  # Website features and optimizations
 ├── cross-platform/       # Features affecting multiple platforms
+├── projects/             # Comprehensive project-level PRDs
 └── archived/             # Completed or deprecated PRDs
 ```
 
@@ -26,6 +27,9 @@ docs/prds/
 
 ### Cross-Platform
 - *No PRDs yet*
+
+### Projects
+- `internal-asset-management-system.md` - Comprehensive equipment and subscription management system
 
 ## PRD Naming Convention
 
@@ -45,6 +49,7 @@ Use descriptive, consistent naming:
 # - docs/prds/mobile-app/ for mobile features
 # - docs/prds/admin-panel/ for internal tools
 # - docs/prds/cross-platform/ for multi-platform features
+# - docs/prds/projects/ for comprehensive project PRDs
 ```
 
 ### Manual PRD Creation

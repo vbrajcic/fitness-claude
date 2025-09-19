@@ -195,6 +195,12 @@
             border-color: #ddd;
         }
 
+        .prd-platform.projects {
+            background: #fff4e6;
+            color: #8b5a2b;
+            border-color: #ffcc99;
+        }
+
         .prd-updated {
             font-size: 0.75rem;
             color: #8993a4;
@@ -442,6 +448,12 @@
             background: #f0f0f0;
             color: #42526e;
             border-color: #ddd;
+        }
+
+        .platform-badge.projects {
+            background: #fff4e6;
+            color: #8b5a2b;
+            border-color: #ffcc99;
         }
 
         .modal-main h1, .modal-main h2, .modal-main h3, .modal-main h4, .modal-main h5, .modal-main h6 {
@@ -779,6 +791,9 @@
                     'docs/prds/mobile-app/prehrana-nutrition-tab-prd.md',
                     'docs/prds/mobile-app/jelovnici-migration-prd.md',
 
+                    // Projects directory
+                    'docs/prds/projects/internal-asset-management-system.md',
+
                     // Common patterns that might exist
                     'docs/prds/admin-panel/operator-efficiency-prd.md',
                     'docs/prds/admin-panel/dashboard-improvements-prd.md',
@@ -919,6 +934,7 @@
                 if (filePath.includes('mobile-app')) return 'mobile';
                 if (filePath.includes('admin-panel')) return 'admin';
                 if (filePath.includes('web')) return 'web';
+                if (filePath.includes('projects')) return 'projects';
                 return 'general';
             }
 
